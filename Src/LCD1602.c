@@ -99,7 +99,12 @@ void LCDWriteData(uchar data){
 	_nop_();			
 	en=0;				//en下降沿，LCD1602开始输出
 }
-
+/**
+ * Initialte LCD1602
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-16
+ * @Summury
+ */
 void LcdInitiate(void)
 {
 delaynms(15); 			//延时15ms，首次写指令时应给LCD 一段较长的反应时间
