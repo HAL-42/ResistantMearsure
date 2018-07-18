@@ -4,7 +4,7 @@
 extern sbit capSel=P2^4;			//电容选择接口
 extern bit isTimerEvnet;			//记录是否有定时器事件发生（完成一次频率测量）
 extern long curN;					//当前测得脉冲数
-extern float curFreq;				//当前测得频率
+extern long curFreqE5;				//当前测得频率
 extern float curRValue;				//记录当前测得电阻阻值
 extern long refLowRN;				//低档位下参考脉冲数
 extern long refHignRN;				//高档位下参考脉冲数
@@ -24,7 +24,7 @@ void InitialTimers(){
 	PT0=1;
 	PT1=0;
 	TMOD=0x51;						//T0用于计时，T1用于计数
-	capSel=CAPSEL_LOW;				//重置所有全局变量
+	capSel=CAPSEL_LOWR;				//重置所有全局变量
 	curRValue=0;
 	isTimerEvnet=0;
 	curN=0;
@@ -43,18 +43,58 @@ void InitialTimers(){
  * @Summury
  */
 void StartTimer(){
-	t0IntrTimes=0;
+	isTimerEvnet=0;					//保险起见，再重置一次时钟事件，防止客户没有使用GetRVal函数
+	t0IntrTimes=0;						
 	t1IntrTimes=0;
-	TH0=TL0=0;
-	TH1=TL1=0;
-	TR0=1;
-	TR1=1;
+	TH0=TL0=0;						//计时器从0开始计时
+	TH1=TL1=0;						//计数器从0开始计数
+	TR0=1;							//开启计时器
+	TR1=1;							//开启计数器
 }
-
+/**
+ * T1中断，溢出计数加一
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-18
+ * @Summury
+ */
 void T1INT() interrupt 3 using 2{
 	t1IntrTimes++;
 }
-
+/**
+ * T0中断
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-18
+ * @Summury
+ */
 void T0INT() interrupt 1 using 1{
-	
+	if((capSel==CAPSEL_LOWR)		//若为低电阻档且两次溢出
+		&&(++t0IntrTimes==2)){
+		TR1=0;						//关停计数器，计时器
+		TR0=0;
+		isTimerEvnet=1;				//告知主程序发生计时器事件
+	}
+	else if((capSel==CAPSEL_HIGHR)	//若为高电阻档且15次溢出
+		&&(++t0IntrTimes==15)){
+		TR1=0;						//关停计数器，计时器
+		TR0=0;
+		isTimerEvnet=1;				//告知主程序发生计时器事件
+	}
+}
+/**
+ * 计算脉冲数，频率和电阻
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-18
+ * @Summury  本函数中魔鬼数字较多，为的是提高计算精度。所有数据都是在MATLAB中计算后带入，切勿随意修改
+ */
+void GetRVal(){
+	isTimerEvnet=0;
+	curN=t1IntrTimes*65536+TH1*256+TL1; // 计算脉冲次数
+	if(capSel==CAPSEL_LOWR){
+		curFreqE5=703125*curN;
+		curRValue=1.69065825104e9F*( (refLowRN-curN)/(refLowRN*curN) );
+	}
+	else{
+		curFreqE5=93750*curN;
+		curRValue=1.53887471028e11F*( (refHignRN-curN)/(refHignRN*curN) );
+	}
 }
