@@ -12,6 +12,9 @@ sbit isBusy=P2^7;			//返回LCD1602是否正忙
 #define	rw RW
 #define en EN
 
+#define ICON_HEIGHT													//自定义字符高度
+uchar funnelIcon[]={0x1F,0x11,0x1B,0x0A,0x0A,0x0A,0x04,0x04};		//自定义字符：漏斗
+
 /**
  * 测试LCD1602是否正处于忙碌状态
  * @Author   Xiaobo        Yang
@@ -107,19 +110,25 @@ void LCDWriteData(uchar data){
  */
 void LcdInitiate(void)
 {
-delaynms(15); 			//延时15ms，首次写指令时应给LCD 一段较长的反应时间
-LCDWirteCommand(0x38); //显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
-delaynms(5); 			//延时5ms ，给硬件一点反应时间
-LCDWirteCommand(0x38);
-delaynms(5); 			//延时5ms ，给硬件一点反应时间
-LCDWirteCommand(0x38); //连续三次，确保初始化成功
-delaynms(5); 			//延时5ms ，给硬件一点反应时间
-LCDWirteCommand(0x0c); //显示模式设置：显示开，无光标，光标不闪烁
-delaynms(5); 			//延时5ms ，给硬件一点反应时间
-LCDWirteCommand(0x06); //显示模式设置：光标右移，字符不移
-delaynms(5); 			//延时5ms ，给硬件一点反应时间
-LCDWirteCommand(0x01); //清屏幕指令，将以前的显示内容清除
-delaynms(5); 			//延时5ms ，给硬件一点反应时间
+	delaynms(15); 				//延时15ms，首次写指令时应给LCD 一段较长的反应时间
+	LCDWirteCommand(0x38); 		//显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
+	delaynms(5); 				//延时5ms ，给硬件一点反应时间
+	LCDWirteCommand(0x38);
+	delaynms(5); 				//延时5ms ，给硬件一点反应时间
+	LCDWirteCommand(0x38); 		//连续三次，确保初始化成功
+	delaynms(5); 				//延时5ms ，给硬件一点反应时间
+	LCDWirteCommand(0x0c); 		//显示模式设置：显示开，无光标，光标不闪烁
+	delaynms(5); 				//延时5ms ，给硬件一点反应时间
+	LCDWirteCommand(0x06); 		//显示模式设置：光标右移，字符不移
+	delaynms(5);				//延时5ms ，给硬件一点反应时间
+	LCDWirteCommand(0x40);		//写入自定义字符
+	uchar i;					
+	for(i=0;i<8;i++){
+		LCDWriteData(funnelIcon[i]);
+		}
+	LCDWirteCommand(0x01); 		//清屏幕指令，将以前的显示内容清除
+	delaynms(5); 				//延时5ms ，给硬件一点反应时间
+	LCDMoveCursor(0,0);
 }
 /**
  * 清屏函数
@@ -154,8 +163,10 @@ void LCDPrintChar(uchar x,uchar y,uchar c){
  */
 void LCDPrintStr(uchar x,uchar y,uchar str[]){
 	LCDMoveCursor(x,y);
-	uchar i;
-	for(i=0;str[i]!='\0';i++) LCDWriteData(str[i]);
+	while(*str){
+		LCDWriteData(*str);
+		str++;
+	}
 }
 /**
  * 打印一行，从初始坐标x，y开始，先清除要打印行原有所有字符，然后显示输入的字符
@@ -171,7 +182,10 @@ void LCDPrintLine(uchar x,uchar y,uchar str[]){
 	uchar i;
 	for(i=0;i<0x10;i++) LCDWriteData(0x20);
 	LCDMoveCursor(x,y);
-	for(i=0;str[i]!='\0';i++) LCDWriteData(str[i]);
+	while(*str){
+		LCDWriteData(*str);
+		str++;
+	}
 }
 /**
  * 从坐标x，y开始清除长度为len的字符
