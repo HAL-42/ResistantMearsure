@@ -1,6 +1,8 @@
 #include "RM.h"
 #include "Timer.h"
 
+extern uchar timerFun;
+
 extern sbit capSel=P2^4;			//电容选择接口
 extern bit isTimerEvnet;			//记录是否有定时器事件发生（完成一次频率测量）
 extern long curN;					//当前测得脉冲数
@@ -35,6 +37,31 @@ void InitialTimers(){
 	t1IntrTimes=0;
 	TH0=TL0=0;
 	TH1=TL1=0;
+	timerFun=TIMERFUN_FREQ_MEASRURE;//计时器初始功能为频率测量
+}
+/**
+ * 切换计时器功能
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-19
+ * @Summury
+ * @param    fun        功能描述
+ */
+void SwitchTimerFun(uchar fun){
+	timerFun=fun;
+	TR1=TR0=0;								//切换功能前先让定时器停止工作，下次使用时强制用StartTimer初始化
+	switch(fun){
+		case TIMERFUN_FREQ_MEASRURE:		//频率测量，T1计数，T2计时
+			TMOD=0x51;
+			break;
+		case TIMERFUN_PWM:					//PWM波输出控制舵机，两个都计时
+			TMOD=0x11;
+			break;
+		case TIMERFUN_KEY_SCAN:				//键盘扫描，两个都计时
+			TMOD=0x11;
+			break;
+		case TIMERFUN_HALT:					//键盘扫描
+			break;
+	}
 }
 /**
  * 初始化T0,T1;开启计时器，开始测量频率
@@ -43,13 +70,32 @@ void InitialTimers(){
  * @Summury
  */
 void StartTimer(){
-	isTimerEvnet=0;					//保险起见，再重置一次时钟事件，防止客户没有使用GetRVal函数
+	isTimerEvnet=0;							//保险起见，再重置一次时钟事件，防止客户没有使用GetRVal函数
 	t0IntrTimes=0;						
 	t1IntrTimes=0;
-	TH0=TL0=0;						//计时器从0开始计时
-	TH1=TL1=0;						//计数器从0开始计数
-	TR0=1;							//开启计时器
-	TR1=1;							//开启计数器
+	switch(timerFun){
+		case TIMERFUN_FREQ_MEASRURE:
+			TH0=TL0=0;						//计时器从0开始计时
+			TH1=TL1=0;						//计数器从0开始计数
+			TR0=1;							//开启计时器
+			TR1=1;							//开启计数器
+			break;
+		case TIMERFUN_PWM:
+			/////////
+			//TODO:NOT FINISHED//
+			/////////
+			break;
+		case TIMERFUN_KEY_SCAN:
+			//////////////////////
+			//TODO:NOT FINISHED //
+			//////////////////////
+			break;
+		case TIMERFUN_HALT:
+			//////////////////////
+			//TODO:NOT FINISHED //
+			//////////////////////
+			break;
+	}
 }
 /**
  * T1中断，溢出计数加一
@@ -58,7 +104,26 @@ void StartTimer(){
  * @Summury
  */
 void T1INT() interrupt 3 using 2{
-	t1IntrTimes++;
+	switch(timerFun){
+		case TIMERFUN_FREQ_MEASRURE:					//溢出计数加一，自动重装
+			t1IntrTimes++;	
+			break;					
+		case TIMERFUN_PWM:
+			/////////
+			//TODO:NOT FINISHED//
+			/////////
+			break;
+		case TIMERFUN_KEY_SCAN:
+			//////////////////////
+			//TODO:NOT FINISHED //
+			//////////////////////
+			break;
+		case TIMERFUN_HALT:
+			//////////////////////
+			//TODO:NOT FINISHED //
+			//////////////////////
+			break;
+	}
 }
 /**
  * T0中断

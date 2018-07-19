@@ -20,6 +20,8 @@ uchar key3Events;			//保存Key1未处理的输入信号
 bit isKeyEvents;			//记录是否有按键事件发生
 
 //-------------------------计时器相关全局变量-----------------------------//
+uchar timerFun;				//选择计时器作用
+
 sbit capSel=P2^4;			//电容选择接口
 float curRValue;				//当前测得电阻阻值
 bit isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
