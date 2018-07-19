@@ -1,3 +1,6 @@
+//这是一个测试版本
+
+
 #include "RM.h"
 #include "LCD1602.h"
 #include "Key.h"
@@ -84,8 +87,46 @@ void SetZero(){
 	if(IsDebug){												//调试模式下，显示调0测量结果
 		LCDCls();
 		LCDPrintStr(0,0,"LOW");
-		LCDPrintNum(0,6,refLowRN);
-		LCDPrintStr(1,0,"HIGH");
-		LCDPrintNum(1,6,refHighRN);
+		LCDPrintNum(6,0,refLowRN);
+		LCDPrintStr(0,1,"HIGH");
+		LCDPrintNum(6,1,refHighRN);
 	}
+}
+
+void KeyEventsCallBack(){
+	switch(key1Events){
+		case SHORT_PRESS:
+			LCDPrintScreen("KEY1","SHORT_PRESS");
+			break;
+		case LONG_PRESS:
+			LCDPrintScreen("KEY1","LONG_PRESS");
+			break;
+	}
+	switch(key2Events){
+		case SHORT_PRESS:
+			LCDPrintScreen("KEY2","SHORT_PRESS");
+			break;
+		case LONG_PRESS:
+			LCDPrintScreen("KEY2","LONG_PRESS");
+			break;
+	}
+	switch(key3Events){
+		case SHORT_PRESS:
+			LCDPrintScreen("KEY3","SHORT_PRESS");
+			break;
+		case LONG_PRESS:
+			LCDPrintScreen("KEY3","LONG_PRESS");
+			break;
+	}
+	RstKeyEvents();
+	PressAnyKey();		
+}
+
+void TimerEventsCallBack(){
+	GetRVal();
+	StartTimer();
+	LCDCls();
+	LCDPrintStr(0,0,"R=");
+	LCDPrintFloat(2,0,curRValue);
+	LCDPrintChar(15,0,0x00);
 }
