@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 11:16:39 PAGE 1   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 11:19:29 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE RESISTANTMEASURE
@@ -62,7 +62,7 @@ line level    source
   52   1              P1M0 = 0xf8;                                                            //#11111000b
   53   1              P1M1 = 0x07;                                                            //#00000111b
   54   1              //初始化其他外围设备
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 11:16:39 PAGE 2   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 11:19:29 PAGE 2   
 
   55   1              InitialTimers();                                                        //初始化计时器    
   56   1              KeyInitial();                                                           //初始化键盘
@@ -126,7 +126,7 @@ line level    source
  114   2                      case SHORT_PRESS:
  115   2                              LCDPrintScreen("KEY3","SHORT_PRESS");
  116   2                              break;
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 11:16:39 PAGE 3   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 11:19:29 PAGE 3   
 
  117   2                      case LONG_PRESS:
  118   2                              LCDPrintScreen("KEY3","LONG_PRESS");

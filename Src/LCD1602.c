@@ -186,7 +186,6 @@ void LCDPrintNum(uchar x,uchar y,int num){
  * @param    num        要显示整数
  */
 void LCDPrintFloat(uchar x,uchar y,float num){
-	LCDMoveCursor(x,y);
 	if(num>=1e9){
 		LCDPrintStr(x,y,"Infinite");
 	}

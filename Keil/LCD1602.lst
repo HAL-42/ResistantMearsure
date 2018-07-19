@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 1   
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:19:29 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE LCD1602
@@ -62,7 +62,7 @@ line level    source
   51   1              rs=0;
   52   1              rw=0;
   53   1              en=0;
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 2   
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:19:29 PAGE 2   
 
   54   1              DataPort=CMD;
   55   1              _nop_();                        
@@ -126,7 +126,7 @@ line level    source
  113           * @Summury
  114           */
  115          void LcdInitiate(void)
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 3   
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:19:29 PAGE 3   
 
  116          {
  117   1              uchar i;
@@ -190,7 +190,7 @@ line level    source
  175   1              while(i){
  176   2                      LCDWriteData(tmp[--i]+'0');
  177   2              }
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 4   
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:19:29 PAGE 4   
 
  178   1      }
  179          /**
@@ -204,131 +204,130 @@ line level    source
  186           * @param    num        要显示整数
  187           */
  188          void LCDPrintFloat(uchar x,uchar y,float num){
- 189   1              LCDMoveCursor(x,y);
- 190   1              if(num>=1e9){
- 191   2                      LCDPrintStr(x,y,"Infinite");
- 192   2              }
- 193   1              else if(num>=1e6){
- 194   2                      num/=1e6;
- 195   2                      intPart=(int) num;
- 196   2                      decPart=(int) (num-intPart)*1000;
- 197   2                      LCDPrintNum(x,y,intPart);
- 198   2                      LCDWriteData('.');
- 199   2                      LCDPrintNum(x+4,y,decPart);
- 200   2                      LCDWriteData('M');
- 201   2              }
- 202   1              else if(num>1e3){
- 203   2                      num/=1e3;
- 204   2                      intPart=(int) num;
- 205   2                      decPart=(int) (num-intPart)*1000;
- 206   2                      LCDPrintNum(x,y,intPart);
- 207   2                      LCDWriteData('.');
- 208   2                      LCDPrintNum(x+4,y,decPart);
- 209   2                      LCDWriteData('K');
- 210   2              }
- 211   1              else{
- 212   2                      intPart=(int) num;
- 213   2                      decPart=(int) (num-intPart)*10000;
- 214   2                      LCDPrintNum(x,y,intPart);
- 215   2                      LCDWriteData('.');
- 216   2                      LCDPrintNum(x+4,y,decPart);
- 217   2              }
- 218   1      }
- 219          /**
- 220           * 在指定位置显示一个字符串
- 221           * @Author   Xiaobo     Yang
- 222           * @DateTime 2018-07-15
- 223           * @Summury
- 224           * @param    x          字符串起始x坐标，在0~15之间
- 225           * @param    y          字符串起始y坐标，在0~1之间
- 226           * @param    str        要显示字符串
- 227           */
- 228          void LCDPrintStr(uchar x,uchar y,uchar str[]){
- 229   1              LCDMoveCursor(x,y);
- 230   1              while(*str){
- 231   2                      LCDWriteData(*str);
- 232   2                      str++;
- 233   2              }
- 234   1      }
- 235          /**
- 236           * 打印一行，从初始坐标x，y开始，先清除要打印行原有所有字符，然后显示输�
+ 189   1              if(num>=1e9){
+ 190   2                      LCDPrintStr(x,y,"Infinite");
+ 191   2              }
+ 192   1              else if(num>=1e6){
+ 193   2                      num/=1e6;
+ 194   2                      intPart=(int) num;
+ 195   2                      decPart=(int) (num-intPart)*1000;
+ 196   2                      LCDPrintNum(x,y,intPart);
+ 197   2                      LCDWriteData('.');
+ 198   2                      LCDPrintNum(x+4,y,decPart);
+ 199   2                      LCDWriteData('M');
+ 200   2              }
+ 201   1              else if(num>1e3){
+ 202   2                      num/=1e3;
+ 203   2                      intPart=(int) num;
+ 204   2                      decPart=(int) (num-intPart)*1000;
+ 205   2                      LCDPrintNum(x,y,intPart);
+ 206   2                      LCDWriteData('.');
+ 207   2                      LCDPrintNum(x+4,y,decPart);
+ 208   2                      LCDWriteData('K');
+ 209   2              }
+ 210   1              else{
+ 211   2                      intPart=(int) num;
+ 212   2                      decPart=(int) (num-intPart)*10000;
+ 213   2                      LCDPrintNum(x,y,intPart);
+ 214   2                      LCDWriteData('.');
+ 215   2                      LCDPrintNum(x+4,y,decPart);
+ 216   2              }
+ 217   1      }
+ 218          /**
+ 219           * 在指定位置显示一个字符串
+ 220           * @Author   Xiaobo     Yang
+ 221           * @DateTime 2018-07-15
+ 222           * @Summury
+ 223           * @param    x          字符串起始x坐标，在0~15之间
+ 224           * @param    y          字符串起始y坐标，在0~1之间
+ 225           * @param    str        要显示字符串
+ 226           */
+ 227          void LCDPrintStr(uchar x,uchar y,uchar str[]){
+ 228   1              LCDMoveCursor(x,y);
+ 229   1              while(*str){
+ 230   2                      LCDWriteData(*str);
+ 231   2                      str++;
+ 232   2              }
+ 233   1      }
+ 234          /**
+ 235           * 打印一行，从初始坐标x，y开始，先清除要打印行原有所有字符，然后显示输�
              -�的字符
- 237           * @Author   Xiaobo     Yang
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 5   
+ 236           * @Author   Xiaobo     Yang
+ 237           * @DateTime 2018-07-15
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:19:29 PAGE 5   
 
- 238           * @DateTime 2018-07-15
- 239           * @Summury
- 240           * @param    x          字符显示起始横坐标
- 241           * @param    y          字符显示起始纵坐标
- 242           * @param    str        要显示的字符串
- 243           */
- 244          void LCDPrintLine(uchar x,uchar y,uchar str[]){
- 245   1              uchar i;
- 246   1              LCDMoveCursor(0,y);
- 247   1              for(i=0;i<0x10;i++) LCDWriteData(0x20);
- 248   1              LCDMoveCursor(x,y);
- 249   1              while(*str){
- 250   2                      LCDWriteData(*str);
- 251   2                      str++;
- 252   2              }
- 253   1      }
- 254          /**
- 255           * 打印两行字在屏幕上
- 256           * @Author   Xiaobo     Yang
- 257           * @DateTime 2018-07-19
- 258           * @Summury
- 259           * @param    str1       第一行字
- 260           * @param    str2       第二行字
- 261           */
- 262          void LCDPrintScreen(uchar str1[],uchar str2[]){
- 263   1              LCDWriteCommand(0x01);
- 264   1              LCDMoveCursor(0,0);
- 265   1              while(*str1){
- 266   2                      LCDWriteData(*str1++);
- 267   2              }
- 268   1              LCDMoveCursor(0,1);
- 269   1              while(*str2){
- 270   2                      LCDWriteData(*str2++);
- 271   2              }
- 272   1      }
- 273          /**
- 274           * 从坐标x，y开始清除长度为len的字符
- 275           * @Author   Xiaobo     Yang
- 276           * @DateTime 2018-07-15
- 277           * @Summury
- 278           * @param    x          清除开始横坐标x
- 279           * @param    y          清除开始纵坐标y
- 280           * @param    len        要清除的长度
- 281           */
- 282          void LCDErase(uchar x,uchar y,uchar len){
- 283   1              uchar i;
- 284   1              LCDMoveCursor(x,y);
- 285   1              for(i=0;i<len;i++) LCDWriteData(0x20);
- 286   1      }
- 287          /**
- 288           * 打开显示屏并显示闪烁的光标。
- 289           * @Author   Xiaobo     Yang
- 290           * @DateTime 2018-07-15
- 291           * @Summury
- 292           */
- 293          void cursor_show_LCD1602(){
- 294   1              LCDWriteCommand(0x0f);
- 295   1      }
- 296          /**
- 297           * 隐藏光标。
- 298           * @Author   Xiaobo     Yang
- 299           * @DateTime 2018-07-15
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 6   
+ 238           * @Summury
+ 239           * @param    x          字符显示起始横坐标
+ 240           * @param    y          字符显示起始纵坐标
+ 241           * @param    str        要显示的字符串
+ 242           */
+ 243          void LCDPrintLine(uchar x,uchar y,uchar str[]){
+ 244   1              uchar i;
+ 245   1              LCDMoveCursor(0,y);
+ 246   1              for(i=0;i<0x10;i++) LCDWriteData(0x20);
+ 247   1              LCDMoveCursor(x,y);
+ 248   1              while(*str){
+ 249   2                      LCDWriteData(*str);
+ 250   2                      str++;
+ 251   2              }
+ 252   1      }
+ 253          /**
+ 254           * 打印两行字在屏幕上
+ 255           * @Author   Xiaobo     Yang
+ 256           * @DateTime 2018-07-19
+ 257           * @Summury
+ 258           * @param    str1       第一行字
+ 259           * @param    str2       第二行字
+ 260           */
+ 261          void LCDPrintScreen(uchar str1[],uchar str2[]){
+ 262   1              LCDWriteCommand(0x01);
+ 263   1              LCDMoveCursor(0,0);
+ 264   1              while(*str1){
+ 265   2                      LCDWriteData(*str1++);
+ 266   2              }
+ 267   1              LCDMoveCursor(0,1);
+ 268   1              while(*str2){
+ 269   2                      LCDWriteData(*str2++);
+ 270   2              }
+ 271   1      }
+ 272          /**
+ 273           * 从坐标x，y开始清除长度为len的字符
+ 274           * @Author   Xiaobo     Yang
+ 275           * @DateTime 2018-07-15
+ 276           * @Summury
+ 277           * @param    x          清除开始横坐标x
+ 278           * @param    y          清除开始纵坐标y
+ 279           * @param    len        要清除的长度
+ 280           */
+ 281          void LCDErase(uchar x,uchar y,uchar len){
+ 282   1              uchar i;
+ 283   1              LCDMoveCursor(x,y);
+ 284   1              for(i=0;i<len;i++) LCDWriteData(0x20);
+ 285   1      }
+ 286          /**
+ 287           * 打开显示屏并显示闪烁的光标。
+ 288           * @Author   Xiaobo     Yang
+ 289           * @DateTime 2018-07-15
+ 290           * @Summury
+ 291           */
+ 292          void cursor_show_LCD1602(){
+ 293   1              LCDWriteCommand(0x0f);
+ 294   1      }
+ 295          /**
+ 296           * 隐藏光标。
+ 297           * @Author   Xiaobo     Yang
+ 298           * @DateTime 2018-07-15
+ 299           * @Summury
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:19:29 PAGE 6   
 
- 300           * @Summury
- 301           */
- 302          void cursor_hide_LCD1602(){
- 303   1              LCDWriteCommand(0x0c);
- 304   1      }
+ 300           */
+ 301          void cursor_hide_LCD1602(){
+ 302   1              LCDWriteCommand(0x0c);
+ 303   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    735    ----
+   CODE SIZE        =    732    ----
    CONSTANT SIZE    =      9    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

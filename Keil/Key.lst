@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:16:39 PAGE 1   
+C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:19:29 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE KEY
@@ -62,7 +62,7 @@ line level    source
   44   3                                      key1Timer=0;                                                            //初始化计时器
   45   3                              }
   46   2                              break;
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:16:39 PAGE 2   
+C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:19:29 PAGE 2   
 
   47   2                      case KEY_STATE_DEBOUNCE:                                                        //消颤状态
   48   2                              if(key1) {                                                                              //按键松开，说明还在颤动，回到没有按下状态
@@ -126,7 +126,7 @@ line level    source
   95   2                              else if(++key2Timer>LONG_PRESS_TIME){
   96   3                                      key2Events=LONG_PRESS;
   97   3                                      isKeyEvents=1;
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:16:39 PAGE 3   
+C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:19:29 PAGE 3   
 
   98   3                                      key2State=KEY_STATE_WAITLOOSE;
   99   3                              }
@@ -190,7 +190,7 @@ line level    source
  150   1              isKeyEvents=NONE_PRESS;
  151   1      }
  152          /**
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:16:39 PAGE 4   
+C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:19:29 PAGE 4   
 
  153           * 初始化按键状态，用于软重置
  154           * @Author   Xiaobo     Yang
