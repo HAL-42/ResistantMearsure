@@ -36,7 +36,7 @@ static void LCDMoveCursor(uchar x,uchar y);
  * @Summury
  * @param    data       要显示的字符的ASCII码
  */
-void LCDWriteData(uchar data);
+void LCDWriteData(uchar x);
 /**
  * Initialte LCD1602
  * @Author   Xiaobo     Yang

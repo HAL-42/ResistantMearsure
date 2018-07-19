@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 10:51:56 PAGE 1   
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE LCD1602
@@ -10,7 +10,6 @@ line level    source
 
    1          #include "RM.h"
    2          #include "LCD1602.h"
-*** ERROR C141 IN LINE 39 OF ..\SRC\LCD1602.H: syntax error near ')'
    3          
    4          #define DataPort P2
    5          
@@ -62,9 +61,9 @@ line level    source
   50   1              while(BusyTest());
   51   1              rs=0;
   52   1              rw=0;
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 10:51:56 PAGE 2   
-
   53   1              en=0;
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 2   
+
   54   1              DataPort=CMD;
   55   1              _nop_();                        
   56   1              _nop_();
@@ -103,14 +102,12 @@ line level    source
   89           * @Summury
   90           * @param    data       要显示的字符的ASCII码
   91           */
-  92          void LCDWriteData(uchar data){
-*** ERROR C141 IN LINE 92 OF ..\SRC\LCD1602.C: syntax error near ')'
+  92          void LCDWriteData(uchar x){
   93   1              while(BusyTest());
   94   1              rs=1;
   95   1              rw=0;
   96   1              en=0;
-  97   1              DataPort=data;
-*** ERROR C141 IN LINE 97 OF ..\SRC\LCD1602.C: syntax error near 'data'
+  97   1              DataPort=x;
   98   1              _nop_();                        
   99   1              _nop_();
  100   1              _nop_();
@@ -126,29 +123,33 @@ line level    source
  110           * Initialte LCD1602
  111           * @Author   Xiaobo     Yang
  112           * @DateTime 2018-07-16
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 10:51:56 PAGE 3   
-
  113           * @Summury
  114           */
  115          void LcdInitiate(void)
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 3   
+
  116          {
  117   1              delaynms(15);                           //延时15ms，首次写指令时应给LCD 一段较长的反应时间
- 118   1              LCDWirteCommand(0x38);          //显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
+ 118   1              LCDWriteCommand(0x38);          //显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
  119   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 120   1              LCDWirteCommand(0x38);
+ 120   1              LCDWriteCommand(0x38);
  121   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 122   1              LCDWirteCommand(0x38);          //连续三次，确保初始化成功
+ 122   1              LCDWriteCommand(0x38);          //连续三次，确保初始化成功
  123   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 124   1              LCDWirteCommand(0x0c);          //显示模式设置：显示开，无光标，光标不闪烁
+ 124   1              LCDWriteCommand(0x0c);          //显示模式设置：显示开，无光标，光标不闪烁
  125   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 126   1              LCDWirteCommand(0x06);          //显示模式设置：光标右移，字符不移
+ 126   1              LCDWriteCommand(0x06);          //显示模式设置：光标右移，字符不移
  127   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 128   1              LCDWirteCommand(0x40);          //写入自定义字符
+ 128   1              LCDWriteCommand(0x40);          //写入自定义字符
  129   1              uchar i;                                        
+*** ERROR C141 IN LINE 129 OF ..\SRC\LCD1602.C: syntax error near 'unsigned'
+*** ERROR C202 IN LINE 129 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  130   1              for(i=0;i<8;i++){
+*** ERROR C202 IN LINE 130 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  131   2                      LCDWriteData(funnelIcon[i]);
+*** ERROR C202 IN LINE 131 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  132   2                      }
- 133   1              LCDWirteCommand(0x01);          //清屏幕指令，将以前的显示内容清除
+ 133   1              LCDWriteCommand(0x01);          //清屏幕指令，将以前的显示内容清除
  134   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
  135   1              LCDMoveCursor(0,0);
  136   1      }
@@ -186,14 +187,19 @@ line level    source
  168          void LCDPrintNum(uchar x,uchar y,int num){
  169   1              LCDMoveCursor(x,y);
  170   1              uchar i=0;
+*** ERROR C141 IN LINE 170 OF ..\SRC\LCD1602.C: syntax error near 'unsigned'
+*** ERROR C202 IN LINE 170 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  171   1              do{
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 4   
+
  172   2                      tmp[i++]=num%10;
+*** ERROR C202 IN LINE 172 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  173   2                      num/=10;
  174   2              }while(num);
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 10:51:56 PAGE 4   
-
  175   1              while(i){
+*** ERROR C202 IN LINE 175 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  176   2                      LCDWriteData(tem[--i]+'0');
+*** ERROR C202 IN LINE 176 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  177   2              }
  178   1      }
  179          /**
@@ -248,14 +254,14 @@ line level    source
  227           */
  228          void LCDPrintStr(uchar x,uchar y,uchar str[]){
  229   1              LCDMoveCursor(x,y);
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 5   
+
  230   1              while(*str){
  231   2                      LCDWriteData(*str);
  232   2                      str++;
  233   2              }
  234   1      }
  235          /**
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 10:51:56 PAGE 5   
-
  236           * 打印一行，从初始坐标x，y开始，先清除要打印行原有所有字符，然后显示输�
              -�的字符
  237           * @Author   Xiaobo     Yang
@@ -284,7 +290,7 @@ line level    source
  260           * @param    str2       第二行字
  261           */
  262          void LCDPrintScreen(uchar str1[],uchar str2[]){
- 263   1              LCDWirteCommand(0x01);
+ 263   1              LCDWriteCommand(0x01);
  264   1              LCDMoveCursor(0,0);
  265   1              while(*str1){
  266   2                      LCDWriteData(*str1++);
@@ -312,21 +318,21 @@ line level    source
  288           * 打开显示屏并显示闪烁的光标。
  289           * @Author   Xiaobo     Yang
  290           * @DateTime 2018-07-15
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 6   
+
  291           * @Summury
  292           */
  293          void cursor_show_LCD1602(){
- 294   1              LCDWirteCommand(0x0f);
+ 294   1              LCDWriteCommand(0x0f);
  295   1      }
  296          /**
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 10:51:56 PAGE 6   
-
  297           * 隐藏光标。
  298           * @Author   Xiaobo     Yang
  299           * @DateTime 2018-07-15
  300           * @Summury
  301           */
  302          void cursor_hide_LCD1602(){
- 303   1              LCDWirteCommand(0x0c);
+ 303   1              LCDWriteCommand(0x0c);
  304   1      }
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  3 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  9 ERROR(S)

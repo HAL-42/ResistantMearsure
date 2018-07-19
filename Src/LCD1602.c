@@ -89,12 +89,12 @@ void LCDMoveCursor(uchar x,uchar y){
  * @Summury
  * @param    data       要显示的字符的ASCII码
  */
-void LCDWriteData(uchar data){
+void LCDWriteData(uchar x){
 	while(BusyTest());
 	rs=1;
 	rw=0;
 	en=0;
-	DataPort=data;
+	DataPort=x;
 	_nop_();			
 	_nop_();
 	_nop_();
@@ -115,22 +115,22 @@ void LCDWriteData(uchar data){
 void LcdInitiate(void)
 {
 	delaynms(15); 				//延时15ms，首次写指令时应给LCD 一段较长的反应时间
-	LCDWirteCommand(0x38); 		//显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
+	LCDWriteCommand(0x38); 		//显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
 	delaynms(5); 				//延时5ms ，给硬件一点反应时间
-	LCDWirteCommand(0x38);
+	LCDWriteCommand(0x38);
 	delaynms(5); 				//延时5ms ，给硬件一点反应时间
-	LCDWirteCommand(0x38); 		//连续三次，确保初始化成功
+	LCDWriteCommand(0x38); 		//连续三次，确保初始化成功
 	delaynms(5); 				//延时5ms ，给硬件一点反应时间
-	LCDWirteCommand(0x0c); 		//显示模式设置：显示开，无光标，光标不闪烁
+	LCDWriteCommand(0x0c); 		//显示模式设置：显示开，无光标，光标不闪烁
 	delaynms(5); 				//延时5ms ，给硬件一点反应时间
-	LCDWirteCommand(0x06); 		//显示模式设置：光标右移，字符不移
+	LCDWriteCommand(0x06); 		//显示模式设置：光标右移，字符不移
 	delaynms(5);				//延时5ms ，给硬件一点反应时间
-	LCDWirteCommand(0x40);		//写入自定义字符
+	LCDWriteCommand(0x40);		//写入自定义字符
 	uchar i;					
 	for(i=0;i<8;i++){
 		LCDWriteData(funnelIcon[i]);
 		}
-	LCDWirteCommand(0x01); 		//清屏幕指令，将以前的显示内容清除
+	LCDWriteCommand(0x01); 		//清屏幕指令，将以前的显示内容清除
 	delaynms(5); 				//延时5ms ，给硬件一点反应时间
 	LCDMoveCursor(0,0);
 }
@@ -260,7 +260,7 @@ void LCDPrintLine(uchar x,uchar y,uchar str[]){
  * @param    str2       第二行字
  */
 void LCDPrintScreen(uchar str1[],uchar str2[]){
-	LCDWirteCommand(0x01);
+	LCDWriteCommand(0x01);
 	LCDMoveCursor(0,0);
 	while(*str1){
 		LCDWriteData(*str1++);
@@ -291,7 +291,7 @@ void LCDErase(uchar x,uchar y,uchar len){
  * @Summury
  */
 void cursor_show_LCD1602(){
-	LCDWirteCommand(0x0f);
+	LCDWriteCommand(0x0f);
 }
 /**
  * 隐藏光标。
@@ -300,5 +300,5 @@ void cursor_show_LCD1602(){
  * @Summury
  */
 void cursor_hide_LCD1602(){
-	LCDWirteCommand(0x0c);
+	LCDWriteCommand(0x0c);
 }
