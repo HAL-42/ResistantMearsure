@@ -29,7 +29,7 @@ sbit capSel=P2^4;			//电容选择接口
 float curRValue;				//当前测得电阻阻值
 bit isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
 long curN;					//当前测得脉冲数
-float curFreq;				//当前测得频率
+float curFreqE5;				//当前测得频率
 long refLowRN;				//低档位下参考脉冲数
 long refHighRN;				//高档位下参考脉冲数
 

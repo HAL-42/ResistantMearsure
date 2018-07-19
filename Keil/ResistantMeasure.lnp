@@ -1,0 +1,8 @@
+"STARTUP.obj",
+".\Key.obj",
+".\LCD1602.obj",
+".\ResistantMeasure.obj",
+".\RM.obj",
+".\Timer.obj" 
+TO "ResistantMeasure" 
+RAMSIZE(256) 

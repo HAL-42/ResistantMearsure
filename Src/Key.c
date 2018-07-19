@@ -12,9 +12,9 @@
 #define DECOUNCE_TIME 50				//50次KeyScan完成消颤(基于认为两次KeyScan相距50个机器周期，调整！)
 #define LONG_PRESS_TIME 60000			//60000次KeyScan判定为长按
 
-extern sbit key1;						//外部全局变量，见main.c
-extern sbit key2;
-extern sbit key3;
+sbit key1=P1^5;						//外部全局变量，见main.c
+sbit key2=P1^4;
+sbit key3=P1^3;
 
 extern uchar key1Events;				//外部全局变量，见main.c
 extern uchar key2Events;

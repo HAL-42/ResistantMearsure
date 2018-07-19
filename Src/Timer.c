@@ -3,7 +3,7 @@
 
 extern uchar timerFun;
 
-extern sbit capSel;			//电容选择接口
+sbit capSel=P2^4;			//电容选择接口
 extern bit isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
 extern long curN;					//当前测得脉冲数
 extern long curFreqE5;				//当前测得频率
@@ -30,9 +30,9 @@ void InitialTimers(){
 	curRValue=0;
 	isTimerEvent=0;
 	curN=0;
-	curFreq=0;
+	curFreqE5=0;
 	refLowRN=0;
-	refHignRN=0;
+	refHighRN=0;
 	t0IntrTimes=0;
 	t1IntrTimes=0;
 	TH0=TL0=0;

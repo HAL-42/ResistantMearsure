@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:19:29 PAGE 1   
+C51 COMPILER V9.01   KEY                                                                   07/19/2018 13:40:53 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE KEY
@@ -25,12 +25,9 @@ line level    source
              -调整！)
   13          #define LONG_PRESS_TIME 60000                   //60000次KeyScan判定为长按
   14          
-  15          extern sbit key1;                                               //外部全局变量，见main.c
-*** ERROR C141 IN LINE 15 OF ..\SRC\KEY.C: syntax error near 'sbit'
-  16          extern sbit key2;
-*** ERROR C202 IN LINE 16 OF ..\SRC\KEY.C: 'key2': undefined identifier
-  17          extern sbit key3;
-*** ERROR C141 IN LINE 17 OF ..\SRC\KEY.C: syntax error near 'sbit'
+  15          sbit key1=P1^5;                                         //外部全局变量，见main.c
+  16          sbit key2=P1^4;
+  17          sbit key3=P1^3;
   18          
   19          extern uchar key1Events;                                //外部全局变量，见main.c
   20          extern uchar key2Events;
@@ -57,18 +54,16 @@ line level    source
   40   1              switch(key1State){                                                                              //选择状态                                  
   41   2                      case KEY_STATE_UNPRESSED:                                                       //没有按下状态    
   42   2                              if(!key1) {                                                                             //按键按下（低电平），转移到消颤状态
-*** ERROR C202 IN LINE 42 OF ..\SRC\KEY.C: 'key1': undefined identifier
   43   3                                      key1State=KEY_STATE_DEBOUNCE;
   44   3                                      key1Timer=0;                                                            //初始化计时器
   45   3                              }
   46   2                              break;
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:19:29 PAGE 2   
-
   47   2                      case KEY_STATE_DEBOUNCE:                                                        //消颤状态
   48   2                              if(key1) {                                                                              //按键松开，说明还在颤动，回到没有按下状态
-*** ERROR C202 IN LINE 48 OF ..\SRC\KEY.C: 'key1': undefined identifier
   49   3                                      key1State=KEY_STATE_UNPRESSED;                                  
   50   3                              }
+C51 COMPILER V9.01   KEY                                                                   07/19/2018 13:40:53 PAGE 2   
+
   51   2                              else if(++key1Timer>DECOUNCE_TIME){                             //按键按下，就计数，若按下时长足够，说明按�
              -�稳定，转入按下状态
   52   3                                      key1State=KEY_STATE_PRESSED;                            
@@ -78,37 +73,31 @@ line level    source
   56   2                      case KEY_STATE_PRESSED:
   57   2                              if(key1){                                                                               //如果按键松开，按下时间又不够，就给出短按事件，并转移到�
              -��按下状态
-*** ERROR C202 IN LINE 57 OF ..\SRC\KEY.C: 'key1': undefined identifier
   58   3                                      key1State=KEY_STATE_UNPRESSED;
   59   3                                      key1Events=SHORT_PRESS;
-*** ERROR C202 IN LINE 59 OF ..\SRC\KEY.C: 'key1Events': undefined identifier
   60   3                                      isKeyEvents=1;                                                          //告诉主程序有按键事件发生
   61   3                              }
   62   2                              else if(++key1Timer>LONG_PRESS_TIME){                   //如果按键没有松开，计时，足够长后发出长按�
              -��件，转移到等待松手状态
   63   3                                      key1Events=LONG_PRESS;
-*** ERROR C202 IN LINE 63 OF ..\SRC\KEY.C: 'key1Events': undefined identifier
   64   3                                      isKeyEvents=1;                                                          //告诉主程序有按键事件发生
   65   3                                      key1State=KEY_STATE_WAITLOOSE;
   66   3                              }
   67   2                              break;
   68   2                      case KEY_STATE_WAITLOOSE:
   69   2                              if(key1) key1State=KEY_STATE_UNPRESSED;                 //一旦松手，就会到未按下状态
-*** ERROR C202 IN LINE 69 OF ..\SRC\KEY.C: 'key1': undefined identifier
   70   2                              break;
   71   2              }
   72   1      
   73   1              switch(key2State){                                                                              //参见key1State部分注释
   74   2                      case KEY_STATE_UNPRESSED:
   75   2                              if(!key2) {
-*** ERROR C202 IN LINE 75 OF ..\SRC\KEY.C: 'key2': undefined identifier
   76   3                                      key2State=KEY_STATE_DEBOUNCE;
   77   3                                      key2Timer=0;
   78   3                              }
   79   2                              break;
   80   2                      case KEY_STATE_DEBOUNCE:
   81   2                              if(key2) {
-*** ERROR C202 IN LINE 81 OF ..\SRC\KEY.C: 'key2': undefined identifier
   82   3                                      key2State=KEY_STATE_UNPRESSED;
   83   3                              }
   84   2                              else if(++key2Timer>DECOUNCE_TIME){
@@ -118,7 +107,6 @@ line level    source
   88   2                              break;
   89   2                      case KEY_STATE_PRESSED:
   90   2                              if(key2){
-*** ERROR C202 IN LINE 90 OF ..\SRC\KEY.C: 'key2': undefined identifier
   91   3                                      key2State=KEY_STATE_UNPRESSED;
   92   3                                      key2Events=SHORT_PRESS;
   93   3                                      isKeyEvents=1;
@@ -126,28 +114,25 @@ line level    source
   95   2                              else if(++key2Timer>LONG_PRESS_TIME){
   96   3                                      key2Events=LONG_PRESS;
   97   3                                      isKeyEvents=1;
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:19:29 PAGE 3   
-
   98   3                                      key2State=KEY_STATE_WAITLOOSE;
   99   3                              }
  100   2                              break;
  101   2                      case KEY_STATE_WAITLOOSE:
  102   2                              if(key2) key2State=KEY_STATE_UNPRESSED;
-*** ERROR C202 IN LINE 102 OF ..\SRC\KEY.C: 'key2': undefined identifier
  103   2                              break;
  104   2              }
  105   1      
  106   1              switch(key3State){                                                                              //参见key1State部分注释
  107   2                      case KEY_STATE_UNPRESSED:
  108   2                              if(!key3) {
-*** ERROR C202 IN LINE 108 OF ..\SRC\KEY.C: 'key3': undefined identifier
  109   3                                      key3State=KEY_STATE_DEBOUNCE;
+C51 COMPILER V9.01   KEY                                                                   07/19/2018 13:40:53 PAGE 3   
+
  110   3                                      key3Timer=0;
  111   3                              }
  112   2                              break;
  113   2                      case KEY_STATE_DEBOUNCE:
  114   2                              if(key3) {
-*** ERROR C202 IN LINE 114 OF ..\SRC\KEY.C: 'key3': undefined identifier
  115   3                                      key3State=KEY_STATE_UNPRESSED;
  116   3                              }
  117   2                              else if(++key3Timer>DECOUNCE_TIME){
@@ -157,7 +142,6 @@ line level    source
  121   2                              break;
  122   2                      case KEY_STATE_PRESSED:
  123   2                              if(key3){
-*** ERROR C202 IN LINE 123 OF ..\SRC\KEY.C: 'key3': undefined identifier
  124   3                                      key3State=KEY_STATE_UNPRESSED;
  125   3                                      key3Events=SHORT_PRESS;
  126   3                                      isKeyEvents=1;
@@ -170,7 +154,6 @@ line level    source
  133   2                              break;
  134   2                      case KEY_STATE_WAITLOOSE:
  135   2                              if(key3) key3State=KEY_STATE_UNPRESSED;
-*** ERROR C202 IN LINE 135 OF ..\SRC\KEY.C: 'key3': undefined identifier
  136   2                              break;
  137   2              }
  138   1      }
@@ -184,14 +167,11 @@ line level    source
  145           */
  146          void RstKeyEvents(){
  147   1              key1Events=NONE_PRESS;
-*** ERROR C202 IN LINE 147 OF ..\SRC\KEY.C: 'key1Events': undefined identifier
  148   1              key2Events=NONE_PRESS;
  149   1              key3Events=NONE_PRESS;
  150   1              isKeyEvents=NONE_PRESS;
  151   1      }
  152          /**
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 11:19:29 PAGE 4   
-
  153           * 初始化按键状态，用于软重置
  154           * @Author   Xiaobo     Yang
  155           * @DateTime 2018-07-18
@@ -200,7 +180,6 @@ line level    source
  157           */
  158          void KeyInitial(){
  159   1              key1Events=NONE_PRESS;
-*** ERROR C202 IN LINE 159 OF ..\SRC\KEY.C: 'key1Events': undefined identifier
  160   1              key2Events=NONE_PRESS;
  161   1              key3Events=NONE_PRESS;
  162   1              isKeyEvents=NONE_PRESS;
@@ -211,13 +190,14 @@ line level    source
  167   1              key2Timer=0;
  168   1              key3Timer=0;
  169   1      }
+C51 COMPILER V9.01   KEY                                                                   07/19/2018 13:40:53 PAGE 4   
+
  170          /**
  171           * 我也不知道为什么要写这个函数，感觉很好玩的样子
  172           */
  173          void WaitKey(void (*key1Fun) (void),void (*key2Fun) (void),void (*key3Fun) (void)){
  174   1              while(!isKeyEvents) KeyScan();
  175   1              if(key1Events) (*key1Fun) ();
-*** ERROR C202 IN LINE 175 OF ..\SRC\KEY.C: 'key1Events': undefined identifier
  176   1              if(key2Events) (*key2Fun) ();
  177   1              if(key3Events) (*key3Fun) ();
  178   1              RstKeyEvents();
@@ -233,4 +213,16 @@ line level    source
  188   1              RstKeyEvents();
  189   1      }
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  20 ERROR(S)
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    427    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      9       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
