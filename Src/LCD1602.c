@@ -31,10 +31,7 @@ bit BusyTest(){
 	rs=0;
 	rw=1;
 	en=1;				 //LCD1602读命令时en应该是高电平
-	_nop_();             //延迟4个机器周期，给LCD1602反应时间
-	_nop_();			 //！！可能需要更长的反应时间，但该函数调用频繁，效率要尽可能的高才好
-	_nop_();
-	_nop_();
+	delaynMC(4);
 	result=isBusy;
 	en=0;				 //en恢复到0
 	return result;
@@ -52,15 +49,9 @@ void LCDWriteCommand(uchar CMD){
 	rw=0;
 	en=0;
 	DataPort=CMD;
-	_nop_();			
-	_nop_();
-	_nop_();
-	_nop_();
+	delaynMC(4);
 	en=1;				//让en产生从0到1的跳变，写入指令
-	_nop_();			
-	_nop_();
-	_nop_();
-	_nop_();			
+	delaynMC(4);		
 	en=0;				//en下降沿，LCD1602执行指令
 }
 /**
@@ -95,15 +86,9 @@ void LCDWriteData(uchar x){
 	rw=0;
 	en=0;
 	DataPort=x;
-	_nop_();			
-	_nop_();
-	_nop_();
-	_nop_();
+	delaynMC(4);
 	en=1;				//让en产生从0到1的跳变，写入数据
-	_nop_();			
-	_nop_();
-	_nop_();
-	_nop_();			
+	delaynMC(4);		
 	en=0;				//en下降沿，LCD1602开始输出
 }
 /**
@@ -126,7 +111,8 @@ void LcdInitiate(void)
 	delaynms(5); 				//延时5ms ，给硬件一点反应时间
 	LCDWriteCommand(0x06); 		//显示模式设置：光标右移，字符不移
 	delaynms(5);				//延时5ms ，给硬件一点反应时间
-	LCDWriteCommand(0x40);		//写入自定义字符					
+	LCDWriteCommand(0x40);		//写入自定义字符
+					
 	for(i=0;i<8;i++){
 		LCDWriteData(funnelIcon[i]);
 		}
@@ -192,27 +178,42 @@ void LCDPrintFloat(uchar x,uchar y,float num){
 	else if(num>=1e6){
 		num/=1e6;
 		intPart=(int) num;
-		decPart=(int) (num-intPart)*1000;
+		decPart=(int) ((num-intPart)*1000);
 		LCDPrintNum(x,y,intPart);
 		LCDWriteData('.');
-		LCDPrintNum(x+4,y,decPart);
+		if(decPart){
+			LCDPrintNum(x+4,y,decPart);
+		}
+		else{
+			LCDPrintStr(x+4,y,"000");
+		}
 		LCDWriteData('M');
 	}
 	else if(num>1e3){
 		num/=1e3;
 		intPart=(int) num;
-		decPart=(int) (num-intPart)*1000;
+		decPart=(int) ((num-intPart)*1000);
 		LCDPrintNum(x,y,intPart);
 		LCDWriteData('.');
-		LCDPrintNum(x+4,y,decPart);
+		if(decPart){
+			LCDPrintNum(x+4,y,decPart);
+		}
+		else{
+			LCDPrintStr(x+4,y,"000");
+		}
 		LCDWriteData('K');
 	}
 	else{
 		intPart=(int) num;
-		decPart=(int) (num-intPart)*10000;
+		decPart=(int) ((num-intPart)*10000);
 		LCDPrintNum(x,y,intPart);
 		LCDWriteData('.');
-		LCDPrintNum(x+4,y,decPart);
+		if(decPart){
+			LCDPrintNum(x+4,y,decPart);
+		}
+		else{
+			LCDPrintStr(x+4,y,"0000");
+		}
 	}
 }
 /**

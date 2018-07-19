@@ -11,7 +11,7 @@
  * @Summury	  Omitted
  * @return   返回1以表示正在忙碌.
  */
-static bit BusyTest();
+bit BusyTest();
 /**
  * 向LCD1602写入指令
  * @Author   Xiaobo     Yang
@@ -19,7 +19,7 @@ static bit BusyTest();
  * @Summury  Omitted
  * @param    CMD        8bit指令
  */
-static void LCDWriteCommand(uchar CMD);
+void LCDWriteCommand(uchar CMD);
 /**
  * 移动LCD1602显示位置
  * @Author   Xiaobo     Yang
@@ -28,7 +28,7 @@ static void LCDWriteCommand(uchar CMD);
  * @param    x          x坐标，在0~15之间
  * @param    y          y坐标，只有0,1两种选择
  */
-static void LCDMoveCursor(uchar x,uchar y);
+void LCDMoveCursor(uchar x,uchar y);
 /**
  * 向LCD1602写入数据，让LCD1602在光标位置打出输入的字符
  * @Author   Xiaobo     Yang

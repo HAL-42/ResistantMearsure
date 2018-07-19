@@ -49,14 +49,27 @@ void TimerEventsCallBack();
 
 void main(){
 	//定义端口输入输出,p1^0-P1^2为推挽输出，p1^3-P1^7为输入，设置PxM0，PxM1
-	P1M0 = 0xf8;								//#11111000b
-	P1M1 = 0x07;								//#00000111b
+	P1M1 = 0x07;								//8'b00000111
+	P1M0 = 0xf8;								//8'b11111000
+	P3M1 = 0x80;								//8'b10000000
+	P3M0 = 0x20;								//8'b00100000
+	Led1=Led2=Led3=0;
 	//初始化其他外围设备
 	InitialTimers();							//初始化计时器	
 	KeyInitial();								//初始化键盘
-	LcdInitiate();								//初始化LCD1602显示屏
-	SetZero();
-
+	Led1=1;
+	delaynms(1000);
+	LcdInitiate();								//初始化LCD1602显示屏
+	Led2=1;
+	delaynms(1000);
+	Led3=1;
+	delaynms(1000);
+	Led1=Led2=Led3=0;
+	while(1){
+		SetZero();
+		Led1=Led2=Led3=0;
+	}
+	Led1=0;
 	StartTimer();
 	while(1){
 		KeyScan();
@@ -66,6 +79,8 @@ void main(){
 }
 
 void SetZero(){
+	extern uchar t1IntrTimes;
+	extern uchar t0IntrTimes;
 	LCDPrintScreen("Cross Probes And","Press Any Button");
 	PressAnyKey();												//等待用户按照指示短接红黑表笔
 	LCDPrintScreen("Mearsuring...","Please Wait");
@@ -74,12 +89,14 @@ void SetZero(){
 	StartTimer();												//开始采样
 	while(!isTimerEvent);
 	GetRVal();													//低档位采样结束，算出低档位下的“标准N”
+	if(!TL1) Led1=1;
 	refLowRN=curN;
 	capSel=CAPSEL_HIGHR;										//设定到高档位，并等待0.2秒，让继电器反应过来
-	delaynms(200);
+	delaynms(1000);
 	StartTimer();												//高档位采样
 	while(!isTimerEvent);
 	GetRVal();
+	if(!TL1) Led3=1;
 	refHighRN=curN;
 	LCDPrintScreen("Set Zero","Finished");						//调0完毕
 	delaynms(2000);
@@ -89,6 +106,7 @@ void SetZero(){
 		LCDPrintNum(6,0,refLowRN);
 		LCDPrintStr(0,1,"HIGH");
 		LCDPrintNum(6,1,refHighRN);
+		PressAnyKey();
 	}
 }
 
@@ -105,7 +123,7 @@ void KeyEventsCallBack(){
 		case SHORT_PRESS:
 			LCDPrintScreen("KEY2","SHORT_PRESS");
 			break;
-		case LONG_PRESS:
+		case LONG_PRESS:	
 			LCDPrintScreen("KEY2","LONG_PRESS");
 			break;
 	}
