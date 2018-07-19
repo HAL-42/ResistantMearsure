@@ -167,3 +167,23 @@ void KeyInitial(){
 	key2Timer=0;
 	key3Timer=0;
 }
+/**
+ * 我也不知道为什么要写这个函数，感觉很好玩的样子
+ */
+void WaitKey(void (*key1Fun) (void),void (*key2Fun) (void),void (*key3Fun) (void)){
+	while(!isKeyEvents) KeyScan();
+	if(key1Events) (*key1Fun) ();
+	if(key2Events) (*key2Fun) ();
+	if(key3Events) (*key3Fun) ();
+	RstKeyEvents();
+}
+/**
+ * 按下任意键，否则阻塞
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-19
+ * @Summury
+ */
+void PressAnyKey(){
+	while(!isKeyEvents) KeyScan();
+	RstKeyEvents();
+}

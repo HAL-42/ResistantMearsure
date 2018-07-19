@@ -27,5 +27,16 @@ void RstKeyEvents();
  * @Summury 由于重置按钮被占用，因此采用软重置函数，软重置时要重设所有和keyx有关变量
  */
 void KeyInitial();
+/**
+ * 按下任意键，否则阻塞
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-19
+ * @Summury
+ */
+void PressAnyKey();
+/**
+ * 我也不知道为什么要写这个函数，感觉很好玩的样子
+ */
+void WaitKey(void (*key1Fun) (void),void (*key2Fun) (void),void (*key3Fun) (void));
 
 #endif

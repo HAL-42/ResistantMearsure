@@ -15,6 +15,10 @@ sbit isBusy=P2^7;			//返回LCD1602是否正忙
 #define ICON_HEIGHT													//自定义字符高度
 uchar funnelIcon[]={0x1F,0x11,0x1B,0x0A,0x0A,0x0A,0x04,0x04};		//自定义字符：漏斗
 
+uchar tmp[10];														//公用临时数组
+int intPart;														//公用整数部分临时储存
+int decPart;														//公用小数部分临时储存
+
 /**
  * 测试LCD1602是否正处于忙碌状态
  * @Author   Xiaobo        Yang
@@ -137,7 +141,7 @@ void LcdInitiate(void)
  * @Summury
  */
 void LCDCls(){
-	LCDWriteData(0x01);
+	LCDWriteCommand(0x01);
 }
 /**
  * 在指定位置显示一个字符
@@ -151,6 +155,66 @@ void LCDCls(){
 void LCDPrintChar(uchar x,uchar y,uchar c){
 	LCDMoveCursor(x,y);
 	LCDWriteData(c);
+}
+/**
+ * 在指定位置显示一个整数
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-18
+ * @Summury
+ * @param    x          字符的x坐标，在0~15之间
+ * @param    y          字符的y坐标，在0~1之间
+ * @param    num        要显示整数
+ */
+void LCDPrintNum(uchar x,uchar y,int num){
+	LCDMoveCursor(x,y);
+	uchar i=0;
+	do{
+		tmp[i++]=num%10;
+		num/=10;
+	}while(num);
+	while(i){
+		LCDWriteData(tem[--i]+'0');
+	}
+}
+/**
+ * 在指定位置显示一个浮点数，三位整数，三位小数，数量级以10E3递增，大于999M定义为无穷
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-18
+ * @Summury
+ * @param    x          字符的x坐标，在0~15之间
+ * @param    y          字符的y坐标，在0~1之间
+ * @param    num        要显示整数
+ */
+void LCDPrintFloat(uchar x,uchar y,float num){
+	LCDMoveCursor(x,y);
+	if(num>=1e9){
+		LCDPrintStr("Infinite");
+	}
+	else if(num>=1e6){
+		num/=1e6;
+		intPart=(int) num;
+		decPart=(int) (num-intPart)*1000;
+		LCDPrintNum(intPart);
+		LCDWriteData('.');
+		LCDPrintNum(decPart);
+		LCDWriteData('M');
+	}
+	else if(num>1e3){
+		num/=1e3;
+		intPart=(int) num;
+		decPart=(int) (num-intPart)*1000;
+		LCDPrintNum(intPart);
+		LCDWriteData('.');
+		LCDPrintNum(decPart);
+		LCDWriteData('K');
+	}
+	else{
+		intPart=(int) num;
+		decPart=(int) (num-intPart)*10000;
+		LCDPrintNum(intPart);
+		LCDWriteData('.');
+		LCDPrintNum(decPart);
+	}
 }
 /**
  * 在指定位置显示一个字符串
@@ -185,6 +249,25 @@ void LCDPrintLine(uchar x,uchar y,uchar str[]){
 	while(*str){
 		LCDWriteData(*str);
 		str++;
+	}
+}
+/**
+ * 打印两行字在屏幕上
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-19
+ * @Summury
+ * @param    str1       第一行字
+ * @param    str2       第二行字
+ */
+void LCDPrintScreen(uchar str1[],uchar str2[]){
+	LCDWirteCommand(0x01);
+	LCDMoveCursor(0,0);
+	while(*str1){
+		LCDWriteData(*str1++);
+	}
+	LCDMoveCursor(0,1);
+	while(*str2){
+		LCDWriteData(*str2++);
 	}
 }
 /**

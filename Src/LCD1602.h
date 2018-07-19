@@ -62,6 +62,26 @@ void LCDCls();
  */
 void LCDPrintChar(uchar x,uchar y,uchar c);
 /**
+ * 在指定位置显示一个整数
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-18
+ * @Summury
+ * @param    x          字符的x坐标，在0~15之间
+ * @param    y          字符的y坐标，在0~1之间
+ * @param    num        要显示整数
+ */
+void LCDPrintNum(uchar x,uchar y,int num);
+/**
+ * 在指定位置显示一个浮点数，三位整数，三位小数，数量级以10E3递增，大于999M定义为无穷
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-18
+ * @Summury
+ * @param    x          字符的x坐标，在0~15之间
+ * @param    y          字符的y坐标，在0~1之间
+ * @param    num        要显示整数
+ */
+void LCDPrintFloat(uchar x,uchar y,float num);
+/**
  * 在指定位置显示一个字符串
  * @Author   Xiaobo     Yang
  * @DateTime 2018-07-15
@@ -81,6 +101,15 @@ void LCDPrintStr(uchar x,uchar y,uchar str[]);
  * @param    str        要显示的字符串
  */
 void LCDPrintLine(uchar x,uchar y,uchar str[]);
+/**
+ * 打印两行字在屏幕上
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-19
+ * @Summury
+ * @param    str1       第一行字
+ * @param    str2       第二行字
+ */
+void LCDPrintScreen(uchar str1[],uchar str2[]);
 /**
  * 从坐标x，y开始清除长度为len的字符
  * @Author   Xiaobo     Yang

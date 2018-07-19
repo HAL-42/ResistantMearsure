@@ -80,6 +80,11 @@ void T0INT() interrupt 1 using 1{
 		isTimerEvnet=1;				//告知主程序发生计时器事件
 	}
 }
+
+/////////
+//TODO:防止溢出 //
+/////////
+
 /**
  * 计算脉冲数，频率和电阻
  * @Author   Xiaobo     Yang
