@@ -31,7 +31,7 @@ bit isTimerEvent;			//记录是否有定时器事件发生（完成一次频率�
 long curN;					//当前测得脉冲数
 float curFreq;				//当前测得频率
 long refLowRN;				//低档位下参考脉冲数
-long refHignRN;				//高档位下参考脉冲数
+long refHighRN;				//高档位下参考脉冲数
 
 //-------------------------筛选器相关全局变量-----------------------------//
 uchar filterCon;
@@ -81,7 +81,7 @@ void SetZero(){
 	StartTimer();												//高档位采样
 	while(!isTimerEvent);
 	GetRVal();
-	refHignRN=curN;
+	refHighRN=curN;
 	LCDPrintScreen("Set Zero","Finished");						//调0完毕
 	delaynms(2000);
 	if(IsDebug){												//调试模式下，显示调0测量结果

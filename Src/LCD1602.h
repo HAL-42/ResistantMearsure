@@ -119,7 +119,7 @@ void LCDPrintScreen(uchar str1[],uchar str2[]);
  * @param    y          清除开始纵坐标y
  * @param    len        要清除的长度
  */
-void LCDErase(ucahr x,uchar y,uchar len);
+void LCDErase(uchar x,uchar y,uchar len);
 /**
  * 打开显示屏并显示闪烁的光标。
  * @Author   Xiaobo     Yang

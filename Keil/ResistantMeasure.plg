@@ -1,0 +1,623 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\GitHub\ResitantMearsure\ResistantMearsure\Keil\ResistantMeasure.uvproj
+Project File Date:  07/19/2018
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\RM.H(6): warning C318: can't open file 'STC12.h'
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\RM.H(6): warning C318: can't open file 'STC12.h'
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\RM.H(6): warning C318: can't open file 'STC12.h'
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+..\SRC\RESISTANTMEASURE.C(52): error C202: 'P1M0': undefined identifier
+..\SRC\RESISTANTMEASURE.C(53): error C202: 'P1M1': undefined identifier
+compiling RM.c...
+..\SRC\RM.H(6): warning C318: can't open file 'STC12.h'
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+compiling Timer.c...
+..\SRC\RM.H(6): warning C318: can't open file 'STC12.h'
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling Key.c...
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+compiling RM.c...
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+compiling Timer.c...
+..\SRC\RM.H(13): error C301: identifier expected
+..\SRC\RM.H(14): error C301: identifier expected
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+compiling RM.c...
+..\SRC\RM.C(11): warning C206: 'delay1ms': missing function-prototype
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+..\SRC\RESISTANTMEASURE.C(15): error C141: syntax error near 'sbit'
+..\SRC\RESISTANTMEASURE.C(16): error C141: syntax error near 'sbit'
+..\SRC\RESISTANTMEASURE.C(17): error C141: syntax error near 'sbit'
+compiling RM.c...
+..\SRC\RM.C(11): warning C206: 'delay1ms': missing function-prototype
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near ';', expected '='
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near ';', expected '='
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.H(122): error C141: syntax error near 'x', expected ')'
+..\SRC\RESISTANTMEASURE.C(15): error C141: syntax error near 'sbit'
+..\SRC\RESISTANTMEASURE.C(16): error C141: syntax error near 'sbit'
+..\SRC\RESISTANTMEASURE.C(17): error C141: syntax error near 'sbit'
+compiling RM.c...
+..\SRC\RM.C(11): warning C206: 'delay1ms': missing function-prototype
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near ';', expected '='
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near ';', expected '='
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\RESISTANTMEASURE.C(15): error C141: syntax error near 'sbit'
+..\SRC\RESISTANTMEASURE.C(16): error C141: syntax error near 'sbit'
+..\SRC\RESISTANTMEASURE.C(17): error C141: syntax error near 'sbit'
+compiling RM.c...
+..\SRC\RM.C(11): warning C206: 'delay1ms': missing function-prototype
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+compiling RM.c...
+..\SRC\RM.C(11): warning C206: 'delay1ms': missing function-prototype
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+compiling RM.c...
+..\SRC\RM.C(11): warning C206: 'delay1ms': missing function-prototype
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+compiling RM.c...
+..\SRC\RM.C(11): warning C206: 'delay1ms': missing function-prototype
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+compiling RM.c...
+..\SRC\RM.C(11): warning C206: 'delay1ms': missing function-prototype
+..\SRC\RM.C(20): error C231: 'delay1ms': redefinition
+..\SRC\RM.C(24): error C231: 'delay1ms': redefinition
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\RESISTANTMEASURE.C(92): error C202: 'refHighRN': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\RESISTANTMEASURE.C(92): error C202: 'refHighRN': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(7): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(29): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(31): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+..\SRC\TIMER.C(73): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(135): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(139): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(141): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(145): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(160): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(162): error C202: 'capSel': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(7): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(29): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(31): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+..\SRC\TIMER.C(73): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(135): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(139): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(141): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(145): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(160): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(162): error C202: 'capSel': undefined identifier
+Target not created
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+..\Src\LCD1602.c - 3 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\RESISTANTMEASURE.C(84): error C202: 'refHignRN': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(7): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(29): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(31): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+..\SRC\TIMER.C(35): error C202: 'refHignRN': undefined identifier
+..\SRC\TIMER.C(73): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(135): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(139): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(141): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(145): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(160): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(162): error C202: 'capSel': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(15): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(16): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(17): error C141: syntax error near 'sbit'
+..\SRC\KEY.C(42): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(48): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(57): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(59): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(63): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(69): error C202: 'key1': undefined identifier
+..\SRC\KEY.C(75): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(81): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(90): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(102): error C202: 'key2': undefined identifier
+..\SRC\KEY.C(108): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(114): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(123): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(135): error C202: 'key3': undefined identifier
+..\SRC\KEY.C(147): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(159): error C202: 'key1Events': undefined identifier
+..\SRC\KEY.C(175): error C202: 'key1Events': undefined identifier
+compiling LCD1602.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+..\SRC\LCD1602.C(92): error C141: syntax error near ')'
+..\SRC\LCD1602.C(97): error C141: syntax error near 'data'
+compiling ResistantMeasure.c...
+..\SRC\LCD1602.H(39): error C141: syntax error near ')'
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(6): error C141: syntax error near 'sbit'
+..\SRC\TIMER.C(7): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(29): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(31): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(33): error C202: 'curFreq': undefined identifier
+..\SRC\TIMER.C(35): error C202: 'refHignRN': undefined identifier
+..\SRC\TIMER.C(73): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(135): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(139): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(141): error C202: 'capSel': undefined identifier
+..\SRC\TIMER.C(145): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(160): error C202: 'isTimerEvent': undefined identifier
+..\SRC\TIMER.C(162): error C202: 'capSel': undefined identifier
+Target not created

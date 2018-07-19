@@ -1,0 +1,204 @@
+C51 COMPILER V9.01   TIMER                                                                 07/19/2018 10:51:57 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN .\Timer.obj
+COMPILER INVOKED BY: D:\Kell\C51\BIN\C51.EXE ..\Src\Timer.c BROWSE DEBUG OBJECTEXTEND PRINT(.\Timer.lst) OBJECT(.\Timer.
+                    -obj)
+
+line level    source
+
+   1          #include "RM.h"
+   2          #include "Timer.h"
+   3          
+   4          extern uchar timerFun;
+   5          
+   6          extern sbit capSel;                     //电容选择接口
+*** ERROR C141 IN LINE 6 OF ..\SRC\TIMER.C: syntax error near 'sbit'
+   7          extern bit isTimerEvent;                        //记录是否有定时器事件发生（完成一次频率测量）
+*** ERROR C202 IN LINE 7 OF ..\SRC\TIMER.C: 'isTimerEvent': undefined identifier
+   8          extern long curN;                                       //当前测得脉冲数
+   9          extern long curFreqE5;                          //当前测得频率
+  10          extern float curRValue;                         //记录当前测得电阻阻值
+  11          extern long refLowRN;                           //低档位下参考脉冲数
+  12          extern long refHighRN;                          //高档位下参考脉冲数
+  13          
+  14          uchar t0IntrTimes;                                      //T0用于计时，T1用于计数，两个变量储存他们的溢出次数
+  15          uchar t1IntrTimes;
+  16          /**
+  17           * 设定初值,中断允许,计时优先，设定TMOD(51)
+  18           * @Author   Xiaobo     Yang
+  19           * @DateTime 2018-07-18
+  20           * @Summury 用于软重设，因此所有全局变量都需要重设
+  21           */
+  22          void InitialTimers(){
+  23   1              EA=1;                                                   //允许中断，并让计时器的中断优先级最高
+  24   1              ET0=1;
+  25   1              ET1=1;
+  26   1              PT0=1;
+  27   1              PT1=0;
+  28   1              TMOD=0x51;                                              //T0用于计时，T1用于计数
+  29   1              capSel=CAPSEL_LOWR;                             //重置所有全局变量
+*** ERROR C202 IN LINE 29 OF ..\SRC\TIMER.C: 'capSel': undefined identifier
+  30   1              curRValue=0;
+  31   1              isTimerEvent=0;
+*** ERROR C202 IN LINE 31 OF ..\SRC\TIMER.C: 'isTimerEvent': undefined identifier
+  32   1              curN=0;
+  33   1              curFreq=0;
+*** ERROR C202 IN LINE 33 OF ..\SRC\TIMER.C: 'curFreq': undefined identifier
+  34   1              refLowRN=0;
+  35   1              refHignRN=0;
+*** ERROR C202 IN LINE 35 OF ..\SRC\TIMER.C: 'refHignRN': undefined identifier
+  36   1              t0IntrTimes=0;
+  37   1              t1IntrTimes=0;
+  38   1              TH0=TL0=0;
+  39   1              TH1=TL1=0;
+  40   1              timerFun=TIMERFUN_FREQ_MEASRURE;//计时器初始功能为频率测量
+  41   1      }
+  42          /**
+  43           * 切换计时器功能
+  44           * @Author   Xiaobo     Yang
+  45           * @DateTime 2018-07-19
+  46           * @Summury
+  47           * @param    fun        功能描述
+  48           */
+C51 COMPILER V9.01   TIMER                                                                 07/19/2018 10:51:57 PAGE 2   
+
+  49          void SwitchTimerFun(uchar fun){
+  50   1              timerFun=fun;
+  51   1              TR1=TR0=0;                                                              //切换功能前先让定时器停止工作，下次使用时强制用StartTimer初始
+             -化
+  52   1              switch(fun){
+  53   2                      case TIMERFUN_FREQ_MEASRURE:            //频率测量，T1计数，T2计时
+  54   2                              TMOD=0x51;
+  55   2                              break;
+  56   2                      case TIMERFUN_PWM:                                      //PWM波输出控制舵机，两个都计时
+  57   2                              TMOD=0x11;
+  58   2                              break;
+  59   2                      case TIMERFUN_KEY_SCAN:                         //键盘扫描，两个都计时
+  60   2                              TMOD=0x11;
+  61   2                              break;
+  62   2                      case TIMERFUN_HALT:                                     //键盘扫描
+  63   2                              break;
+  64   2              }
+  65   1      }
+  66          /**
+  67           * 初始化T0,T1;开启计时器，开始测量频率
+  68           * @Author   Xiaobo     Yang
+  69           * @DateTime 2018-07-18
+  70           * @Summury
+  71           */
+  72          void StartTimer(){
+  73   1              isTimerEvent=0;                                                 //保险起见，再重置一次时钟事件，防止客户没有使用GetRVal函�
+             -�
+*** ERROR C202 IN LINE 73 OF ..\SRC\TIMER.C: 'isTimerEvent': undefined identifier
+  74   1              t0IntrTimes=0;                                          
+  75   1              t1IntrTimes=0;
+  76   1              switch(timerFun){
+  77   2                      case TIMERFUN_FREQ_MEASRURE:
+  78   2                              TH0=TL0=0;                                              //计时器从0开始计时
+  79   2                              TH1=TL1=0;                                              //计数器从0开始计数
+  80   2                              TR0=1;                                                  //开启计时器
+  81   2                              TR1=1;                                                  //开启计数器
+  82   2                              break;
+  83   2                      case TIMERFUN_PWM:
+  84   2                              /////////
+  85   2                              //TODO:NOT FINISHED//
+  86   2                              /////////
+  87   2                              break;
+  88   2                      case TIMERFUN_KEY_SCAN:
+  89   2                              //////////////////////
+  90   2                              //TODO:NOT FINISHED //
+  91   2                              //////////////////////
+  92   2                              break;
+  93   2                      case TIMERFUN_HALT:
+  94   2                              //////////////////////
+  95   2                              //TODO:NOT FINISHED //
+  96   2                              //////////////////////
+  97   2                              break;
+  98   2              }
+  99   1      }
+ 100          /**
+ 101           * T1中断，溢出计数加一
+ 102           * @Author   Xiaobo     Yang
+ 103           * @DateTime 2018-07-18
+ 104           * @Summury
+ 105           */
+ 106          void T1INT() interrupt 3 using 2{
+ 107   1              switch(timerFun){
+C51 COMPILER V9.01   TIMER                                                                 07/19/2018 10:51:57 PAGE 3   
+
+ 108   2                      case TIMERFUN_FREQ_MEASRURE:                                    //溢出计数加一，自动重装
+ 109   2                              t1IntrTimes++;  
+ 110   2                              break;                                  
+ 111   2                      case TIMERFUN_PWM:
+ 112   2                              /////////
+ 113   2                              //TODO:NOT FINISHED//
+ 114   2                              /////////
+ 115   2                              break;
+ 116   2                      case TIMERFUN_KEY_SCAN:
+ 117   2                              //////////////////////
+ 118   2                              //TODO:NOT FINISHED //
+ 119   2                              //////////////////////
+ 120   2                              break;
+ 121   2                      case TIMERFUN_HALT:
+ 122   2                              //////////////////////
+ 123   2                              //TODO:NOT FINISHED //
+ 124   2                              //////////////////////
+ 125   2                              break;
+ 126   2              }
+ 127   1      }
+ 128          /**
+ 129           * T0中断
+ 130           * @Author   Xiaobo     Yang
+ 131           * @DateTime 2018-07-18
+ 132           * @Summury
+ 133           */
+ 134          void T0INT() interrupt 1 using 1{
+ 135   1              if((capSel==CAPSEL_LOWR)                //若为低电阻档且两次溢出
+*** ERROR C202 IN LINE 135 OF ..\SRC\TIMER.C: 'capSel': undefined identifier
+ 136   1                      &&(++t0IntrTimes==2)){
+ 137   2                      TR1=0;                                          //关停计数器，计时器
+ 138   2                      TR0=0;
+ 139   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
+*** ERROR C202 IN LINE 139 OF ..\SRC\TIMER.C: 'isTimerEvent': undefined identifier
+ 140   2              }
+ 141   1              else if((capSel==CAPSEL_HIGHR)  //若为高电阻档且15次溢出
+*** ERROR C202 IN LINE 141 OF ..\SRC\TIMER.C: 'capSel': undefined identifier
+ 142   1                      &&(++t0IntrTimes==15)){
+ 143   2                      TR1=0;                                          //关停计数器，计时器
+ 144   2                      TR0=0;
+ 145   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
+*** ERROR C202 IN LINE 145 OF ..\SRC\TIMER.C: 'isTimerEvent': undefined identifier
+ 146   2              }
+ 147   1      }
+ 148          
+ 149          /////////
+ 150          //TODO:防止溢出 //
+ 151          /////////
+ 152          
+ 153          /**
+ 154           * 计算脉冲数，频率和电阻
+ 155           * @Author   Xiaobo     Yang
+ 156           * @DateTime 2018-07-18
+ 157           * @Summury  本函数中魔鬼数字较多，为的是提高计算精度。所有数据都是在MATLAB中
+             -计算后带入，切勿随意修改
+ 158           */
+ 159          void GetRVal(){
+ 160   1              isTimerEvent=0;
+*** ERROR C202 IN LINE 160 OF ..\SRC\TIMER.C: 'isTimerEvent': undefined identifier
+ 161   1              curN=t1IntrTimes*65536+TH1*256+TL1; // 计算脉冲次数
+ 162   1              if(capSel==CAPSEL_LOWR){
+*** ERROR C202 IN LINE 162 OF ..\SRC\TIMER.C: 'capSel': undefined identifier
+C51 COMPILER V9.01   TIMER                                                                 07/19/2018 10:51:57 PAGE 4   
+
+ 163   2                      curFreqE5=703125*curN;
+ 164   2                      curRValue=1.69065825104e9F*( (refLowRN-curN)/(refLowRN*curN) );
+ 165   2              }
+ 166   1              else{
+ 167   2                      curFreqE5=93750*curN;
+ 168   2                      curRValue=1.53887471028e11F*( (refHighRN-curN)/(refHighRN*curN) );
+ 169   2              }
+ 170   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  13 ERROR(S)

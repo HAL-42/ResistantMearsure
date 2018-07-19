@@ -16,7 +16,7 @@ void delaynms(uchar n)
  * @DateTime 2018-07-16
  * @Summary (3j+2)*i=(3 × 33+2)× 10=1010(微秒)，可以认为是1 毫秒
  */
-void Delay1ms()
+void delay1ms()
 {
 	uchar i,j;
 	for(i=0;i<10;i++) 

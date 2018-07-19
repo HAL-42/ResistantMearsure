@@ -3,13 +3,13 @@
 
 extern uchar timerFun;
 
-extern sbit capSel=P2^4;			//电容选择接口
+extern sbit capSel;			//电容选择接口
 extern bit isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
 extern long curN;					//当前测得脉冲数
 extern long curFreqE5;				//当前测得频率
 extern float curRValue;				//记录当前测得电阻阻值
 extern long refLowRN;				//低档位下参考脉冲数
-extern long refHignRN;				//高档位下参考脉冲数
+extern long refHighRN;				//高档位下参考脉冲数
 
 uchar t0IntrTimes;					//T0用于计时，T1用于计数，两个变量储存他们的溢出次数
 uchar t1IntrTimes;
@@ -165,6 +165,6 @@ void GetRVal(){
 	}
 	else{
 		curFreqE5=93750*curN;
-		curRValue=1.53887471028e11F*( (refHignRN-curN)/(refHignRN*curN) );
+		curRValue=1.53887471028e11F*( (refHighRN-curN)/(refHighRN*curN) );
 	}
 }
