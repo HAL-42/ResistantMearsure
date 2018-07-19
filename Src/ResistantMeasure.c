@@ -54,8 +54,7 @@ void main(){
 	//初始化其他外围设备
 	InitialTimers();							//初始化计时器	
 	KeyInitial();								//初始化键盘
-	LcdInitiate();								//初始化LCD1602显示屏
-	
+	LcdInitiate();								//初始化LCD1602显示屏
 	SetZero();
 
 	StartTimer();

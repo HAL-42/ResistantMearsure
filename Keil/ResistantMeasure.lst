@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 13:44:58 PAGE 1   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 13:55:33 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE RESISTANTMEASURE
@@ -62,88 +62,87 @@ line level    source
   52   1              P1M0 = 0xf8;                                                            //#11111000b
   53   1              P1M1 = 0x07;                                                            //#00000111b
   54   1              //初始化其他外围设备
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 13:44:58 PAGE 2   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 13:55:33 PAGE 2   
 
   55   1              InitialTimers();                                                        //初始化计时器    
   56   1              KeyInitial();                                                           //初始化键盘
-  57   1              LcdInitiate();                                                          //初始化LCD1602显示屏
-  58   1              
-  59   1              SetZero();
-  60   1      
-  61   1              StartTimer();
-  62   1              while(1){
-  63   2                      KeyScan();
-  64   2                      if(isKeyEvents) KeyEventsCallBack();
-  65   2                      if(isTimerEvent) TimerEventsCallBack();
-  66   2              }
-  67   1      }
-  68          
-  69          void SetZero(){
-  70   1              LCDPrintScreen("Cross Probes And","Press Any Button");
-  71   1              PressAnyKey();                                                                                          //等待用户按照指示短接红黑表笔
-  72   1              LCDPrintScreen("Mearsuring...","Please Wait");
-  73   1              capSel=CAPSEL_LOWR;                                                                                     //先归零低档位
-  74   1              delaynms(3000);                                                                                         //等待某些反应迟钝的用户
-  75   1              StartTimer();                                                                                           //开始采样
-  76   1              while(!isTimerEvent);
-  77   1              GetRVal();                                                                                                      //低档位采样结束，算出低档位下的“标准N”
-  78   1              refLowRN=curN;
-  79   1              capSel=CAPSEL_HIGHR;                                                                            //设定到高档位，并等待0.2秒，让继电器反应过来
-  80   1              delaynms(200);
-  81   1              StartTimer();                                                                                           //高档位采样
-  82   1              while(!isTimerEvent);
-  83   1              GetRVal();
-  84   1              refHighRN=curN;
-  85   1              LCDPrintScreen("Set Zero","Finished");                                          //调0完毕
-  86   1              delaynms(2000);
-  87   1              if(IsDebug){                                                                                            //调试模式下，显示调0测量结果
-  88   2                      LCDCls();
-  89   2                      LCDPrintStr(0,0,"LOW");
-  90   2                      LCDPrintNum(6,0,refLowRN);
-  91   2                      LCDPrintStr(0,1,"HIGH");
-  92   2                      LCDPrintNum(6,1,refHighRN);
-  93   2              }
-  94   1      }
-  95          
-  96          void KeyEventsCallBack(){
-  97   1              switch(key1Events){
-  98   2                      case SHORT_PRESS:
-  99   2                              LCDPrintScreen("KEY1","SHORT_PRESS");
- 100   2                              break;
- 101   2                      case LONG_PRESS:
- 102   2                              LCDPrintScreen("KEY1","LONG_PRESS");
- 103   2                              break;
- 104   2              }
- 105   1              switch(key2Events){
- 106   2                      case SHORT_PRESS:
- 107   2                              LCDPrintScreen("KEY2","SHORT_PRESS");
- 108   2                              break;
- 109   2                      case LONG_PRESS:
- 110   2                              LCDPrintScreen("KEY2","LONG_PRESS");
- 111   2                              break;
- 112   2              }
- 113   1              switch(key3Events){
- 114   2                      case SHORT_PRESS:
- 115   2                              LCDPrintScreen("KEY3","SHORT_PRESS");
- 116   2                              break;
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 13:44:58 PAGE 3   
+  57   1              LcdInitiate();                                                          //初始化LCD1602显示屏
+  58   1              SetZero();
+  59   1      
+  60   1              StartTimer();
+  61   1              while(1){
+  62   2                      KeyScan();
+  63   2                      if(isKeyEvents) KeyEventsCallBack();
+  64   2                      if(isTimerEvent) TimerEventsCallBack();
+  65   2              }
+  66   1      }
+  67          
+  68          void SetZero(){
+  69   1              LCDPrintScreen("Cross Probes And","Press Any Button");
+  70   1              PressAnyKey();                                                                                          //等待用户按照指示短接红黑表笔
+  71   1              LCDPrintScreen("Mearsuring...","Please Wait");
+  72   1              capSel=CAPSEL_LOWR;                                                                                     //先归零低档位
+  73   1              delaynms(3000);                                                                                         //等待某些反应迟钝的用户
+  74   1              StartTimer();                                                                                           //开始采样
+  75   1              while(!isTimerEvent);
+  76   1              GetRVal();                                                                                                      //低档位采样结束，算出低档位下的“标准N”
+  77   1              refLowRN=curN;
+  78   1              capSel=CAPSEL_HIGHR;                                                                            //设定到高档位，并等待0.2秒，让继电器反应过来
+  79   1              delaynms(200);
+  80   1              StartTimer();                                                                                           //高档位采样
+  81   1              while(!isTimerEvent);
+  82   1              GetRVal();
+  83   1              refHighRN=curN;
+  84   1              LCDPrintScreen("Set Zero","Finished");                                          //调0完毕
+  85   1              delaynms(2000);
+  86   1              if(IsDebug){                                                                                            //调试模式下，显示调0测量结果
+  87   2                      LCDCls();
+  88   2                      LCDPrintStr(0,0,"LOW");
+  89   2                      LCDPrintNum(6,0,refLowRN);
+  90   2                      LCDPrintStr(0,1,"HIGH");
+  91   2                      LCDPrintNum(6,1,refHighRN);
+  92   2              }
+  93   1      }
+  94          
+  95          void KeyEventsCallBack(){
+  96   1              switch(key1Events){
+  97   2                      case SHORT_PRESS:
+  98   2                              LCDPrintScreen("KEY1","SHORT_PRESS");
+  99   2                              break;
+ 100   2                      case LONG_PRESS:
+ 101   2                              LCDPrintScreen("KEY1","LONG_PRESS");
+ 102   2                              break;
+ 103   2              }
+ 104   1              switch(key2Events){
+ 105   2                      case SHORT_PRESS:
+ 106   2                              LCDPrintScreen("KEY2","SHORT_PRESS");
+ 107   2                              break;
+ 108   2                      case LONG_PRESS:
+ 109   2                              LCDPrintScreen("KEY2","LONG_PRESS");
+ 110   2                              break;
+ 111   2              }
+ 112   1              switch(key3Events){
+ 113   2                      case SHORT_PRESS:
+ 114   2                              LCDPrintScreen("KEY3","SHORT_PRESS");
+ 115   2                              break;
+ 116   2                      case LONG_PRESS:
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/19/2018 13:55:33 PAGE 3   
 
- 117   2                      case LONG_PRESS:
- 118   2                              LCDPrintScreen("KEY3","LONG_PRESS");
- 119   2                              break;
- 120   2              }
- 121   1              RstKeyEvents();
- 122   1              PressAnyKey();          
- 123   1      }
- 124          
- 125          void TimerEventsCallBack(){
- 126   1              GetRVal();
- 127   1              StartTimer();
- 128   1              LCDCls();
- 129   1              LCDPrintStr(0,0,"R=");
- 130   1              LCDPrintFloat(2,0,curRValue);
- 131   1              LCDPrintChar(15,0,0x00);
- 132   1      }
+ 117   2                              LCDPrintScreen("KEY3","LONG_PRESS");
+ 118   2                              break;
+ 119   2              }
+ 120   1              RstKeyEvents();
+ 121   1              PressAnyKey();          
+ 122   1      }
+ 123          
+ 124          void TimerEventsCallBack(){
+ 125   1              GetRVal();
+ 126   1              StartTimer();
+ 127   1              LCDCls();
+ 128   1              LCDPrintStr(0,0,"R=");
+ 129   1              LCDPrintFloat(2,0,curRValue);
+ 130   1              LCDPrintChar(15,0,0x00);
+ 131   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
