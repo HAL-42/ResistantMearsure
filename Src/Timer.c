@@ -37,6 +37,7 @@ void InitialTimers(){
 	t1IntrTimes=0;
 	TH0=TL0=0;
 	TH1=TL1=0;
+	TR1=TR0=0;
 	timerFun=TIMERFUN_FREQ_MEASRURE;//计时器初始功能为频率测量
 }
 /**
