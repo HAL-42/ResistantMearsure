@@ -57,19 +57,10 @@ void main(){
 	//初始化其他外围设备
 	InitialTimers();							//初始化计时器	
 	KeyInitial();								//初始化键盘
-	Led1=1;
-	delaynms(1000);
-	LcdInitiate();								//初始化LCD1602显示屏
-	Led2=1;
-	delaynms(1000);
-	Led3=1;
-	delaynms(1000);
-	Led1=Led2=Led3=0;
 	while(1){
 		SetZero();
 		Led1=Led2=Led3=0;
 	}
-	Led1=0;
 	StartTimer();
 	while(1){
 		KeyScan();
