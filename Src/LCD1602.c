@@ -114,6 +114,7 @@ void LCDWriteData(uchar x){
  */
 void LcdInitiate(void)
 {
+	uchar i;
 	delaynms(15); 				//延时15ms，首次写指令时应给LCD 一段较长的反应时间
 	LCDWriteCommand(0x38); 		//显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
 	delaynms(5); 				//延时5ms ，给硬件一点反应时间
@@ -125,8 +126,7 @@ void LcdInitiate(void)
 	delaynms(5); 				//延时5ms ，给硬件一点反应时间
 	LCDWriteCommand(0x06); 		//显示模式设置：光标右移，字符不移
 	delaynms(5);				//延时5ms ，给硬件一点反应时间
-	LCDWriteCommand(0x40);		//写入自定义字符
-	uchar i;					
+	LCDWriteCommand(0x40);		//写入自定义字符					
 	for(i=0;i<8;i++){
 		LCDWriteData(funnelIcon[i]);
 		}
@@ -166,14 +166,14 @@ void LCDPrintChar(uchar x,uchar y,uchar c){
  * @param    num        要显示整数
  */
 void LCDPrintNum(uchar x,uchar y,int num){
-	LCDMoveCursor(x,y);
 	uchar i=0;
+	LCDMoveCursor(x,y);	
 	do{
 		tmp[i++]=num%10;
 		num/=10;
 	}while(num);
 	while(i){
-		LCDWriteData(tem[--i]+'0');
+		LCDWriteData(tmp[--i]+'0');
 	}
 }
 /**
@@ -188,32 +188,32 @@ void LCDPrintNum(uchar x,uchar y,int num){
 void LCDPrintFloat(uchar x,uchar y,float num){
 	LCDMoveCursor(x,y);
 	if(num>=1e9){
-		LCDPrintStr("Infinite");
+		LCDPrintStr(x,y,"Infinite");
 	}
 	else if(num>=1e6){
 		num/=1e6;
 		intPart=(int) num;
 		decPart=(int) (num-intPart)*1000;
-		LCDPrintNum(intPart);
+		LCDPrintNum(x,y,intPart);
 		LCDWriteData('.');
-		LCDPrintNum(decPart);
+		LCDPrintNum(x+4,y,decPart);
 		LCDWriteData('M');
 	}
 	else if(num>1e3){
 		num/=1e3;
 		intPart=(int) num;
 		decPart=(int) (num-intPart)*1000;
-		LCDPrintNum(intPart);
+		LCDPrintNum(x,y,intPart);
 		LCDWriteData('.');
-		LCDPrintNum(decPart);
+		LCDPrintNum(x+4,y,decPart);
 		LCDWriteData('K');
 	}
 	else{
 		intPart=(int) num;
 		decPart=(int) (num-intPart)*10000;
-		LCDPrintNum(intPart);
+		LCDPrintNum(x,y,intPart);
 		LCDWriteData('.');
-		LCDPrintNum(decPart);
+		LCDPrintNum(x+4,y,decPart);
 	}
 }
 /**
@@ -242,8 +242,8 @@ void LCDPrintStr(uchar x,uchar y,uchar str[]){
  * @param    str        要显示的字符串
  */
 void LCDPrintLine(uchar x,uchar y,uchar str[]){
-	LCDMoveCursor(0,y);
 	uchar i;
+	LCDMoveCursor(0,y);
 	for(i=0;i<0x10;i++) LCDWriteData(0x20);
 	LCDMoveCursor(x,y);
 	while(*str){
@@ -280,8 +280,8 @@ void LCDPrintScreen(uchar str1[],uchar str2[]){
  * @param    len        要清除的长度
  */
 void LCDErase(uchar x,uchar y,uchar len){
-	LCDMoveCursor(x,y);
 	uchar i;
+	LCDMoveCursor(x,y);
 	for(i=0;i<len;i++) LCDWriteData(0x20);
 }
 /**

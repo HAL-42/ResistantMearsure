@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 1   
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE LCD1602
@@ -62,7 +62,7 @@ line level    source
   51   1              rs=0;
   52   1              rw=0;
   53   1              en=0;
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 2   
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 2   
 
   54   1              DataPort=CMD;
   55   1              _nop_();                        
@@ -126,28 +126,24 @@ line level    source
  113           * @Summury
  114           */
  115          void LcdInitiate(void)
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 3   
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 3   
 
  116          {
- 117   1              delaynms(15);                           //延时15ms，首次写指令时应给LCD 一段较长的反应时间
- 118   1              LCDWriteCommand(0x38);          //显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
- 119   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 120   1              LCDWriteCommand(0x38);
- 121   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 122   1              LCDWriteCommand(0x38);          //连续三次，确保初始化成功
- 123   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 124   1              LCDWriteCommand(0x0c);          //显示模式设置：显示开，无光标，光标不闪烁
- 125   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 126   1              LCDWriteCommand(0x06);          //显示模式设置：光标右移，字符不移
- 127   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
- 128   1              LCDWriteCommand(0x40);          //写入自定义字符
- 129   1              uchar i;                                        
-*** ERROR C141 IN LINE 129 OF ..\SRC\LCD1602.C: syntax error near 'unsigned'
-*** ERROR C202 IN LINE 129 OF ..\SRC\LCD1602.C: 'i': undefined identifier
+ 117   1              uchar i;
+ 118   1              delaynms(15);                           //延时15ms，首次写指令时应给LCD 一段较长的反应时间
+ 119   1              LCDWriteCommand(0x38);          //显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
+ 120   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
+ 121   1              LCDWriteCommand(0x38);
+ 122   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
+ 123   1              LCDWriteCommand(0x38);          //连续三次，确保初始化成功
+ 124   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
+ 125   1              LCDWriteCommand(0x0c);          //显示模式设置：显示开，无光标，光标不闪烁
+ 126   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
+ 127   1              LCDWriteCommand(0x06);          //显示模式设置：光标右移，字符不移
+ 128   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
+ 129   1              LCDWriteCommand(0x40);          //写入自定义字符                                        
  130   1              for(i=0;i<8;i++){
-*** ERROR C202 IN LINE 130 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  131   2                      LCDWriteData(funnelIcon[i]);
-*** ERROR C202 IN LINE 131 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  132   2                      }
  133   1              LCDWriteCommand(0x01);          //清屏幕指令，将以前的显示内容清除
  134   1              delaynms(5);                            //延时5ms ，给硬件一点反应时间
@@ -185,22 +181,17 @@ line level    source
  166           * @param    num        要显示整数
  167           */
  168          void LCDPrintNum(uchar x,uchar y,int num){
- 169   1              LCDMoveCursor(x,y);
- 170   1              uchar i=0;
-*** ERROR C141 IN LINE 170 OF ..\SRC\LCD1602.C: syntax error near 'unsigned'
-*** ERROR C202 IN LINE 170 OF ..\SRC\LCD1602.C: 'i': undefined identifier
+ 169   1              uchar i=0;
+ 170   1              LCDMoveCursor(x,y);     
  171   1              do{
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 4   
-
  172   2                      tmp[i++]=num%10;
-*** ERROR C202 IN LINE 172 OF ..\SRC\LCD1602.C: 'i': undefined identifier
  173   2                      num/=10;
  174   2              }while(num);
  175   1              while(i){
-*** ERROR C202 IN LINE 175 OF ..\SRC\LCD1602.C: 'i': undefined identifier
- 176   2                      LCDWriteData(tem[--i]+'0');
-*** ERROR C202 IN LINE 176 OF ..\SRC\LCD1602.C: 'i': undefined identifier
+ 176   2                      LCDWriteData(tmp[--i]+'0');
  177   2              }
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 4   
+
  178   1      }
  179          /**
  180           * 在指定位置显示一个浮点数，三位整数，三位小数，数量级以10E3递增，大于999
@@ -215,32 +206,32 @@ line level    source
  188          void LCDPrintFloat(uchar x,uchar y,float num){
  189   1              LCDMoveCursor(x,y);
  190   1              if(num>=1e9){
- 191   2                      LCDPrintStr("Infinite");
+ 191   2                      LCDPrintStr(x,y,"Infinite");
  192   2              }
  193   1              else if(num>=1e6){
  194   2                      num/=1e6;
  195   2                      intPart=(int) num;
  196   2                      decPart=(int) (num-intPart)*1000;
- 197   2                      LCDPrintNum(intPart);
+ 197   2                      LCDPrintNum(x,y,intPart);
  198   2                      LCDWriteData('.');
- 199   2                      LCDPrintNum(decPart);
+ 199   2                      LCDPrintNum(x+4,y,decPart);
  200   2                      LCDWriteData('M');
  201   2              }
  202   1              else if(num>1e3){
  203   2                      num/=1e3;
  204   2                      intPart=(int) num;
  205   2                      decPart=(int) (num-intPart)*1000;
- 206   2                      LCDPrintNum(intPart);
+ 206   2                      LCDPrintNum(x,y,intPart);
  207   2                      LCDWriteData('.');
- 208   2                      LCDPrintNum(decPart);
+ 208   2                      LCDPrintNum(x+4,y,decPart);
  209   2                      LCDWriteData('K');
  210   2              }
  211   1              else{
  212   2                      intPart=(int) num;
  213   2                      decPart=(int) (num-intPart)*10000;
- 214   2                      LCDPrintNum(intPart);
+ 214   2                      LCDPrintNum(x,y,intPart);
  215   2                      LCDWriteData('.');
- 216   2                      LCDPrintNum(decPart);
+ 216   2                      LCDPrintNum(x+4,y,decPart);
  217   2              }
  218   1      }
  219          /**
@@ -254,8 +245,6 @@ line level    source
  227           */
  228          void LCDPrintStr(uchar x,uchar y,uchar str[]){
  229   1              LCDMoveCursor(x,y);
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 5   
-
  230   1              while(*str){
  231   2                      LCDWriteData(*str);
  232   2                      str++;
@@ -265,6 +254,8 @@ line level    source
  236           * 打印一行，从初始坐标x，y开始，先清除要打印行原有所有字符，然后显示输�
              -�的字符
  237           * @Author   Xiaobo     Yang
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 5   
+
  238           * @DateTime 2018-07-15
  239           * @Summury
  240           * @param    x          字符显示起始横坐标
@@ -272,8 +263,8 @@ line level    source
  242           * @param    str        要显示的字符串
  243           */
  244          void LCDPrintLine(uchar x,uchar y,uchar str[]){
- 245   1              LCDMoveCursor(0,y);
- 246   1              uchar i;
+ 245   1              uchar i;
+ 246   1              LCDMoveCursor(0,y);
  247   1              for(i=0;i<0x10;i++) LCDWriteData(0x20);
  248   1              LCDMoveCursor(x,y);
  249   1              while(*str){
@@ -310,16 +301,14 @@ line level    source
  280           * @param    len        要清除的长度
  281           */
  282          void LCDErase(uchar x,uchar y,uchar len){
- 283   1              LCDMoveCursor(x,y);
- 284   1              uchar i;
+ 283   1              uchar i;
+ 284   1              LCDMoveCursor(x,y);
  285   1              for(i=0;i<len;i++) LCDWriteData(0x20);
  286   1      }
  287          /**
  288           * 打开显示屏并显示闪烁的光标。
  289           * @Author   Xiaobo     Yang
  290           * @DateTime 2018-07-15
-C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:02:08 PAGE 6   
-
  291           * @Summury
  292           */
  293          void cursor_show_LCD1602(){
@@ -329,10 +318,24 @@ line level    source
  297           * 隐藏光标。
  298           * @Author   Xiaobo     Yang
  299           * @DateTime 2018-07-15
+C51 COMPILER V9.01   LCD1602                                                               07/19/2018 11:17:11 PAGE 6   
+
  300           * @Summury
  301           */
  302          void cursor_hide_LCD1602(){
  303   1              LCDWriteCommand(0x0c);
  304   1      }
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  9 ERROR(S)
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    735    ----
+   CONSTANT SIZE    =      9    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     22      14
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
