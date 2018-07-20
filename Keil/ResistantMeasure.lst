@@ -1,0 +1,168 @@
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/20/2018 09:06:29 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE RESISTANTMEASURE
+OBJECT MODULE PLACED IN .\ResistantMeasure.obj
+COMPILER INVOKED BY: D:\Kell\C51\BIN\C51.EXE ..\Src\ResistantMeasure.c BROWSE DEBUG OBJECTEXTEND PRINT(.\ResistantMeasur
+                    -e.lst) OBJECT(.\ResistantMeasure.obj)
+
+line level    source
+
+   1          //这是一个测试版本
+   2          
+   3          
+   4          #include "RM.h"
+   5          #include "LCD1602.h"
+   6          #include "Key.h"
+   7          #include "Timer.h"
+   8          
+   9          //----------------------------LED关全局变量-------------------------------//
+  10          sbit    Led1 = P1^0;
+  11          sbit    Led2 = P1^1;
+  12          sbit    Led3 = P1^2;
+  13          
+  14          //-------------------------按键相关全局变量-------------------------------//
+  15          sbit key1=P1^5;                                 //注意低电平表示按键按下
+  16          sbit key2=P1^4;
+  17          sbit key3=P1^3;
+  18          
+  19          uchar key1Events;                       //保存Key1未处理的输入信号
+  20          uchar key2Events;                       //保存Key1未处理的输入信号
+  21          uchar key3Events;                       //保存Key1未处理的输入信号
+  22          
+  23          bit isKeyEvents;                        //记录是否有按键事件发生
+  24          
+  25          //-------------------------计时器相关全局变量-----------------------------//
+  26          uchar timerFun;                         //选择计时器作用
+  27          
+  28          sbit capSel=P2^4;                       //电容选择接口
+  29          float curRValue;                                //当前测得电阻阻值
+  30          bit isTimerEvent;                       //记录是否有定时器事件发生（完成一次频率测量）
+  31          long curN;                                      //当前测得脉冲数
+  32          float curFreqE5;                                //当前测得频率
+  33          long refLowRN;                          //低档位下参考脉冲数
+  34          long refHighRN;                         //高档位下参考脉冲数
+  35          
+  36          //-------------------------筛选器相关全局变量-----------------------------//
+  37          uchar filterCon;
+  38          bit filterEn;
+  39          
+  40          //-------------------------调试模式相关全局变量---------------------------//
+  41          bit IsDebug=1;                          //是否处于调试模式
+  42          
+  43                  ///////////////////
+  44                  //TODO:完善以下函数 //
+  45                  ///////////////////
+  46          void SetZero();
+  47          void KeyEventsCallBack();
+  48          void TimerEventsCallBack();
+  49          
+  50          void main(){
+  51   1              //定义端口输入输出,p1^0-P1^2为推挽输出，p1^3-P1^7为输入，设置PxM0，PxM1
+  52   1              P1M1 = 0x07;                                                            //8'b00000111
+  53   1              P1M0 = 0xf8;                                                            //8'b11111000
+  54   1              P3M1 = 0x80;                                                            //8'b10000000
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/20/2018 09:06:29 PAGE 2   
+
+  55   1              P3M0 = 0x20;                                                            //8'b00100000
+  56   1              Led1=Led2=Led3=0;
+  57   1              //初始化其他外围设备
+  58   1              InitialTimers();                                                        //初始化计时器    
+  59   1              KeyInitial();                                                           //初始化键盘
+  60   1              while(1){
+  61   2                      SetZero();
+  62   2                      Led1=Led2=Led3=0;
+  63   2              }
+  64   1              StartTimer();
+  65   1              while(1){
+  66   2                      KeyScan();
+  67   2                      if(isKeyEvents) KeyEventsCallBack();
+  68   2                      if(isTimerEvent) TimerEventsCallBack();
+  69   2              }
+  70   1      }
+  71          
+  72          void SetZero(){
+  73   1              extern uchar t1IntrTimes;
+  74   1              extern uchar t0IntrTimes;
+  75   1              LCDPrintScreen("Cross Probes And","Press Any Button");
+  76   1              PressAnyKey();                                                                                          //等待用户按照指示短接红黑表笔
+  77   1              LCDPrintScreen("Mearsuring...","Please Wait");
+  78   1              capSel=CAPSEL_LOWR;                                                                                     //先归零低档位
+  79   1              delaynms(3000);                                                                                         //等待某些反应迟钝的用户
+  80   1              StartTimer();                                                                                           //开始采样
+  81   1              while(!isTimerEvent);
+  82   1              GetRVal();                                                                                                      //低档位采样结束，算出低档位下的“标准N”
+  83   1              if(!TL1) Led1=1;
+  84   1              refLowRN=curN;
+  85   1              capSel=CAPSEL_HIGHR;                                                                            //设定到高档位，并等待0.2秒，让继电器反应过来
+  86   1              delaynms(1000);
+  87   1              StartTimer();                                                                                           //高档位采样
+  88   1              while(!isTimerEvent);
+  89   1              GetRVal();
+  90   1              if(!TL1) Led3=1;
+  91   1              refHighRN=curN;
+  92   1              LCDPrintScreen("Set Zero","Finished");                                          //调0完毕
+  93   1              delaynms(2000);
+  94   1              if(IsDebug){                                                                                            //调试模式下，显示调0测量结果
+  95   2                      LCDCls();
+  96   2                      LCDPrintStr(0,0,"LOW");
+  97   2                      LCDPrintNum(6,0,refLowRN);
+  98   2                      LCDPrintStr(0,1,"HIGH");
+  99   2                      LCDPrintNum(6,1,refHighRN);
+ 100   2                      PressAnyKey();
+ 101   2              }
+ 102   1      }
+ 103          
+ 104          void KeyEventsCallBack(){
+ 105   1              switch(key1Events){
+ 106   2                      case SHORT_PRESS:
+ 107   2                              LCDPrintScreen("KEY1","SHORT_PRESS");
+ 108   2                              break;
+ 109   2                      case LONG_PRESS:
+ 110   2                              LCDPrintScreen("KEY1","LONG_PRESS");
+ 111   2                              break;
+ 112   2              }
+ 113   1              switch(key2Events){
+ 114   2                      case SHORT_PRESS:
+ 115   2                              LCDPrintScreen("KEY2","SHORT_PRESS");
+ 116   2                              break;
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/20/2018 09:06:29 PAGE 3   
+
+ 117   2                      case LONG_PRESS:        
+ 118   2                              LCDPrintScreen("KEY2","LONG_PRESS");
+ 119   2                              break;
+ 120   2              }
+ 121   1              switch(key3Events){
+ 122   2                      case SHORT_PRESS:
+ 123   2                              LCDPrintScreen("KEY3","SHORT_PRESS");
+ 124   2                              break;
+ 125   2                      case LONG_PRESS:
+ 126   2                              LCDPrintScreen("KEY3","LONG_PRESS");
+ 127   2                              break;
+ 128   2              }
+ 129   1              RstKeyEvents();
+ 130   1              PressAnyKey();          
+ 131   1      }
+ 132          
+ 133          void TimerEventsCallBack(){
+ 134   1              GetRVal();
+ 135   1              StartTimer();
+ 136   1              LCDCls();
+ 137   1              LCDPrintStr(0,0,"R=");
+ 138   1              LCDPrintFloat(2,0,curRValue);
+ 139   1              LCDPrintChar(15,0,0x00);
+ 140   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    396    ----
+   CONSTANT SIZE    =    128    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     25    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      4    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

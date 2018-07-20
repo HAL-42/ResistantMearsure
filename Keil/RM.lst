@@ -1,0 +1,61 @@
+C51 COMPILER V9.01   RM                                                                    07/20/2018 09:06:29 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE RM
+OBJECT MODULE PLACED IN .\RM.obj
+COMPILER INVOKED BY: D:\Kell\C51\BIN\C51.EXE ..\Src\RM.c BROWSE DEBUG OBJECTEXTEND PRINT(.\RM.lst) OBJECT(.\RM.obj)
+
+line level    source
+
+   1          #include "RM.h"
+   2          /**
+   3           * 函数功能：延时nms
+   4           * @Author   Xiaobo     Yang
+   5           * @DateTime 2018-07-16
+   6           * @Summary Omitted
+   7           */
+   8          void delaynms(uint n)
+   9          {
+  10   1              uint  i;
+  11   1              for(i=0;i<n;i++) delay1ms();
+  12   1      }
+  13          /**
+  14           * 函数功能：延时1ms
+  15           * @Author   Xiaobo     Yang
+  16           * @DateTime 2018-07-16
+  17           * @Summary 网上抄的，错了不怪我
+  18           */
+  19          void delay1ms()
+  20          {
+  21   1              uint x,y;
+  22   1              for(x=1; x>0; x--)
+  23   1                      for(y=500; y>0; y--);
+  24   1      
+  25   1      }
+  26          /**
+  27           * 延迟n个机器周期,其实是3n还要多，我不确定，意思意思就行
+  28           * @Author   Xiaobo     Yang
+  29           * @DateTime 2018-07-19
+  30           * @Summury
+  31           * @param    n          和延迟时间成正比的某个数，调试确定
+  32           */
+  33          void delaynMC(uint n){
+  34   1              while(n){
+  35   2                      _nop_();
+  36   2                      n--;
+  37   2              }
+  38   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     74    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

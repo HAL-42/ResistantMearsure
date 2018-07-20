@@ -5,20 +5,34 @@
  * @DateTime 2018-07-16
  * @Summary Omitted
  */
-void delaynms(uchar n)
+void delaynms(uint n)
 {
-	uchar  i;
+	uint  i;
 	for(i=0;i<n;i++) delay1ms();
 }
 /**
  * 函数功能：延时1ms
  * @Author   Xiaobo     Yang
  * @DateTime 2018-07-16
- * @Summary (3j+2)*i=(3 × 33+2)× 10=1010(微秒)，可以认为是1 毫秒
+ * @Summary 网上抄的，错了不怪我
  */
-void Delay1ms()
+void delay1ms()
 {
-	uchar i,j;
-	for(i=0;i<10;i++) 
-		for(j=0;j<33;j++);
+	uint x,y;
+	for(x=1; x>0; x--)
+		for(y=500; y>0; y--);
+
+}
+/**
+ * 延迟n个机器周期,其实是3n还要多，我不确定，意思意思就行
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-19
+ * @Summury
+ * @param    n          和延迟时间成正比的某个数，调试确定
+ */
+void delaynMC(uint n){
+	while(n){
+		_nop_();
+		n--;
+	}
 }
