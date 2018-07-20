@@ -119,6 +119,7 @@ void T1INT() interrupt 3 using 2{
 		case TIMERFUN_KEY_SCAN:
 			TL1=LOADCOEF_TL;
 			TH1=LOADCOEF_TH;
+			isTimerEvent=1;
 			if(++t1IntrTimes>=2){
 				t1IntrTimes=0;
 				KeyScan();
