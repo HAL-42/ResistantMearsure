@@ -1,5 +1,7 @@
 #include "RM.h"
 #include "Menu.h"
+#include "Timer.h"
+#include "Key.h"
 
 #define MENUID_DEBUG_MODE_ON 	0
 #define MENUID_SIEVE_MODE_ON 	1

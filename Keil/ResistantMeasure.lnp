@@ -3,6 +3,7 @@
 ".\LCD1602.obj",
 ".\ResistantMeasure.obj",
 ".\RM.obj",
-".\Timer.obj" 
+".\Timer.obj",
+".\Menu.obj" 
 TO "ResistantMeasure" 
 RAMSIZE(256) 

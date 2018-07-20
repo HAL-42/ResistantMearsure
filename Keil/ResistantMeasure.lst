@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 01:07:47 PAGE 1   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 01:19:37 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE RESISTANTMEASURE
@@ -62,7 +62,7 @@ line level    source
   52   1              while(1){
   53   2                      SetZero();
   54   2                      Led1=Led2=Led3=0;
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 01:07:47 PAGE 2   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 01:19:37 PAGE 2   
 
   55   2              }
   56   1              StartTimer();
@@ -126,7 +126,7 @@ line level    source
  113          void KeyEventsCallBack(){
  114   1              switch(key1Events){
  115   2                      case SHORT_PRESS:
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 01:07:47 PAGE 3   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 01:19:37 PAGE 3   
 
  116   2                              LCDPrintScreen("KEY1","SHORT_PRESS");
  117   2                              break;
