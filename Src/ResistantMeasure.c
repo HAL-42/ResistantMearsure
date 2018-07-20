@@ -26,19 +26,19 @@ bit isKeyEvents;			//记录是否有按键事件发生
 uchar timerFun;				//选择计时器作用
 
 sbit capSel=P2^4;			//电容选择接口
-float curRValue;				//当前测得电阻阻值
+float curRValue;			//当前测得电阻阻值
 bit isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
 long curN;					//当前测得脉冲数
-float curFreqE5;				//当前测得频率
+float curFreqE5;			//当前测得频率
 long refLowRN;				//低档位下参考脉冲数
 long refHighRN;				//高档位下参考脉冲数
 
 //-------------------------筛选器相关全局变量-----------------------------//
-uchar filterCon;
-bit filterEn;
+uchar sieveCon;
+bit isSieveOn;
 
 //-------------------------调试模式相关全局变量---------------------------//
-bit IsDebug=1;				//是否处于调试模式
+bit isDebug=1;				//是否处于调试模式
 
 	///////////////////
 	//TODO:完善以下函数 //
@@ -91,7 +91,7 @@ void SetZero(){
 	refHighRN=curN;
 	LCDPrintScreen("Set Zero","Finished");						//调0完毕
 	delaynms(2000);
-	if(IsDebug){												//调试模式下，显示调0测量结果
+	if(isDebug){												//调试模式下，显示调0测量结果
 		LCDCls();
 		LCDPrintStr(0,0,"LOW");
 		LCDPrintNum(6,0,refLowRN);
@@ -136,5 +136,11 @@ void TimerEventsCallBack(){
 	LCDCls();
 	LCDPrintStr(0,0,"R=");
 	LCDPrintFloat(2,0,curRValue);
-	LCDPrintChar(15,0,0x00);
+	if(isDebug) LCDPrintNum(8,1,curN);
+	if(isSieveOn){
+		LCDPrintChar(15,0,0x00);
+		//////////////////////
+		//TODO:Not Finished //
+		//////////////////////
+	}
 }

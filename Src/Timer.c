@@ -6,7 +6,7 @@
 
 extern uchar timerFun;
 
-sbit capSel=P2^4;			//电容选择接口
+sbit capSel=P2^4;					//电容选择接口
 extern bit isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
 extern long curN;					//当前测得脉冲数
 extern long curFreqE5;				//当前测得频率
@@ -14,7 +14,7 @@ extern float curRValue;				//记录当前测得电阻阻值
 extern long refLowRN;				//低档位下参考脉冲数
 extern long refHighRN;				//高档位下参考脉冲数
 
-static uchar t0IntrTimes;					//T0用于计时，T1用于计数，两个变量储存他们的溢出次数
+static uchar t0IntrTimes;			//T0用于计时，T1用于计数，两个变量储存他们的溢出次数
 static uchar t1IntrTimes;
 /**
  * 设定初值,中断允许,计时优先，设定TMOD(51)
@@ -41,7 +41,7 @@ void InitialTimers(){
 	TH0=TL0=0;
 	TH1=TL1=0;
 	TR1=TR0=0;
-	timerFun=TIMERFUN_FREQ_MEASRURE;//计时器初始功能为频率测量
+	timerFun=TIMERFUN_FREQ_MEASRURE;		//计时器初始功能为频率测量
 }
 /**
  * 切换计时器功能
@@ -96,8 +96,7 @@ void StartTimer(){
 			TR0=0;
 			TR1=1;							//打开计时器1
 			break;
-		case TIMERFUN_HALT:
-			LED2=1;							//亮黄灯，程序存在不合理：HALT状态下启动计时器								
+		case TIMERFUN_HALT:							
 			break;
 	}
 }
@@ -109,7 +108,7 @@ void StartTimer(){
  */
 void T1INT() interrupt 3 using 2{
 	switch(timerFun){
-		case TIMERFUN_FREQ_MEASRURE:					//溢出计数加一，自动重装
+		case TIMERFUN_FREQ_MEASRURE:		//溢出计数加一，自动重装
 			t1IntrTimes++;	
 			break;					
 		case TIMERFUN_PWM:
@@ -126,7 +125,7 @@ void T1INT() interrupt 3 using 2{
 			} 
 			break;
 		case TIMERFUN_HALT:
-			LED3=1;										//亮红灯，错误：计时器暂停情况下计时器被启动
+			TR1=TR0=0;
 			break;
 	}
 }

@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   KEY                                                                   07/20/2018 13:43:28 PAGE 1   
+C51 COMPILER V9.01   KEY                                                                   07/20/2018 20:54:30 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE KEY
@@ -9,217 +9,233 @@ line level    source
 
    1          #include "RM.h"
    2          #include "Key.h"
-   3          
-   4          #define KEY_STATE_UNPRESSED     0x00            //按键状态：没有按下
-   5          #define KEY_STATE_DEBOUNCE      0x01            //按键状态：按下，但按下时间不足，可能还在颤动，�
+   3          #include "Timer.h"
+   4          
+   5          #define KEY_STATE_UNPRESSED     0x00            //按键状态：没有按下
+   6          #define KEY_STATE_DEBOUNCE      0x01            //按键状态：按下，但按下时间不足，可能还在颤动，�
              -�此现在次状态等候一段时间
-   6          #define KEY_STATE_PRESSED   0x02                //按键状态：确定按键按下并稳定，在此状态下区分短�
+   7          #define KEY_STATE_PRESSED   0x02                //按键状态：确定按键按下并稳定，在此状态下区分短�
              -��和长按
-   7          #define KEY_STATE_WAITLOOSE 0x03                //按键状态：等待长按后松后会到没有按下状态
-   8          
-   9          //////////////////////////////////////////////////////////////////////////////////////////////////
-  10          //TODO:时长还有待调试确定，如果有需要DECOUNCE_TIME置为0，LONG_PRESS_TIME置为无穷，�
+   8          #define KEY_STATE_WAITLOOSE 0x03                //按键状态：等待长按后松后会到没有按下状态
+   9          
+  10          //////////////////////////////////////////////////////////////////////////////////////////////////
+  11          //TODO:时长还有待调试确定，如果有需要DEBOUNCE_TIME置为0，LONG_PRESS_TIME置为无穷，�
              -��消消颤和长按功能 //
-  11          /////////////////////////////////////////////////////////////////////////////////////////////////
-  12          #define DECOUNCE_TIME 50                                //50次KeyScan完成消颤(基于认为两次KeyScan相距50个机器周期，
-             -调整！)
-  13          #define LONG_PRESS_TIME 60000                   //60000次KeyScan判定为长按
-  14          
-  15          sbit key1=P1^5;                                             //外部全局变量，见main.c
-  16          sbit key2=P1^4;
-  17          sbit key3=P1^3;
+  12          /////////////////////////////////////////////////////////////////////////////////////////////////
+  13          #define DEBOUNCE_TIME_FREQ                      50                              //50次KeyScan完成消颤(基于认为两次KeyScan相距50个机器�
+             -��期，调整！)
+  14          #define LONG_PRESS_TIME_FREQ            60000                   //60000次KeyScan判定为长按
+  15          #define DEBOUNCE_TIME_KEYSCAN           1                               //2ms消颤
+  16          #define LONG_PRESS_TIME_KEYSCAN         2000                    //2s判定为长按
+  17          
   18          
-  19          extern uchar key1Events;                                //外部全局变量，见main.c
-  20          extern uchar key2Events;
-  21          extern uchar key3Events;
+  19          sbit key1=P1^5;                                             //外部全局变量，见main.c
+  20          sbit key2=P1^4;
+  21          sbit key3=P1^3;
   22          
-  23          extern bit isKeyEvents;                                 //外部全局变量，见main.c
+  23          extern uchar timerFun;                                  //外部全局变量，见main.c
   24          
-  25          static uchar key1State;                                 //记录各个按键状态
-  26          static uchar key2State;
-  27          static uchar key3State;
+  25          extern uchar key1Events;                                //外部全局变量，见main.c
+  26          extern uchar key2Events;
+  27          extern uchar key3Events;
   28          
-  29          static uint key1Timer;                                  //各个按键的计时器，用在消颤和长按判断上
-  30          static uint key2Timer;
-  31          static uint key3Timer;
-  32          
-  33          /**
-  34           * 逐个扫描按键，并把按键扫描结果（无动作，长按，短按）放到keyxEvents全局变
+  29          extern bit isKeyEvents;                                 //外部全局变量，见main.c
+  30          
+  31          static uchar key1State;                                 //记录各个按键状态
+  32          static uchar key2State;
+  33          static uchar key3State;
+  34          
+  35          static uint key1Timer;                                  //各个按键的计时器，用在消颤和长按判断上
+  36          static uint key2Timer;
+  37          static uint key3Timer;
+  38          
+  39          static uint debounceTime;
+  40          static uint longPressTime;
+  41          /**
+  42           * 逐个扫描按键，并把按键扫描结果（无动作，长按，短按）放到keyxEvents全局变
              -量中等待处理
-  35           * @Author   Xiaobo     Yang
-  36           * @DateTime 2018-07-16
-  37           * @Summury
-  38           */
-  39          void KeyScan(){
-  40   1              switch(key1State){                                                                              //选择状态                                  
-  41   2                      case KEY_STATE_UNPRESSED:                                                       //没有按下状态    
-  42   2                              if(!key1) {                                                                             //按键按下（低电平），转移到消颤状态
-  43   3                                      key1State=KEY_STATE_DEBOUNCE;
-  44   3                                      key1Timer=0;                                                            //初始化计时器
-  45   3                              }
-  46   2                              break;
-  47   2                      case KEY_STATE_DEBOUNCE:                                                        //消颤状态
-  48   2                              if(key1) {                                                                              //按键松开，说明还在颤动，回到没有按下状态
-  49   3                                      key1State=KEY_STATE_UNPRESSED;                                  
-  50   3                              }
-C51 COMPILER V9.01   KEY                                                                   07/20/2018 13:43:28 PAGE 2   
+  43           * @Author   Xiaobo     Yang
+  44           * @DateTime 2018-07-16
+  45           * @Summury
+  46           */
+  47          void KeyScan(){
+  48   1              if(timerFun==TIMERFUN_FREQ_MEASRURE){
+  49   2                      debounceTime=DEBOUNCE_TIME_FREQ;
+  50   2                      longPressTime=LONG_PRESS_TIME_FREQ;
+C51 COMPILER V9.01   KEY                                                                   07/20/2018 20:54:30 PAGE 2   
 
-  51   2                              else if(++key1Timer>DECOUNCE_TIME){                             //按键按下，就计数，若按下时长足够，说明按�
-             -�稳定，转入按下状态
-  52   3                                      key1State=KEY_STATE_PRESSED;                            
-  53   3                                      key1Timer=0;                                                            //重设计时器
-  54   3                              }
-  55   2                              break;
-  56   2                      case KEY_STATE_PRESSED:
-  57   2                              if(key1){                                                                               //如果按键松开，按下时间又不够，就给出短按事件，并转移到�
-             -��按下状态
-  58   3                                      key1State=KEY_STATE_UNPRESSED;
-  59   3                                      key1Events=SHORT_PRESS;
-  60   3                                      isKeyEvents=1;                                                          //告诉主程序有按键事件发生
+  51   2              }
+  52   1              else{
+  53   2                      debounceTime=DEBOUNCE_TIME_KEYSCAN;
+  54   2                      longPressTime=LONG_PRESS_TIME_KEYSCAN;
+  55   2              }
+  56   1              switch(key1State){                                                                              //选择状态                                  
+  57   2                      case KEY_STATE_UNPRESSED:                                                       //没有按下状态    
+  58   2                              if(!key1) {                                                                             //按键按下（低电平），转移到消颤状态
+  59   3                                      key1State=KEY_STATE_DEBOUNCE;
+  60   3                                      key1Timer=0;                                                            //初始化计时器
   61   3                              }
-  62   2                              else if(++key1Timer>LONG_PRESS_TIME){                   //如果按键没有松开，计时，足够长后发出长按�
-             -��件，转移到等待松手状态
-  63   3                                      key1Events=LONG_PRESS;
-  64   3                                      isKeyEvents=1;                                                          //告诉主程序有按键事件发生
-  65   3                                      key1State=KEY_STATE_WAITLOOSE;
+  62   2                              break;
+  63   2                      case KEY_STATE_DEBOUNCE:                                                        //消颤状态
+  64   2                              if(key1) {                                                                              //按键松开，说明还在颤动，回到没有按下状态
+  65   3                                      key1State=KEY_STATE_UNPRESSED;                                  
   66   3                              }
-  67   2                              break;
-  68   2                      case KEY_STATE_WAITLOOSE:
-  69   2                              if(key1) key1State=KEY_STATE_UNPRESSED;                 //一旦松手，就会到未按下状态
-  70   2                              break;
-  71   2              }
-  72   1      
-  73   1              switch(key2State){                                                                              //参见key1State部分注释
-  74   2                      case KEY_STATE_UNPRESSED:
-  75   2                              if(!key2) {
-  76   3                                      key2State=KEY_STATE_DEBOUNCE;
-  77   3                                      key2Timer=0;
-  78   3                              }
-  79   2                              break;
-  80   2                      case KEY_STATE_DEBOUNCE:
-  81   2                              if(key2) {
-  82   3                                      key2State=KEY_STATE_UNPRESSED;
-  83   3                              }
-  84   2                              else if(++key2Timer>DECOUNCE_TIME){
-  85   3                                      key2State=KEY_STATE_PRESSED;
-  86   3                                      key2Timer=0;
-  87   3                              }
-  88   2                              break;
-  89   2                      case KEY_STATE_PRESSED:
-  90   2                              if(key2){
-  91   3                                      key2State=KEY_STATE_UNPRESSED;
-  92   3                                      key2Events=SHORT_PRESS;
-  93   3                                      isKeyEvents=1;
+  67   2                              else if(++key1Timer>debounceTime){                              //按键按下，就计数，若按下时长足够，说明按键
+             -稳定，转入按下状态
+  68   3                                      key1State=KEY_STATE_PRESSED;                            
+  69   3                                      key1Timer=0;                                                            //重设计时器
+  70   3                              }
+  71   2                              break;
+  72   2                      case KEY_STATE_PRESSED:
+  73   2                              if(key1){                                                                               //如果按键松开，按下时间又不够，就给出短按事件，并转移到�
+             -��按下状态
+  74   3                                      key1State=KEY_STATE_UNPRESSED;
+  75   3                                      key1Events=SHORT_PRESS;
+  76   3                                      isKeyEvents=1;                                                          //告诉主程序有按键事件发生
+  77   3                              }
+  78   2                              else if(++key1Timer>longPressTime){                             //如果按键没有松开，计时，足够长后发出长按�
+             -�件，转移到等待松手状态
+  79   3                                      key1Events=LONG_PRESS;
+  80   3                                      isKeyEvents=1;                                                          //告诉主程序有按键事件发生
+  81   3                                      key1State=KEY_STATE_WAITLOOSE;
+  82   3                              }
+  83   2                              break;
+  84   2                      case KEY_STATE_WAITLOOSE:
+  85   2                              if(key1) key1State=KEY_STATE_UNPRESSED;                 //一旦松手，就会到未按下状态
+  86   2                              break;
+  87   2              }
+  88   1      
+  89   1              switch(key2State){                                                                              //参见key1State部分注释
+  90   2                      case KEY_STATE_UNPRESSED:
+  91   2                              if(!key2) {
+  92   3                                      key2State=KEY_STATE_DEBOUNCE;
+  93   3                                      key2Timer=0;
   94   3                              }
-  95   2                              else if(++key2Timer>LONG_PRESS_TIME){
-  96   3                                      key2Events=LONG_PRESS;
-  97   3                                      isKeyEvents=1;
-  98   3                                      key2State=KEY_STATE_WAITLOOSE;
+  95   2                              break;
+  96   2                      case KEY_STATE_DEBOUNCE:
+  97   2                              if(key2) {
+  98   3                                      key2State=KEY_STATE_UNPRESSED;
   99   3                              }
- 100   2                              break;
- 101   2                      case KEY_STATE_WAITLOOSE:
- 102   2                              if(key2) key2State=KEY_STATE_UNPRESSED;
- 103   2                              break;
- 104   2              }
- 105   1      
- 106   1              switch(key3State){                                                                              //参见key1State部分注释
- 107   2                      case KEY_STATE_UNPRESSED:
- 108   2                              if(!key3) {
- 109   3                                      key3State=KEY_STATE_DEBOUNCE;
-C51 COMPILER V9.01   KEY                                                                   07/20/2018 13:43:28 PAGE 3   
+ 100   2                              else if(++key2Timer>debounceTime){
+ 101   3                                      key2State=KEY_STATE_PRESSED;
+ 102   3                                      key2Timer=0;
+ 103   3                              }
+ 104   2                              break;
+ 105   2                      case KEY_STATE_PRESSED:
+ 106   2                              if(key2){
+ 107   3                                      key2State=KEY_STATE_UNPRESSED;
+ 108   3                                      key2Events=SHORT_PRESS;
+ 109   3                                      isKeyEvents=1;
+C51 COMPILER V9.01   KEY                                                                   07/20/2018 20:54:30 PAGE 3   
 
- 110   3                                      key3Timer=0;
- 111   3                              }
- 112   2                              break;
- 113   2                      case KEY_STATE_DEBOUNCE:
- 114   2                              if(key3) {
- 115   3                                      key3State=KEY_STATE_UNPRESSED;
- 116   3                              }
- 117   2                              else if(++key3Timer>DECOUNCE_TIME){
- 118   3                                      key3State=KEY_STATE_PRESSED;
- 119   3                                      key3Timer=0;
- 120   3                              }
- 121   2                              break;
- 122   2                      case KEY_STATE_PRESSED:
- 123   2                              if(key3){
- 124   3                                      key3State=KEY_STATE_UNPRESSED;
- 125   3                                      key3Events=SHORT_PRESS;
- 126   3                                      isKeyEvents=1;
+ 110   3                              }
+ 111   2                              else if(++key2Timer>longPressTime){
+ 112   3                                      key2Events=LONG_PRESS;
+ 113   3                                      isKeyEvents=1;
+ 114   3                                      key2State=KEY_STATE_WAITLOOSE;
+ 115   3                              }
+ 116   2                              break;
+ 117   2                      case KEY_STATE_WAITLOOSE:
+ 118   2                              if(key2) key2State=KEY_STATE_UNPRESSED;
+ 119   2                              break;
+ 120   2              }
+ 121   1      
+ 122   1              switch(key3State){                                                                              //参见key1State部分注释
+ 123   2                      case KEY_STATE_UNPRESSED:
+ 124   2                              if(!key3) {
+ 125   3                                      key3State=KEY_STATE_DEBOUNCE;
+ 126   3                                      key3Timer=0;
  127   3                              }
- 128   2                              else if(++key3Timer>LONG_PRESS_TIME){
- 129   3                                      key3Events=LONG_PRESS;
- 130   3                                      isKeyEvents=1;
- 131   3                                      key3State=KEY_STATE_WAITLOOSE;
+ 128   2                              break;
+ 129   2                      case KEY_STATE_DEBOUNCE:
+ 130   2                              if(key3) {
+ 131   3                                      key3State=KEY_STATE_UNPRESSED;
  132   3                              }
- 133   2                              break;
- 134   2                      case KEY_STATE_WAITLOOSE:
- 135   2                              if(key3) key3State=KEY_STATE_UNPRESSED;
- 136   2                              break;
- 137   2              }
- 138   1      }
- 139          /**
- 140           * 完成按键信号处理后，应该调用该函数及时清理掉上一次按键扫描取得的事件
- 141           * @Author   Xiaobo     Yang
- 142           * @DateTime 2018-07-18
- 143           * @Summury 注意，在本程序中，只有按键信号被处理后，才会进行下一次KeyScan引入
+ 133   2                              else if(++key3Timer>debounceTime){
+ 134   3                                      key3State=KEY_STATE_PRESSED;
+ 135   3                                      key3Timer=0;
+ 136   3                              }
+ 137   2                              break;
+ 138   2                      case KEY_STATE_PRESSED:
+ 139   2                              if(key3){
+ 140   3                                      key3State=KEY_STATE_UNPRESSED;
+ 141   3                                      key3Events=SHORT_PRESS;
+ 142   3                                      isKeyEvents=1;
+ 143   3                              }
+ 144   2                              else if(++key3Timer>longPressTime){
+ 145   3                                      key3Events=LONG_PRESS;
+ 146   3                                      isKeyEvents=1;
+ 147   3                                      key3State=KEY_STATE_WAITLOOSE;
+ 148   3                              }
+ 149   2                              break;
+ 150   2                      case KEY_STATE_WAITLOOSE:
+ 151   2                              if(key3) key3State=KEY_STATE_UNPRESSED;
+ 152   2                              break;
+ 153   2              }
+ 154   1      }
+ 155          /**
+ 156           * 完成按键信号处理后，应该调用该函数及时清理掉上一次按键扫描取得的事件
+ 157           * @Author   Xiaobo     Yang
+ 158           * @DateTime 2018-07-18
+ 159           * @Summury 注意，在本程序中，只有按键信号被处理后，才会进行下一次KeyScan引入
              -新的事件。
- 144           * 而已处理按键事件要及时reset掉，才能让每次KeyScan互不相扰。
- 145           */
- 146          void RstKeyEvents(){
- 147   1              key1Events=NONE_PRESS;
- 148   1              key2Events=NONE_PRESS;
- 149   1              key3Events=NONE_PRESS;
- 150   1              isKeyEvents=NONE_PRESS;
- 151   1      }
- 152          /**
- 153           * 初始化按键状态，用于软重置
- 154           * @Author   Xiaobo     Yang
- 155           * @DateTime 2018-07-18
- 156           * @Summury 由于重置按钮被占用，因此采用软重置函数，软重置时要重设所有和keyx
-             -有关变量
- 157           */
- 158          void KeyInitial(){
- 159   1              key1Events=NONE_PRESS;
- 160   1              key2Events=NONE_PRESS;
- 161   1              key3Events=NONE_PRESS;
- 162   1              isKeyEvents=NONE_PRESS;
- 163   1              key1State=KEY_STATE_UNPRESSED;
- 164   1              key2State=KEY_STATE_UNPRESSED;
- 165   1              key3State=KEY_STATE_UNPRESSED;
- 166   1              key1Timer=0;
- 167   1              key2Timer=0;
- 168   1              key3Timer=0;
- 169   1      }
-C51 COMPILER V9.01   KEY                                                                   07/20/2018 13:43:28 PAGE 4   
+ 160           * 而已处理按键事件要及时reset掉，才能让每次KeyScan互不相扰。
+ 161           */
+ 162          void RstKeyEvents(){
+ 163   1              key1Events=NONE_PRESS;
+ 164   1              key2Events=NONE_PRESS;
+ 165   1              key3Events=NONE_PRESS;
+ 166   1              isKeyEvents=NONE_PRESS;
+ 167   1      }
+ 168          /**
+ 169           * 初始化按键状态，用于软重置
+ 170           * @Author   Xiaobo     Yang
+C51 COMPILER V9.01   KEY                                                                   07/20/2018 20:54:30 PAGE 4   
 
- 170          /**
- 171           * 我也不知道为什么要写这个函数，感觉很好玩的样子
- 172           */
- 173          void WaitKey(void (*key1Fun) (void),void (*key2Fun) (void),void (*key3Fun) (void)){
- 174   1              while(!isKeyEvents) KeyScan();
- 175   1              if(key1Events) (*key1Fun) ();
- 176   1              if(key2Events) (*key2Fun) ();
- 177   1              if(key3Events) (*key3Fun) ();
- 178   1              RstKeyEvents();
- 179   1      }
- 180          /**
- 181           * 按下任意键，否则阻塞
- 182           * @Author   Xiaobo     Yang
- 183           * @DateTime 2018-07-19
- 184           * @Summury
- 185           */
- 186          void PressAnyKey(){
- 187   1              while(!isKeyEvents) KeyScan();
- 188   1              RstKeyEvents();
- 189   1      }
+ 171           * @DateTime 2018-07-18
+ 172           * @Summury 由于重置按钮被占用，因此采用软重置函数，软重置时要重设所有和keyx
+             -有关变量
+ 173           */
+ 174          void KeyInitial(){
+ 175   1              key1Events=NONE_PRESS;
+ 176   1              key2Events=NONE_PRESS;
+ 177   1              key3Events=NONE_PRESS;
+ 178   1              isKeyEvents=NONE_PRESS;
+ 179   1              key1State=KEY_STATE_UNPRESSED;
+ 180   1              key2State=KEY_STATE_UNPRESSED;
+ 181   1              key3State=KEY_STATE_UNPRESSED;
+ 182   1              key1Timer=0;
+ 183   1              key2Timer=0;
+ 184   1              key3Timer=0;
+ 185   1      }
+ 186          /**
+ 187           * 我也不知道为什么要写这个函数，感觉很好玩的样子
+ 188           */
+ 189          void WaitKey(void (*key1Fun) (void),void (*key2Fun) (void),void (*key3Fun) (void)){
+ 190   1              while(!isKeyEvents) KeyScan();
+ 191   1              if(key1Events) (*key1Fun) ();
+ 192   1              if(key2Events) (*key2Fun) ();
+ 193   1              if(key3Events) (*key3Fun) ();
+ 194   1              RstKeyEvents();
+ 195   1      }
+ 196          /**
+ 197           * 按下任意键，否则阻塞
+ 198           * @Author   Xiaobo     Yang
+ 199           * @DateTime 2018-07-19
+ 200           * @Summury
+ 201           */
+ 202          void PressAnyKey(){
+ 203   1              while(!isKeyEvents) KeyScan();
+ 204   1              RstKeyEvents();
+ 205   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    427    ----
+   CODE SIZE        =    419    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      9       9
+   DATA SIZE        =     13       9
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

@@ -1,5 +1,6 @@
 #include "RM.h"
 #include "Key.h"
+#include "Timer.h"
 
 #define KEY_STATE_UNPRESSED	0x00		//按键状态：没有按下
 #define KEY_STATE_DEBOUNCE	0x01		//按键状态：按下，但按下时间不足，可能还在颤动，因此现在次状态等候一段时间
@@ -35,6 +36,8 @@ static uint key1Timer;					//各个按键的计时器，用在消颤和长按判
 static uint key2Timer;
 static uint key3Timer;
 
+static uint debounceTime;
+static uint longPressTime;
 /**
  * 逐个扫描按键，并把按键扫描结果（无动作，长按，短按）放到keyxEvents全局变量中等待处理
  * @Author   Xiaobo     Yang
@@ -42,7 +45,7 @@ static uint key3Timer;
  * @Summury
  */
 void KeyScan(){
-	if(timerFun=TIMERFUN_FREQ_MEASRURE){
+	if(timerFun==TIMERFUN_FREQ_MEASRURE){
 		debounceTime=DEBOUNCE_TIME_FREQ;
 		longPressTime=LONG_PRESS_TIME_FREQ;
 	}
@@ -72,7 +75,7 @@ void KeyScan(){
 				key1Events=SHORT_PRESS;
 				isKeyEvents=1;								//告诉主程序有按键事件发生
 			}
-			else if(++key1Timer>longPressTime){			//如果按键没有松开，计时，足够长后发出长按事件，转移到等待松手状态
+			else if(++key1Timer>longPressTime){				//如果按键没有松开，计时，足够长后发出长按事件，转移到等待松手状态
 				key1Events=LONG_PRESS;
 				isKeyEvents=1;								//告诉主程序有按键事件发生
 				key1State=KEY_STATE_WAITLOOSE;

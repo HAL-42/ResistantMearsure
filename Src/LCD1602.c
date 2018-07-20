@@ -6,7 +6,7 @@
 sbit RS=P3^2;
 sbit RW=P3^3;
 sbit EN=P3^4;
-sbit isBusy=P2^7;			//返回LCD1602是否正忙
+sbit isBusy=P2^7;					//返回LCD1602是否正忙
 
 #define rs RS
 #define	rw RW
@@ -30,10 +30,10 @@ bit BusyTest(){
 	bit result;
 	rs=0;
 	rw=1;
-	en=1;				 //LCD1602读命令时en应该是高电平
+	en=1;							//LCD1602读命令时en应该是高电平
 	delaynMC(4);
 	result=isBusy;
-	en=0;				 //en恢复到0
+	en=0;				 			//en恢复到0
 	return result;
 }
 /**
@@ -50,9 +50,9 @@ void LCDWriteCommand(uchar CMD){
 	en=0;
 	DataPort=CMD;
 	delaynMC(4);
-	en=1;				//让en产生从0到1的跳变，写入指令
+	en=1;							//让en产生从0到1的跳变，写入指令
 	delaynMC(4);		
-	en=0;				//en下降沿，LCD1602执行指令
+	en=0;							//en下降沿，LCD1602执行指令
 }
 /**
  * 移动LCD1602显示位置
@@ -87,9 +87,9 @@ void LCDWriteData(uchar x){
 	en=0;
 	DataPort=x;
 	delaynMC(4);
-	en=1;				//让en产生从0到1的跳变，写入数据
+	en=1;								//让en产生从0到1的跳变，写入数据
 	delaynMC(4);		
-	en=0;				//en下降沿，LCD1602开始输出
+	en=0;								//en下降沿，LCD1602开始输出
 }
 /**
  * Initialte LCD1602
@@ -100,24 +100,24 @@ void LCDWriteData(uchar x){
 void LcdInitiate(void)
 {
 	uchar i;
-	delaynms(15); 				//延时15ms，首次写指令时应给LCD 一段较长的反应时间
-	LCDWriteCommand(0x38); 		//显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
-	delaynms(5); 				//延时5ms ，给硬件一点反应时间
+	delaynms(15); 						//延时15ms，首次写指令时应给LCD 一段较长的反应时间
+	LCDWriteCommand(0x38); 				//显示模式设置： 16× 2 显示， 5× 7 点阵， 8 位数据接口
+	delaynms(5); 						//延时5ms ，给硬件一点反应时间
 	LCDWriteCommand(0x38);
-	delaynms(5); 				//延时5ms ，给硬件一点反应时间
-	LCDWriteCommand(0x38); 		//连续三次，确保初始化成功
-	delaynms(5); 				//延时5ms ，给硬件一点反应时间
-	LCDWriteCommand(0x0c); 		//显示模式设置：显示开，无光标，光标不闪烁
-	delaynms(5); 				//延时5ms ，给硬件一点反应时间
-	LCDWriteCommand(0x06); 		//显示模式设置：光标右移，字符不移
-	delaynms(5);				//延时5ms ，给硬件一点反应时间
-	LCDWriteCommand(0x40);		//写入自定义字符
+	delaynms(5); 						//延时5ms ，给硬件一点反应时间
+	LCDWriteCommand(0x38); 				//连续三次，确保初始化成功
+	delaynms(5); 						//延时5ms ，给硬件一点反应时间
+	LCDWriteCommand(0x0c); 				//显示模式设置：显示开，无光标，光标不闪烁
+	delaynms(5); 						//延时5ms ，给硬件一点反应时间
+	LCDWriteCommand(0x06); 				//显示模式设置：光标右移，字符不移
+	delaynms(5);						//延时5ms ，给硬件一点反应时间
+	LCDWriteCommand(0x40);				//写入自定义字符
 					
 	for(i=0;i<8;i++){
 		LCDWriteData(funnelIcon[i]);
 		}
-	LCDWriteCommand(0x01); 		//清屏幕指令，将以前的显示内容清除
-	delaynms(5); 				//延时5ms ，给硬件一点反应时间
+	LCDWriteCommand(0x01); 				//清屏幕指令，将以前的显示内容清除
+	delaynms(5); 						//延时5ms ，给硬件一点反应时间
 	LCDMoveCursor(0,0);
 }
 /**
@@ -155,11 +155,11 @@ void LCDPrintNum(uchar x,uchar y,int num){
 	uchar i=0;
 	LCDMoveCursor(x,y);	
 	do{
-		tmp[i++]=num%10;
+		tmp[i++]=num%10;						//从个位开始压栈
 		num/=10;
 	}while(num);
 	while(i){
-		LCDWriteData(tmp[--i]+'0');
+		LCDWriteData(tmp[--i]+'0');				//从栈中把数字顺序pop出来
 	}
 }
 /**
@@ -172,48 +172,40 @@ void LCDPrintNum(uchar x,uchar y,int num){
  * @param    num        要显示整数
  */
 void LCDPrintFloat(uchar x,uchar y,float num){
-	if(num>=1e9){
+	if(num>=1e9){								//大于1G，显示无穷
 		LCDPrintStr(x,y,"Infinite");
 	}
-	else if(num>=1e6){
+	else if(num>=1e6){							//1M到1G之间，以M为单位显示三位整数，三位小数
 		num/=1e6;
-		intPart=(int) num;
-		decPart=(int) ((num-intPart)*1000);
-		LCDPrintNum(x,y,intPart);
-		LCDWriteData('.');
-		if(decPart){
-			LCDPrintNum(x+4,y,decPart);
-		}
-		else{
-			LCDPrintStr(x+4,y,"000");
-		}
-		LCDWriteData('M');
+		intPart=(int) num;						//截尾获取整数部分
+		decPart=(int) ((num-intPart)*1000);		//num减去整数部分后*1000后所得数组的整数部分，就是小数的前三位
+		LCDPrintNum(x,y,intPart);				//打印整数部分
+		LCDWriteData('.');						//打印小数点
+		LCDWriteData(decPart/100+'0');			//取得百位数的ASICC码
+		LCDWriteData( (decPart%100)/10+'0' );	//取得十位数的ASICC码
+		LCDWriteData( (decPart%10)+'0' );		//取得个位数的ASICC码
+		LCDWriteData('M');						//打印单位
 	}
-	else if(num>1e3){
+	else if(num>1e3){							//1K到1M之间，以K为单位显示三位整数，三位小数
 		num/=1e3;
 		intPart=(int) num;
 		decPart=(int) ((num-intPart)*1000);
 		LCDPrintNum(x,y,intPart);
 		LCDWriteData('.');
-		if(decPart){
-			LCDPrintNum(x+4,y,decPart);
-		}
-		else{
-			LCDPrintStr(x+4,y,"000");
-		}
+		LCDWriteData(decPart/100+'0');
+		LCDWriteData( (decPart%100)/10+'0' );
+		LCDWriteData( (decPart%10)+'0' );
 		LCDWriteData('K');
 	}
-	else{
+	else{										//小于1K，显示三位整数，四位小数
 		intPart=(int) num;
 		decPart=(int) ((num-intPart)*10000);
 		LCDPrintNum(x,y,intPart);
 		LCDWriteData('.');
-		if(decPart){
-			LCDPrintNum(x+4,y,decPart);
-		}
-		else{
-			LCDPrintStr(x+4,y,"0000");
-		}
+		LCDWriteData(decPart/1000+'0');
+		LCDWriteData( (decPart%1000)/100 +'0' );
+		LCDWriteData( (decPart%100)/10+'0' );
+		LCDWriteData( (decPart%10)+'0' );
 	}
 }
 /**
@@ -244,7 +236,7 @@ void LCDPrintStr(uchar x,uchar y,uchar str[]){
 void LCDPrintLine(uchar x,uchar y,uchar str[]){
 	uchar i;
 	LCDMoveCursor(0,y);
-	for(i=0;i<0x10;i++) LCDWriteData(0x20);
+	for(i=0;i<0x10;i++) LCDWriteData(0x20);			//将要打印字符串所在行用空格覆盖一遍，相当于擦除
 	LCDMoveCursor(x,y);
 	while(*str){
 		LCDWriteData(*str);
@@ -260,12 +252,12 @@ void LCDPrintLine(uchar x,uchar y,uchar str[]){
  * @param    str2       第二行字
  */
 void LCDPrintScreen(uchar str1[],uchar str2[]){
-	LCDWriteCommand(0x01);
+	LCDWriteCommand(0x01);							//清屏
 	LCDMoveCursor(0,0);
-	while(*str1){
+	while(*str1){									//打印第一行字符串
 		LCDWriteData(*str1++);
 	}
-	LCDMoveCursor(0,1);
+	LCDMoveCursor(0,1);								//打印第二行字符串
 	while(*str2){
 		LCDWriteData(*str2++);
 	}
@@ -282,7 +274,7 @@ void LCDPrintScreen(uchar str1[],uchar str2[]){
 void LCDErase(uchar x,uchar y,uchar len){
 	uchar i;
 	LCDMoveCursor(x,y);
-	for(i=0;i<len;i++) LCDWriteData(0x20);
+	for(i=0;i<len;i++) LCDWriteData(0x20);			//从开始坐标开始用空格擦除掉制定长度的字符
 }
 /**
  * 打开显示屏并显示闪烁的光标。

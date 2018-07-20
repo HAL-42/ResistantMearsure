@@ -1,9 +1,9 @@
 #ifndef _LCD1602_H
 #define _LCD1602_H
 
-#define LCD_XMAX 0x0f
-#define LCD_YMAX 0x02
-
+#define LCD_XMAX 0x0f				//LCD横坐标取值的最大值
+#define LCD_YMAX 0x01				//LCD纵坐标取值的最大值
+									
 /**
  * 测试LCD1602是否正处于忙碌状态
  * @Author   Xiaobo        Yang
