@@ -7,14 +7,19 @@
 #define KEY_STATE_WAITLOOSE 0x03		//按键状态：等待长按后松后会到没有按下状态
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-//TODO:时长还有待调试确定，如果有需要DECOUNCE_TIME置为0，LONG_PRESS_TIME置为无穷，取消消颤和长按功能 //
+//TODO:时长还有待调试确定，如果有需要DEBOUNCE_TIME置为0，LONG_PRESS_TIME置为无穷，取消消颤和长按功能 //
 /////////////////////////////////////////////////////////////////////////////////////////////////
-#define DECOUNCE_TIME 50				//50次KeyScan完成消颤(基于认为两次KeyScan相距50个机器周期，调整！)
-#define LONG_PRESS_TIME 60000			//60000次KeyScan判定为长按
+#define DEBOUNCE_TIME_FREQ 			50				//50次KeyScan完成消颤(基于认为两次KeyScan相距50个机器周期，调整！)
+#define LONG_PRESS_TIME_FREQ 		60000			//60000次KeyScan判定为长按
+#define DEBOUNCE_TIME_KEYSCAN  		1				//2ms消颤
+#define LONG_PRESS_TIME_KEYSCAN   	2000  			//2s判定为长按
+
 
 sbit key1=P1^5;						    //外部全局变量，见main.c
 sbit key2=P1^4;
 sbit key3=P1^3;
+
+extern uchar timerFun;					//外部全局变量，见main.c
 
 extern uchar key1Events;				//外部全局变量，见main.c
 extern uchar key2Events;
@@ -37,6 +42,14 @@ static uint key3Timer;
  * @Summury
  */
 void KeyScan(){
+	if(timerFun=TIMERFUN_FREQ_MEASRURE){
+		debounceTime=DEBOUNCE_TIME_FREQ;
+		longPressTime=LONG_PRESS_TIME_FREQ;
+	}
+	else{
+		debounceTime=DEBOUNCE_TIME_KEYSCAN;
+		longPressTime=LONG_PRESS_TIME_KEYSCAN;
+	}
 	switch(key1State){										//选择状态					
 		case KEY_STATE_UNPRESSED:							//没有按下状态	
 			if(!key1) {										//按键按下（低电平），转移到消颤状态
@@ -48,7 +61,7 @@ void KeyScan(){
 			if(key1) {										//按键松开，说明还在颤动，回到没有按下状态
 				key1State=KEY_STATE_UNPRESSED;					
 			}
-			else if(++key1Timer>DECOUNCE_TIME){				//按键按下，就计数，若按下时长足够，说明按键稳定，转入按下状态
+			else if(++key1Timer>debounceTime){				//按键按下，就计数，若按下时长足够，说明按键稳定，转入按下状态
 				key1State=KEY_STATE_PRESSED;				
 				key1Timer=0;								//重设计时器
 			}
@@ -59,7 +72,7 @@ void KeyScan(){
 				key1Events=SHORT_PRESS;
 				isKeyEvents=1;								//告诉主程序有按键事件发生
 			}
-			else if(++key1Timer>LONG_PRESS_TIME){			//如果按键没有松开，计时，足够长后发出长按事件，转移到等待松手状态
+			else if(++key1Timer>longPressTime){			//如果按键没有松开，计时，足够长后发出长按事件，转移到等待松手状态
 				key1Events=LONG_PRESS;
 				isKeyEvents=1;								//告诉主程序有按键事件发生
 				key1State=KEY_STATE_WAITLOOSE;
@@ -81,7 +94,7 @@ void KeyScan(){
 			if(key2) {
 				key2State=KEY_STATE_UNPRESSED;
 			}
-			else if(++key2Timer>DECOUNCE_TIME){
+			else if(++key2Timer>debounceTime){
 				key2State=KEY_STATE_PRESSED;
 				key2Timer=0;
 			}
@@ -92,7 +105,7 @@ void KeyScan(){
 				key2Events=SHORT_PRESS;
 				isKeyEvents=1;
 			}
-			else if(++key2Timer>LONG_PRESS_TIME){
+			else if(++key2Timer>longPressTime){
 				key2Events=LONG_PRESS;
 				isKeyEvents=1;
 				key2State=KEY_STATE_WAITLOOSE;
@@ -114,7 +127,7 @@ void KeyScan(){
 			if(key3) {
 				key3State=KEY_STATE_UNPRESSED;
 			}
-			else if(++key3Timer>DECOUNCE_TIME){
+			else if(++key3Timer>debounceTime){
 				key3State=KEY_STATE_PRESSED;
 				key3Timer=0;
 			}
@@ -125,7 +138,7 @@ void KeyScan(){
 				key3Events=SHORT_PRESS;
 				isKeyEvents=1;
 			}
-			else if(++key3Timer>LONG_PRESS_TIME){
+			else if(++key3Timer>longPressTime){
 				key3Events=LONG_PRESS;
 				isKeyEvents=1;
 				key3State=KEY_STATE_WAITLOOSE;

@@ -1,6 +1,9 @@
 #include "RM.h"
 #include "Timer.h"
 
+#define LOADCOEF_TH 254
+#define LOADCOEF_TL	51
+
 extern uchar timerFun;
 
 sbit capSel=P2^4;			//电容选择接口
@@ -82,19 +85,19 @@ void StartTimer(){
 			TR1=1;							//开启计数器
 			break;
 		case TIMERFUN_PWM:
-			/////////
-			//TODO:NOT FINISHED//
-			/////////
+			TH1=LOADCOEF_TH;				//0.5ms中断的计时器
+			TL1=LOADCOEF_TL;
+			TR0=0;
+			TR1=1;							//打开计时器1
 			break;
 		case TIMERFUN_KEY_SCAN:
-			//////////////////////
-			//TODO:NOT FINISHED //
-			//////////////////////
+			TH1=LOADCOEF_TH;				//0.5ms中断的计时器
+			TL1=LOADCOEF_TL;
+			TR0=0;
+			TR1=1;							//打开计时器1
 			break;
 		case TIMERFUN_HALT:
-			//////////////////////
-			//TODO:NOT FINISHED //
-			//////////////////////
+			LED2=1;							//亮黄灯，程序存在不合理：HALT状态下启动计时器								
 			break;
 	}
 }
@@ -115,14 +118,15 @@ void T1INT() interrupt 3 using 2{
 			/////////
 			break;
 		case TIMERFUN_KEY_SCAN:
-			//////////////////////
-			//TODO:NOT FINISHED //
-			//////////////////////
+			TL1=LOADCOEF_TL;
+			TH1=LOADCOEF_TH;
+			if(++t1IntrTimes>=2){
+				t1IntrTimes=0;
+				KeyScan();
+			} 
 			break;
 		case TIMERFUN_HALT:
-			//////////////////////
-			//TODO:NOT FINISHED //
-			//////////////////////
+			LED3=1;										//亮红灯，错误：计时器暂停情况下计时器被启动
 			break;
 	}
 }
