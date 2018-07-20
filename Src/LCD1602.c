@@ -13,7 +13,7 @@ sbit isBusy=P2^7;					//返回LCD1602是否正忙
 #define en EN
 
 #define ICON_HEIGHT															//自定义字符高度
-static uchar funnelIcon[]={0x1F,0x11,0x1B,0x0A,0x0A,0x0A,0x04,0x04};		//自定义字符：漏斗
+static const uchar funnelIcon[]={0x1F,0x11,0x1B,0x0A,0x0A,0x0A,0x04,0x04};		//自定义字符：漏斗
 
 static uchar tmp[10];														//公用临时数组
 static int intPart;															//公用整数部分临时储存
