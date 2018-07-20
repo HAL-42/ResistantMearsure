@@ -34,8 +34,10 @@ long refLowRN;				//低档位下参考脉冲数
 long refHighRN;				//高档位下参考脉冲数
 
 //-------------------------筛选器相关全局变量-----------------------------//
-uchar sieveCon;
-bit isSieveOn;
+bit isSieveOn;				//筛选器是否打开
+uchar sieveRVal;			//筛选器电阻中心值
+uchar sieveRUnit;			//筛选器的中心值的单位
+uchar errTolrE1;			//筛选器允许误差
 
 //-------------------------调试模式相关全局变量---------------------------//
 bit isDebug=1;				//是否处于调试模式
