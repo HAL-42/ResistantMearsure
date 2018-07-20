@@ -12,7 +12,7 @@
 #define DECOUNCE_TIME 50				//50次KeyScan完成消颤(基于认为两次KeyScan相距50个机器周期，调整！)
 #define LONG_PRESS_TIME 60000			//60000次KeyScan判定为长按
 
-sbit key1=P1^5;						//外部全局变量，见main.c
+sbit key1=P1^5;						    //外部全局变量，见main.c
 sbit key2=P1^4;
 sbit key3=P1^3;
 
@@ -22,13 +22,13 @@ extern uchar key3Events;
 
 extern bit isKeyEvents;					//外部全局变量，见main.c
 
-uchar key1State;						//记录各个按键状态
-uchar key2State;
-uchar key3State;
+static uchar key1State;					//记录各个按键状态
+static uchar key2State;
+static uchar key3State;
 
-uint key1Timer;							//各个按键的计时器，用在消颤和长按判断上
-uint key2Timer;
-uint key3Timer;
+static uint key1Timer;					//各个按键的计时器，用在消颤和长按判断上
+static uint key2Timer;
+static uint key3Timer;
 
 /**
  * 逐个扫描按键，并把按键扫描结果（无动作，长按，短按）放到keyxEvents全局变量中等待处理

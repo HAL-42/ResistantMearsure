@@ -12,12 +12,12 @@ sbit isBusy=P2^7;			//返回LCD1602是否正忙
 #define	rw RW
 #define en EN
 
-#define ICON_HEIGHT													//自定义字符高度
-uchar funnelIcon[]={0x1F,0x11,0x1B,0x0A,0x0A,0x0A,0x04,0x04};		//自定义字符：漏斗
+#define ICON_HEIGHT															//自定义字符高度
+static uchar funnelIcon[]={0x1F,0x11,0x1B,0x0A,0x0A,0x0A,0x04,0x04};		//自定义字符：漏斗
 
-uchar tmp[10];														//公用临时数组
-int intPart;														//公用整数部分临时储存
-int decPart;														//公用小数部分临时储存
+static uchar tmp[10];														//公用临时数组
+static int intPart;															//公用整数部分临时储存
+static int decPart;															//公用小数部分临时储存
 
 /**
  * 测试LCD1602是否正处于忙碌状态

@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/20/2018  09:12:13  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/20/2018  13:43:30  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  ResistantMeasure (?C_STARTUP)
             DATA    0062H     0001H     UNIT         ?DT?_LCDPRINTCHAR?LCD1602
             IDATA   0063H     0001H     UNIT         ?STACK
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 2
 
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
@@ -119,7 +119,7 @@ SEGMENT                                             BIT_GROUP          DATA_GROU
   +--> ?PR?MAIN?RESISTANTMEASURE
   +--> ?C_INITSEG
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 3
 
 
 ?PR?MAIN?RESISTANTMEASURE                        -----    -----      -----    -----
@@ -179,7 +179,7 @@ SEGMENT                                             BIT_GROUP          DATA_GROU
 
 
 SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 4
 
 
 
@@ -225,10 +225,10 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   D:0043H         PUBLIC        key1Timer
   D:0045H         PUBLIC        key1State
   D:0090H         PUBLIC        P1
-  D:0046H         PUBLIC        key2Timer
-  D:0048H         PUBLIC        key2State
-  D:0049H         PUBLIC        key3Timer
-  D:004BH         PUBLIC        key3State
+  D:0046H         SYMBOL        key2Timer
+  D:0048H         SYMBOL        key2State
+  D:0049H         SYMBOL        key3Timer
+  D:004BH         SYMBOL        key3State
   D:00B0H         PUBLIC        P3
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
@@ -239,7 +239,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   C:0DCDH         PUBLIC        _WaitKey
   C:0FC0H         PUBLIC        RstKeyEvents
   C:0FAAH         PUBLIC        PressAnyKey
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 5
 
 
   D:00C8H         PUBLIC        T2CON
@@ -299,7 +299,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   C:0676H         LINE#         87
   C:0676H         LINE#         88
   C:0678H         LINE#         89
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 6
 
 
   C:0678H         LINE#         90
@@ -359,7 +359,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   C:0FC7H         LINE#         150
   C:0FC9H         LINE#         151
   -------         ENDPROC       RSTKEYEVENTS
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 7
 
 
   -------         PROC          KEYINITIAL
@@ -403,33 +403,33 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   D:00A8H         PUBLIC        IE
   B:00B0H.4       PUBLIC        EN
   C:0A3DH         PUBLIC        _LCDPrintNum
-  D:0008H         PUBLIC        funnelIcon
+  D:0008H         SYMBOL        funnelIcon
   D:00B8H         PUBLIC        IP
   C:0FD9H         PUBLIC        cursor_hide_LCD1602
   C:0DA7H         PUBLIC        _LCDPrintStr
   D:00D8H         PUBLIC        CCON
   B:00B0H.2       PUBLIC        RS
-  C:0E7DH         PUBLIC        _LCDWriteCommand
+  C:0E7DH         SYMBOL        _LCDWriteCommand
   B:00B0H.3       PUBLIC        RW
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   C:0FD4H         PUBLIC        cursor_show_LCD1602
-  D:0010H         PUBLIC        decPart
+  D:0010H         SYMBOL        decPart
   C:0F1CH         PUBLIC        _LCDErase
-  C:0F67H         PUBLIC        BusyTest
+  C:0F67H         SYMBOL        BusyTest
   C:0CC9H         PUBLIC        _LCDPrintScreen
   C:0C0CH         PUBLIC        LcdInitiate
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 8
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 8
 
 
-  D:0012H         PUBLIC        tmp
+  D:0012H         SYMBOL        tmp
   C:071BH         PUBLIC        _LCDPrintFloat
-  C:0E35H         PUBLIC        _LCDWriteData
+  C:0E35H         SYMBOL        _LCDWriteData
   C:0FCAH         PUBLIC        _LCDPrintChar
-  D:001CH         PUBLIC        intPart
+  D:001CH         SYMBOL        intPart
   D:00C8H         PUBLIC        T2CON
   C:0D12H         PUBLIC        _LCDPrintLine
-  C:0F8FH         PUBLIC        _LCDMoveCursor
+  C:0F8FH         SYMBOL        _LCDMoveCursor
   C:0003H         PUBLIC        LCDCls
   D:00D0H         PUBLIC        PSW
   -------         PROC          BUSYTEST
@@ -479,7 +479,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   -------         PROC          L?0063
   -------         ENDPROC       L?0063
   -------         PROC          _LCDWRITEDATA
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 9
 
 
   D:0052H         SYMBOL        x
@@ -539,7 +539,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   -------         PROC          _LCDPRINTNUM
   D:0007H         SYMBOL        x
   D:0005H         SYMBOL        y
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 10
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 10
 
 
   D:004CH         SYMBOL        num
@@ -599,7 +599,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   C:07E6H         LINE#         208
   C:0809H         LINE#         209
   C:080CH         LINE#         210
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 11
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 11
 
 
   C:0811H         LINE#         211
@@ -659,7 +659,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   -------         ENDPROC       _LCDPRINTSCREEN
   -------         PROC          _LCDERASE
   D:0007H         SYMBOL        x
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 12
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 12
 
 
   D:0005H         SYMBOL        y
@@ -719,7 +719,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   C:0DFFH         PUBLIC        TimerEventsCallBack
   D:0037H         PUBLIC        key1Events
   D:0038H         PUBLIC        key2Events
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 13
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 13
 
 
   D:0039H         PUBLIC        key3Events
@@ -779,7 +779,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   C:0BA8H         LINE#         110
   C:0BBAH         LINE#         111
   C:0BBAH         LINE#         112
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 14
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 14
 
 
   C:0BBAH         LINE#         113
@@ -839,7 +839,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   -------         PROC          DELAY1MS
   -------         DO            
   D:0006H         SYMBOL        x
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 15
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 15
 
 
   D:0004H         SYMBOL        y
@@ -878,9 +878,9 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   D:0088H         PUBLIC        TCON
   C:0C7CH         PUBLIC        InitialTimers
   B:00A8H.1       PUBLIC        ET0
-  D:005FH         PUBLIC        t0IntrTimes
+  D:005FH         SYMBOL        t0IntrTimes
   B:00A8H.3       PUBLIC        ET1
-  D:0060H         PUBLIC        t1IntrTimes
+  D:0060H         SYMBOL        t1IntrTimes
   D:008CH         PUBLIC        TH0
   D:008DH         PUBLIC        TH1
   D:008AH         PUBLIC        TL0
@@ -899,7 +899,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   C:0C7CH         LINE#         23
   C:0C7EH         LINE#         24
   C:0C80H         LINE#         25
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 16
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 16
 
 
   C:0C82H         LINE#         26
@@ -959,7 +959,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   C:0F66H         LINE#         98
   C:0F66H         LINE#         99
   C:0F66H         LINE#         100
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 17
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 17
 
 
   -------         ENDPROC       STARTTIMER
@@ -1019,7 +1019,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   C:0116H         PUBLIC        ?C?FPMUL
   -------         ENDMOD        ?C?FPMUL
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 18
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 18
 
 
   -------         MODULE        ?C?FPDIV
@@ -1079,7 +1079,7 @@ SYMBOL TABLE OF MODULE:  ResistantMeasure (?C_STARTUP)
   -------         ENDMOD        ?C?ULDIV
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  09:12:13  PAGE 19
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/20/2018  13:43:30  PAGE 19
 
 
     SEGMENT: ?PR?_WAITKEY?KEY
