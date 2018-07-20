@@ -45,20 +45,13 @@ bit isDebug=1;				//是否处于调试模式
 	///////////////////
 	//TODO:完善以下函数 //
 	///////////////////
+void InitialSys();
 void SetZero();
 void KeyEventsCallBack();
 void TimerEventsCallBack();
 
 void main(){
-	//定义端口输入输出,p1^0-P1^2为推挽输出，p1^3-P1^7为输入，设置PxM0，PxM1
-	P1M1 = 0x07;								//8'b00000111
-	P1M0 = 0xf8;								//8'b11111000
-	P3M1 = 0x80;								//8'b10000000
-	P3M0 = 0x20;								//8'b00100000
-	Led1=Led2=Led3=0;
-	//初始化其他外围设备
-	InitialTimers();							//初始化计时器	
-	KeyInitial();								//初始化键盘
+	InitialSys();
 	while(1){
 		SetZero();
 		Led1=Led2=Led3=0;
@@ -69,6 +62,24 @@ void main(){
 		if(isKeyEvents) KeyEventsCallBack();
 		if(isTimerEvent) TimerEventsCallBack();
 	}
+}
+
+void InitialSys(){
+	//定义端口输入输出,p1^0-P1^2为推挽输出，p1^3-P1^7为输入，设置PxM0，PxM1；关闭各个LED
+	P1M1 = 0x07;								//8'b00000111
+	P1M0 = 0xf8;								//8'b11111000
+	P3M1 = 0x80;								//8'b10000000
+	P3M0 = 0x20;								//8'b00100000
+	Led1=Led2=Led3=0;
+	//初始化其他外围设备
+	InitialTimers();							//初始化计时器	
+	KeyInitial();								//初始化键盘
+	//初始化其他尚未初始化的全局变量
+	isSieveOn=0;
+	sieveRVal=0;
+	sieveRUnit=0;
+	errTolrE1=0;
+	isDebug=1;
 }
 
 void SetZero(){
