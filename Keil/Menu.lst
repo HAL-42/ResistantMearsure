@@ -1,0 +1,88 @@
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 01:14:04 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MENU
+OBJECT MODULE PLACED IN .\Menu.obj
+COMPILER INVOKED BY: D:\Kell\C51\BIN\C51.EXE ..\Src\Menu.c BROWSE DEBUG OBJECTEXTEND PRINT(.\Menu.lst) OBJECT(.\Menu.obj
+                    -)
+
+line level    source
+
+   1          #include "RM.h"
+   2          #include "Menu.h"
+   3          
+   4          #define MENUID_DEBUG_MODE_ON    0
+   5          #define MENUID_SIEVE_MODE_ON    1
+   6          #define MENUID_SET_SIEVE        3
+   7          #define MENUID_START_PLOT       4
+   8          #define MENUID_RESET_DEVICE     5
+   9          #define MENUID_EXIT             6
+  10          #define MENUID_YES                              7
+  11          #define MENUID_NO                       8               
+  12          
+  13          #define MENU_OPTION_NUM_MAIN    6
+  14          #define MENU_OPTION_NUM_YN              2
+  15          
+  16          typedef struct MenuRecord *ptrToMenuRecord;
+  17          typedef ptrToMenuRecord Menu;
+  18          typedef struct MenuOp *ptrToMenuOp;
+  19          
+  20          struct MenuOp{
+  21                  uchar opID;
+  22                  uchar *opString;
+  23                  Menu subMenu;
+  24                  void (*pOpFunc) (void);  
+  25          };
+  26          
+  27          struct MenuRecord{
+  28                  uchar opNum;
+  29                  Menu superMenu;
+  30                  ptrToMenuOp OpArray;
+  31          };
+  32          
+  33          static const struct MenuOp ynMenuOpArray[MENU_OPTION_NUM_YN]={
+  34                  {MENUID_YES,"Yes",NULL,MenuOpYN},
+*** ERROR C202 IN LINE 34 OF ..\SRC\MENU.C: 'MenuOpYN': undefined identifier
+  35                  {MENUID_NO,"No",NULL,MenuOpYN}
+*** ERROR C202 IN LINE 35 OF ..\SRC\MENU.C: 'MenuOpYN': undefined identifier
+  36          };
+  37          static const struct MenuRecord ynMenuRecord={MENU_OPTION_NUM_YN,NULL,ynMenuOpArray};
+  38          static const Menu ynMenu=&ynMenuRecord;
+  39          
+  40          static const struct MenuOp MainMenuOpArray[MENU_OPTION_NUM_MAIN]={
+  41                  {MENUID_DEBUG_MODE_ON,"Debug Mode On",&ynMenuRecord,NULL},
+  42                  {MENUID_SIEVE_MODE_ON,"Sieve Mode On",&ynMenuRecord,NULL},
+  43                  {MENUID_SET_SIEVE,"Set Sieve",NULL,MenuOpSetSieve},
+*** ERROR C202 IN LINE 43 OF ..\SRC\MENU.C: 'MenuOpSetSieve': undefined identifier
+  44                  {MENUID_START_PLOT,"Start Plot",NULL,MenuOpStartPlot},
+*** ERROR C202 IN LINE 44 OF ..\SRC\MENU.C: 'MenuOpStartPlot': undefined identifier
+  45                  {MENUID_RESET_DEVICE,"Reset Device",NULL,MenuOpRstDev},
+*** ERROR C202 IN LINE 45 OF ..\SRC\MENU.C: 'MenuOpRstDev': undefined identifier
+  46                  {MENUID_EXIT,"Exit",NULL,MenuOpExit}
+*** ERROR C202 IN LINE 46 OF ..\SRC\MENU.C: 'MenuOpExit': undefined identifier
+  47          };
+  48          static const struct MenuRecord mainMenuRecord={MENU_OPTION_NUM_MAIN,NULL,MainMenuOpArray};
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 01:14:04 PAGE 2   
+
+  49          static const Menu mainMenu=&mainMenuRecord;
+  50          
+  51          static Menu curMenu;
+  52          static uchar curOp;
+  53          
+  54          static bit isExit;
+  55          
+  56          extern bit isSieveOn;
+  57          extern float sieveRVal;
+  58          extern float errTolr;
+  59          
+  60          static uchar rNumPart;
+  61          static uchar rUnit;
+  62          static uchar errTolrE2;
+  63          
+  64          void MenuImpl(){
+  65   1              
+  66   1      }
+  67          
+  68          
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  6 ERROR(S)

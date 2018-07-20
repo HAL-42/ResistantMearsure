@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   TIMER                                                                 07/20/2018 20:54:31 PAGE 1   
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 01:07:47 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE TIMER
@@ -10,192 +10,193 @@ line level    source
 
    1          #include "RM.h"
    2          #include "Timer.h"
-   3          
-   4          #define LOADCOEF_TH 254
-   5          #define LOADCOEF_TL     51
-   6          
-   7          extern uchar timerFun;
-   8          
-   9          sbit capSel=P2^4;                                       //电容选择接口
-  10          extern bit isTimerEvent;                        //记录是否有定时器事件发生（完成一次频率测量）
-  11          extern long curN;                                       //当前测得脉冲数
-  12          extern long curFreqE5;                          //当前测得频率
-  13          extern float curRValue;                         //记录当前测得电阻阻值
-  14          extern long refLowRN;                           //低档位下参考脉冲数
-  15          extern long refHighRN;                          //高档位下参考脉冲数
-  16          
-  17          static uchar t0IntrTimes;                       //T0用于计时，T1用于计数，两个变量储存他们的溢出次数
-  18          static uchar t1IntrTimes;
-  19          /**
-  20           * 设定初值,中断允许,计时优先，设定TMOD(51)
-  21           * @Author   Xiaobo     Yang
-  22           * @DateTime 2018-07-18
-  23           * @Summury 用于软重设，因此所有全局变量都需要重设
-  24           */
-  25          void InitialTimers(){
-  26   1              EA=1;                                                   //允许中断，并让计时器的中断优先级最高
-  27   1              ET0=1;
-  28   1              ET1=1;
-  29   1              PT0=1;
-  30   1              PT1=0;
-  31   1              TMOD=0x51;                                              //T0用于计时，T1用于计数
-  32   1              capSel=CAPSEL_LOWR;                             //重置所有全局变量
-  33   1              curRValue=0;
-  34   1              isTimerEvent=0;
-  35   1              curN=0;
-  36   1              curFreqE5=0;
-  37   1              refLowRN=0;
-  38   1              refHighRN=0;
-  39   1              t0IntrTimes=0;
-  40   1              t1IntrTimes=0;
-  41   1              TH0=TL0=0;
-  42   1              TH1=TL1=0;
-  43   1              TR1=TR0=0;
-  44   1              timerFun=TIMERFUN_FREQ_MEASRURE;                //计时器初始功能为频率测量
-  45   1      }
-  46          /**
-  47           * 切换计时器功能
-  48           * @Author   Xiaobo     Yang
-  49           * @DateTime 2018-07-19
-  50           * @Summury
-  51           * @param    fun        功能描述
-  52           */
-  53          void SwitchTimerFun(uchar fun){
-  54   1              timerFun=fun;
-C51 COMPILER V9.01   TIMER                                                                 07/20/2018 20:54:31 PAGE 2   
+   3          #include "Key.h"
+   4          
+   5          #define LOADCOEF_TH 254
+   6          #define LOADCOEF_TL     51
+   7          
+   8          extern uchar timerFun;
+   9          
+  10          sbit capSel=P2^4;                                       //电容选择接口
+  11          extern bit isTimerEvent;                        //记录是否有定时器事件发生（完成一次频率测量）
+  12          extern long curN;                                       //当前测得脉冲数
+  13          extern long curFreqE5;                          //当前测得频率
+  14          extern float curRValue;                         //记录当前测得电阻阻值
+  15          extern long refLowRN;                           //低档位下参考脉冲数
+  16          extern long refHighRN;                          //高档位下参考脉冲数
+  17          
+  18          static uchar t0IntrTimes;                       //T0用于计时，T1用于计数，两个变量储存他们的溢出次数
+  19          static uchar t1IntrTimes;
+  20          /**
+  21           * 设定初值,中断允许,计时优先，设定TMOD(51)
+  22           * @Author   Xiaobo     Yang
+  23           * @DateTime 2018-07-18
+  24           * @Summury 用于软重设，因此所有全局变量都需要重设
+  25           */
+  26          void InitialTimers(){
+  27   1              EA=1;                                                   //允许中断，并让计时器的中断优先级最高
+  28   1              ET0=1;
+  29   1              ET1=1;
+  30   1              PT0=1;
+  31   1              PT1=0;
+  32   1              TMOD=0x51;                                              //T0用于计时，T1用于计数
+  33   1              capSel=CAPSEL_LOWR;                             //重置所有全局变量
+  34   1              curRValue=0;
+  35   1              isTimerEvent=0;
+  36   1              curN=0;
+  37   1              curFreqE5=0;
+  38   1              refLowRN=0;
+  39   1              refHighRN=0;
+  40   1              t0IntrTimes=0;
+  41   1              t1IntrTimes=0;
+  42   1              TH0=TL0=0;
+  43   1              TH1=TL1=0;
+  44   1              TR1=TR0=0;
+  45   1              timerFun=TIMERFUN_FREQ_MEASRURE;                //计时器初始功能为频率测量
+  46   1      }
+  47          /**
+  48           * 切换计时器功能
+  49           * @Author   Xiaobo     Yang
+  50           * @DateTime 2018-07-19
+  51           * @Summury
+  52           * @param    fun        功能描述
+  53           */
+  54          void SwitchTimerFun(uchar fun){
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 01:07:47 PAGE 2   
 
-  55   1              TR1=TR0=0;                                                              //切换功能前先让定时器停止工作，下次使用时强制用StartTimer初始
+  55   1              timerFun=fun;
+  56   1              TR1=TR0=0;                                                              //切换功能前先让定时器停止工作，下次使用时强制用StartTimer初始
              -化
-  56   1              switch(fun){
-  57   2                      case TIMERFUN_FREQ_MEASRURE:            //频率测量，T1计数，T2计时
-  58   2                              TMOD=0x51;
-  59   2                              break;
-  60   2                      case TIMERFUN_PWM:                                      //PWM波输出控制舵机，两个都计时
-  61   2                              TMOD=0x11;
-  62   2                              break;
-  63   2                      case TIMERFUN_KEY_SCAN:                         //键盘扫描，两个都计时
-  64   2                              TMOD=0x11;
-  65   2                              break;
-  66   2                      case TIMERFUN_HALT:                                     //键盘扫描
-  67   2                              break;
-  68   2              }
-  69   1      }
-  70          /**
-  71           * 初始化T0,T1;开启计时器，开始测量频率
-  72           * @Author   Xiaobo     Yang
-  73           * @DateTime 2018-07-18
-  74           * @Summury
-  75           */
-  76          void StartTimer(){
-  77   1              isTimerEvent=0;                                                 //保险起见，再重置一次时钟事件，防止客户没有使用GetRVal函�
+  57   1              switch(fun){
+  58   2                      case TIMERFUN_FREQ_MEASRURE:            //频率测量，T1计数，T2计时
+  59   2                              TMOD=0x51;
+  60   2                              break;
+  61   2                      case TIMERFUN_PWM:                                      //PWM波输出控制舵机，两个都计时
+  62   2                              TMOD=0x11;
+  63   2                              break;
+  64   2                      case TIMERFUN_KEY_SCAN:                         //键盘扫描，两个都计时
+  65   2                              TMOD=0x11;
+  66   2                              break;
+  67   2                      case TIMERFUN_HALT:                                     //键盘扫描
+  68   2                              break;
+  69   2              }
+  70   1      }
+  71          /**
+  72           * 初始化T0,T1;开启计时器，开始测量频率
+  73           * @Author   Xiaobo     Yang
+  74           * @DateTime 2018-07-18
+  75           * @Summury
+  76           */
+  77          void StartTimer(){
+  78   1              isTimerEvent=0;                                                 //保险起见，再重置一次时钟事件，防止客户没有使用GetRVal函�
              -�
-  78   1              t0IntrTimes=0;                                          
-  79   1              t1IntrTimes=0;
-  80   1              switch(timerFun){
-  81   2                      case TIMERFUN_FREQ_MEASRURE:
-  82   2                              TH0=TL0=0;                                              //计时器从0开始计时
-  83   2                              TH1=TL1=0;                                              //计数器从0开始计数
-  84   2                              TR0=1;                                                  //开启计时器
-  85   2                              TR1=1;                                                  //开启计数器
-  86   2                              break;
-  87   2                      case TIMERFUN_PWM:
-  88   2                              TH1=LOADCOEF_TH;                                //0.5ms中断的计时器
-  89   2                              TL1=LOADCOEF_TL;
-  90   2                              TR0=0;
-  91   2                              TR1=1;                                                  //打开计时器1
-  92   2                              break;
-  93   2                      case TIMERFUN_KEY_SCAN:
-  94   2                              TH1=LOADCOEF_TH;                                //0.5ms中断的计时器
-  95   2                              TL1=LOADCOEF_TL;
-  96   2                              TR0=0;
-  97   2                              TR1=1;                                                  //打开计时器1
-  98   2                              break;
-  99   2                      case TIMERFUN_HALT:                                                     
- 100   2                              break;
- 101   2              }
- 102   1      }
- 103          /**
- 104           * T1中断，溢出计数加一
- 105           * @Author   Xiaobo     Yang
- 106           * @DateTime 2018-07-18
- 107           * @Summury
- 108           */
- 109          void T1INT() interrupt 3 using 2{
- 110   1              switch(timerFun){
- 111   2                      case TIMERFUN_FREQ_MEASRURE:            //溢出计数加一，自动重装
- 112   2                              t1IntrTimes++;  
- 113   2                              break;                                  
- 114   2                      case TIMERFUN_PWM:
-C51 COMPILER V9.01   TIMER                                                                 07/20/2018 20:54:31 PAGE 3   
+  79   1              t0IntrTimes=0;                                          
+  80   1              t1IntrTimes=0;
+  81   1              switch(timerFun){
+  82   2                      case TIMERFUN_FREQ_MEASRURE:
+  83   2                              TH0=TL0=0;                                              //计时器从0开始计时
+  84   2                              TH1=TL1=0;                                              //计数器从0开始计数
+  85   2                              TR0=1;                                                  //开启计时器
+  86   2                              TR1=1;                                                  //开启计数器
+  87   2                              break;
+  88   2                      case TIMERFUN_PWM:
+  89   2                              TH1=LOADCOEF_TH;                                //0.5ms中断的计时器
+  90   2                              TL1=LOADCOEF_TL;
+  91   2                              TR0=0;
+  92   2                              TR1=1;                                                  //打开计时器1
+  93   2                              break;
+  94   2                      case TIMERFUN_KEY_SCAN:
+  95   2                              TH1=LOADCOEF_TH;                                //0.5ms中断的计时器
+  96   2                              TL1=LOADCOEF_TL;
+  97   2                              TR0=0;
+  98   2                              TR1=1;                                                  //打开计时器1
+  99   2                              break;
+ 100   2                      case TIMERFUN_HALT:                                                     
+ 101   2                              break;
+ 102   2              }
+ 103   1      }
+ 104          /**
+ 105           * T1中断，溢出计数加一
+ 106           * @Author   Xiaobo     Yang
+ 107           * @DateTime 2018-07-18
+ 108           * @Summury
+ 109           */
+ 110          void T1INT() interrupt 3 using 2{
+ 111   1              switch(timerFun){
+ 112   2                      case TIMERFUN_FREQ_MEASRURE:            //溢出计数加一，自动重装
+ 113   2                              t1IntrTimes++;  
+ 114   2                              break;                                  
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 01:07:47 PAGE 3   
 
- 115   2                              /////////
- 116   2                              //TODO:NOT FINISHED//
- 117   2                              /////////
- 118   2                              break;
- 119   2                      case TIMERFUN_KEY_SCAN:
- 120   2                              TL1=LOADCOEF_TL;
- 121   2                              TH1=LOADCOEF_TH;
- 122   2                              if(++t1IntrTimes>=2){
- 123   3                                      t1IntrTimes=0;
- 124   3                                      KeyScan();
-*** WARNING C206 IN LINE 124 OF ..\SRC\TIMER.C: 'KeyScan': missing function-prototype
- 125   3                              } 
- 126   2                              break;
- 127   2                      case TIMERFUN_HALT:
- 128   2                              TR1=TR0=0;
- 129   2                              break;
- 130   2              }
- 131   1      }
- 132          /**
- 133           * T0中断
- 134           * @Author   Xiaobo     Yang
- 135           * @DateTime 2018-07-18
- 136           * @Summury
- 137           */
- 138          void T0INT() interrupt 1 using 1{
- 139   1              if((capSel==CAPSEL_LOWR)                //若为低电阻档且两次溢出
- 140   1                      &&(++t0IntrTimes==2)){
- 141   2                      TR1=0;                                          //关停计数器，计时器
- 142   2                      TR0=0;
- 143   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
- 144   2              }
- 145   1              else if((capSel==CAPSEL_HIGHR)  //若为高电阻档且15次溢出
- 146   1                      &&(++t0IntrTimes==15)){
- 147   2                      TR1=0;                                          //关停计数器，计时器
- 148   2                      TR0=0;
- 149   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
- 150   2              }
- 151   1      }
- 152          
- 153          /////////
- 154          //TODO:防止溢出 //
+ 115   2                      case TIMERFUN_PWM:
+ 116   2                              /////////
+ 117   2                              //TODO:NOT FINISHED//
+ 118   2                              /////////
+ 119   2                              break;
+ 120   2                      case TIMERFUN_KEY_SCAN:
+ 121   2                              TL1=LOADCOEF_TL;                                //0.5ms重装
+ 122   2                              TH1=LOADCOEF_TH;
+ 123   2                              isTimerEvent=1;                                 //溢出信号
+ 124   2                              if(++t1IntrTimes>=2){                   //1ms扫描键盘一次
+ 125   3                                      t1IntrTimes=0;
+ 126   3                                      KeyScan();                                      
+ 127   3                              } 
+ 128   2                              break;
+ 129   2                      case TIMERFUN_HALT:
+ 130   2                              TR1=TR0=0;
+ 131   2                              break;
+ 132   2              }
+ 133   1      }
+ 134          /**
+ 135           * T0中断
+ 136           * @Author   Xiaobo     Yang
+ 137           * @DateTime 2018-07-18
+ 138           * @Summury
+ 139           */
+ 140          void T0INT() interrupt 1 using 1{
+ 141   1              if((capSel==CAPSEL_LOWR)                //若为低电阻档且两次溢出
+ 142   1                      &&(++t0IntrTimes==2)){
+ 143   2                      TR1=0;                                          //关停计数器，计时器
+ 144   2                      TR0=0;
+ 145   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
+ 146   2              }
+ 147   1              else if((capSel==CAPSEL_HIGHR)  //若为高电阻档且15次溢出
+ 148   1                      &&(++t0IntrTimes==15)){
+ 149   2                      TR1=0;                                          //关停计数器，计时器
+ 150   2                      TR0=0;
+ 151   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
+ 152   2              }
+ 153   1      }
+ 154          
  155          /////////
- 156          
- 157          /**
- 158           * 计算脉冲数，频率和电阻
- 159           * @Author   Xiaobo     Yang
- 160           * @DateTime 2018-07-18
- 161           * @Summury  本函数中魔鬼数字较多，为的是提高计算精度。所有数据都是在MATLAB中
+ 156          //TODO:防止溢出 //
+ 157          /////////
+ 158          
+ 159          /**
+ 160           * 计算脉冲数，频率和电阻
+ 161           * @Author   Xiaobo     Yang
+ 162           * @DateTime 2018-07-18
+ 163           * @Summury  本函数中魔鬼数字较多，为的是提高计算精度。所有数据都是在MATLAB中
              -计算后带入，切勿随意修改
- 162           */
- 163          void GetRVal(){
- 164   1              isTimerEvent=0;
- 165   1              curN=t1IntrTimes*65536+TH1*256+TL1; // 计算脉冲次数
- 166   1              if(capSel==CAPSEL_LOWR){
- 167   2                      curFreqE5=703125*curN;
- 168   2                      curRValue=1.69065825104e9F*( (refLowRN-curN)/(refLowRN*curN) );
- 169   2              }
- 170   1              else{
- 171   2                      curFreqE5=93750*curN;
- 172   2                      curRValue=1.53887471028e11F*( (refHighRN-curN)/(refHighRN*curN) );
- 173   2              }
- 174   1      }
-C51 COMPILER V9.01   TIMER                                                                 07/20/2018 20:54:31 PAGE 4   
+ 164           */
+ 165          void GetRVal(){
+ 166   1              isTimerEvent=0;
+ 167   1              curN=t1IntrTimes*65536+TH1*256+TL1; // 计算脉冲次数
+ 168   1              if(capSel==CAPSEL_LOWR){
+ 169   2                      curFreqE5=703125*curN;
+ 170   2                      curRValue=1.69065825104e9F*( (refLowRN-curN)/(refLowRN*curN) );
+ 171   2              }
+ 172   1              else{
+ 173   2                      curFreqE5=93750*curN;
+ 174   2                      curRValue=1.53887471028e11F*( (refHighRN-curN)/(refHighRN*curN) );
+ 175   2              }
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 01:07:47 PAGE 4   
 
+ 176   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    507    ----
+   CODE SIZE        =    509    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
@@ -205,4 +206,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

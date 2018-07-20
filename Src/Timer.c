@@ -1,5 +1,6 @@
 #include "RM.h"
 #include "Timer.h"
+#include "Key.h"
 
 #define LOADCOEF_TH 254
 #define LOADCOEF_TL	51

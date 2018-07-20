@@ -1,10 +1,8 @@
-//这是一个测试版本
-
-
 #include "RM.h"
 #include "LCD1602.h"
 #include "Key.h"
 #include "Timer.h"
+#include "Menu.h"
 
 //----------------------------LED关全局变量-------------------------------//
 sbit	Led1 = P1^0;
@@ -34,10 +32,9 @@ long refLowRN;				//低档位下参考脉冲数
 long refHighRN;				//高档位下参考脉冲数
 
 //-------------------------筛选器相关全局变量-----------------------------//
-bit isSieveOn;				//筛选器是否打开
-uchar sieveRVal;			//筛选器电阻中心值
-uchar sieveRUnit;			//筛选器的中心值的单位
-uchar errTolrE1;			//筛选器允许误差
+bit isSieveOn;			//筛选器是否打开
+float errTolr;			//筛选器允许误差
+float sieveRVal;		//筛选器中心值
 
 //-------------------------调试模式相关全局变量---------------------------//
 bit isDebug=1;				//是否处于调试模式
@@ -76,9 +73,8 @@ void InitialSys(){
 	KeyInitial();								//初始化键盘
 	//初始化其他尚未初始化的全局变量
 	isSieveOn=0;
-	sieveRVal=0;
-	sieveRUnit=0;
-	errTolrE1=0;
+	errTolr=0.0;
+	errTolr=0.0;
 	isDebug=1;
 }
 
@@ -149,11 +145,20 @@ void TimerEventsCallBack(){
 	LCDCls();
 	LCDPrintStr(0,0,"R=");
 	LCDPrintFloat(2,0,curRValue);
-	if(isDebug) LCDPrintNum(8,1,curN);
+	if(isDebug){
+		LCDPrintNum(8,1,curN);
+	}
+	else{
+		LCDErase(8,1,8);
+	}
 	if(isSieveOn){
 		LCDPrintChar(15,0,0x00);
-		//////////////////////
-		//TODO:Not Finished //
-		//////////////////////
+		if( (curRValue-sieveRVal)/sieveRVal < errTolr &&
+			(curRValue-sieveRVal)/sieveRVal > -errTolr ){
+			LCDPrintStr(0,1,"In ");
+		}
+		else{
+			LCDPrintStr(0,1,"Out");
+		}
 	}
 }

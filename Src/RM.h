@@ -3,6 +3,7 @@
 
 #include <reg52.h>
 #include <intrins.h>
+#include <stdlib.h>
 #include "STC12C.h"
 
 #define Uchar unsigned char
