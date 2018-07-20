@@ -117,12 +117,12 @@ void T1INT() interrupt 3 using 2{
 			/////////
 			break;
 		case TIMERFUN_KEY_SCAN:
-			TL1=LOADCOEF_TL;
+			TL1=LOADCOEF_TL;				//0.5ms重装
 			TH1=LOADCOEF_TH;
-			isTimerEvent=1;
-			if(++t1IntrTimes>=2){
+			isTimerEvent=1;					//溢出信号
+			if(++t1IntrTimes>=2){			//1ms扫描键盘一次
 				t1IntrTimes=0;
-				KeyScan();
+				KeyScan();					
 			} 
 			break;
 		case TIMERFUN_HALT:
