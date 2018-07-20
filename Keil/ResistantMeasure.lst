@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/20/2018 09:06:29 PAGE 1   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/20/2018 09:12:12 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE RESISTANTMEASURE
@@ -62,7 +62,7 @@ line level    source
   52   1              P1M1 = 0x07;                                                            //8'b00000111
   53   1              P1M0 = 0xf8;                                                            //8'b11111000
   54   1              P3M1 = 0x80;                                                            //8'b10000000
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/20/2018 09:06:29 PAGE 2   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/20/2018 09:12:12 PAGE 2   
 
   55   1              P3M0 = 0x20;                                                            //8'b00100000
   56   1              Led1=Led2=Led3=0;
@@ -126,7 +126,7 @@ line level    source
  114   2                      case SHORT_PRESS:
  115   2                              LCDPrintScreen("KEY2","SHORT_PRESS");
  116   2                              break;
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/20/2018 09:06:29 PAGE 3   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/20/2018 09:12:12 PAGE 3   
 
  117   2                      case LONG_PRESS:        
  118   2                              LCDPrintScreen("KEY2","LONG_PRESS");

@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   TIMER                                                                 07/20/2018 09:06:29 PAGE 1   
+C51 COMPILER V9.01   TIMER                                                                 07/20/2018 09:12:13 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE TIMER
@@ -62,7 +62,7 @@ line level    source
   52   1              TR1=TR0=0;                                                              //切换功能前先让定时器停止工作，下次使用时强制用StartTimer初始
              -化
   53   1              switch(fun){
-C51 COMPILER V9.01   TIMER                                                                 07/20/2018 09:06:29 PAGE 2   
+C51 COMPILER V9.01   TIMER                                                                 07/20/2018 09:12:13 PAGE 2   
 
   54   2                      case TIMERFUN_FREQ_MEASRURE:            //频率测量，T1计数，T2计时
   55   2                              TMOD=0x51;
@@ -126,7 +126,7 @@ line level    source
  112   2                      case TIMERFUN_PWM:
  113   2                              /////////
  114   2                              //TODO:NOT FINISHED//
-C51 COMPILER V9.01   TIMER                                                                 07/20/2018 09:06:29 PAGE 3   
+C51 COMPILER V9.01   TIMER                                                                 07/20/2018 09:12:13 PAGE 3   
 
  115   2                              /////////
  116   2                              break;
@@ -190,7 +190,7 @@ line level    source
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    431    ----
-C51 COMPILER V9.01   TIMER                                                                 07/20/2018 09:06:29 PAGE 4   
+C51 COMPILER V9.01   TIMER                                                                 07/20/2018 09:12:13 PAGE 4   
 
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
