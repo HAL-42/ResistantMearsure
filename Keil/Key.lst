@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 16:52:44 PAGE 1   
+C51 COMPILER V9.01   KEY                                                                   07/20/2018 09:06:28 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE KEY
@@ -62,7 +62,7 @@ line level    source
   48   2                              if(key1) {                                                                              //按键松开，说明还在颤动，回到没有按下状态
   49   3                                      key1State=KEY_STATE_UNPRESSED;                                  
   50   3                              }
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 16:52:44 PAGE 2   
+C51 COMPILER V9.01   KEY                                                                   07/20/2018 09:06:28 PAGE 2   
 
   51   2                              else if(++key1Timer>DECOUNCE_TIME){                             //按键按下，就计数，若按下时长足够，说明按�
              -�稳定，转入按下状态
@@ -126,7 +126,7 @@ line level    source
  107   2                      case KEY_STATE_UNPRESSED:
  108   2                              if(!key3) {
  109   3                                      key3State=KEY_STATE_DEBOUNCE;
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 16:52:44 PAGE 3   
+C51 COMPILER V9.01   KEY                                                                   07/20/2018 09:06:28 PAGE 3   
 
  110   3                                      key3Timer=0;
  111   3                              }
@@ -190,7 +190,7 @@ line level    source
  167   1              key2Timer=0;
  168   1              key3Timer=0;
  169   1      }
-C51 COMPILER V9.01   KEY                                                                   07/19/2018 16:52:44 PAGE 4   
+C51 COMPILER V9.01   KEY                                                                   07/20/2018 09:06:28 PAGE 4   
 
  170          /**
  171           * 我也不知道为什么要写这个函数，感觉很好玩的样子
