@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   TIMER                                                                 07/21/2018 01:19:38 PAGE 1   
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 14:22:01 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE TIMER
@@ -19,11 +19,11 @@ line level    source
    9          
   10          sbit capSel=P2^4;                                       //电容选择接口
   11          extern bit isTimerEvent;                        //记录是否有定时器事件发生（完成一次频率测量）
-  12          extern long curN;                                       //当前测得脉冲数
-  13          extern long curFreqE5;                          //当前测得频率
-  14          extern float curRValue;                         //记录当前测得电阻阻值
-  15          extern long refLowRN;                           //低档位下参考脉冲数
-  16          extern long refHighRN;                          //高档位下参考脉冲数
+  12          extern long  idata curN;                        //当前测得脉冲数
+  13          extern long  idata curFreqE5;           //当前测得频率
+  14          extern float idata curRValue;           //记录当前测得电阻阻值
+  15          extern long  idata refLowRN;            //低档位下参考脉冲数
+  16          extern long  idata refHighRN;           //高档位下参考脉冲数
   17          
   18          static uchar t0IntrTimes;                       //T0用于计时，T1用于计数，两个变量储存他们的溢出次数
   19          static uchar t1IntrTimes;
@@ -62,7 +62,7 @@ line level    source
   52           * @param    fun        功能描述
   53           */
   54          void SwitchTimerFun(uchar fun){
-C51 COMPILER V9.01   TIMER                                                                 07/21/2018 01:19:38 PAGE 2   
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 14:22:01 PAGE 2   
 
   55   1              timerFun=fun;
   56   1              TR1=TR0=0;                                                              //切换功能前先让定时器停止工作，下次使用时强制用StartTimer初始
@@ -126,7 +126,7 @@ line level    source
  112   2                      case TIMERFUN_FREQ_MEASRURE:            //溢出计数加一，自动重装
  113   2                              t1IntrTimes++;  
  114   2                              break;                                  
-C51 COMPILER V9.01   TIMER                                                                 07/21/2018 01:19:38 PAGE 3   
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 14:22:01 PAGE 3   
 
  115   2                      case TIMERFUN_PWM:
  116   2                              /////////
@@ -190,13 +190,13 @@ line level    source
  173   2                      curFreqE5=93750*curN;
  174   2                      curRValue=1.53887471028e11F*( (refHighRN-curN)/(refHighRN*curN) );
  175   2              }
-C51 COMPILER V9.01   TIMER                                                                 07/21/2018 01:19:38 PAGE 4   
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 14:22:01 PAGE 4   
 
  176   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    509    ----
+   CODE SIZE        =    519    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

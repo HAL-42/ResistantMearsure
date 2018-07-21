@@ -9,11 +9,11 @@ extern uchar timerFun;
 
 sbit capSel=P2^4;					//电容选择接口
 extern bit isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
-extern long curN;					//当前测得脉冲数
-extern long curFreqE5;				//当前测得频率
-extern float curRValue;				//记录当前测得电阻阻值
-extern long refLowRN;				//低档位下参考脉冲数
-extern long refHighRN;				//高档位下参考脉冲数
+extern long  idata curN;			//当前测得脉冲数
+extern long  idata curFreqE5;		//当前测得频率
+extern float idata curRValue;		//记录当前测得电阻阻值
+extern long  idata refLowRN;		//低档位下参考脉冲数
+extern long  idata refHighRN;		//高档位下参考脉冲数
 
 static uchar t0IntrTimes;			//T0用于计时，T1用于计数，两个变量储存他们的溢出次数
 static uchar t1IntrTimes;

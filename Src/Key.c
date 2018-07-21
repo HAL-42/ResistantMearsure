@@ -16,24 +16,24 @@
 #define LONG_PRESS_TIME_KEYSCAN   	2000  			//2s判定为长按
 
 
-sbit key1=P1^5;						    //外部全局变量，见main.c
+sbit key1=P1^5;						    			//外部全局变量，见main.c
 sbit key2=P1^4;
 sbit key3=P1^3;
 
-extern uchar timerFun;					//外部全局变量，见main.c
+extern uchar timerFun;								//外部全局变量，见main.c
 
-extern uchar key1Events;				//外部全局变量，见main.c
+extern uchar key1Events;							//外部全局变量，见main.c
 extern uchar key2Events;
 extern uchar key3Events;
 
-extern bit isKeyEvents;					//外部全局变量，见main.c
+extern bit isKeyEvents;								//外部全局变量，见main.c
 
-static uchar key1State;					//记录各个按键状态
+static uchar key1State;								//记录各个按键状态
 static uchar key2State;
 static uchar key3State;
 
-static uint key1Timer;					//各个按键的计时器，用在消颤和长按判断上
-static uint key2Timer;
+static uint key1Timer;								//各个按键的计时器，用在消颤和长按判断上
+static uint key2Timer;	
 static uint key3Timer;
 
 static uint debounceTime;

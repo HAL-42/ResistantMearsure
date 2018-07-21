@@ -10,7 +10,7 @@ sbit	Led2 = P1^1;
 sbit	Led3 = P1^2;
 
 //-------------------------按键相关全局变量-------------------------------//
-sbit key1=P1^5;					//注意低电平表示按键按下
+sbit key1=P1^5;				//注意低电平表示按键按下
 sbit key2=P1^4;
 sbit key3=P1^3;
 
@@ -23,18 +23,18 @@ bit isKeyEvents;			//记录是否有按键事件发生
 //-------------------------计时器相关全局变量-----------------------------//
 uchar timerFun;				//选择计时器作用
 
-sbit capSel=P2^4;			//电容选择接口
-float curRValue;			//当前测得电阻阻值
-bit isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
-long curN;					//当前测得脉冲数
-float curFreqE5;			//当前测得频率
-long refLowRN;				//低档位下参考脉冲数
-long refHighRN;				//高档位下参考脉冲数
+sbit  capSel=P2^4;			//电容选择接口
+float idata curRValue;		//当前测得电阻阻值
+bit   isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
+long  idata curN;			//当前测得脉冲数
+float idata curFreqE5;		//当前测得频率
+long  idata refLowRN;		//低档位下参考脉冲数
+long  idata refHighRN;		//高档位下参考脉冲数
 
 //-------------------------筛选器相关全局变量-----------------------------//
-bit isSieveOn;			//筛选器是否打开
-float errTolr;			//筛选器允许误差
-float sieveRVal;		//筛选器中心值
+bit isSieveOn;				//筛选器是否打开
+float errTolr;				//筛选器允许误差
+float sieveRVal;			//筛选器中心值
 
 //-------------------------调试模式相关全局变量---------------------------//
 bit isDebug=1;				//是否处于调试模式
@@ -49,10 +49,8 @@ void TimerEventsCallBack();
 
 void main(){
 	InitialSys();
-	while(1){
-		SetZero();
-		Led1=Led2=Led3=0;
-	}
+	SetZero();
+	Led1=Led2=Led3=0;
 	StartTimer();
 	while(1){
 		KeyScan();
@@ -69,13 +67,11 @@ void InitialSys(){
 	P3M0 = 0x20;								//8'b00100000
 	Led1=Led2=Led3=0;
 	//初始化其他外围设备
+	LcdInitiate();
 	InitialTimers();							//初始化计时器	
 	KeyInitial();								//初始化键盘
-	//初始化其他尚未初始化的全局变量
-	isSieveOn=0;
-	errTolr=0.0;
-	errTolr=0.0;
-	isDebug=1;
+	//初始化菜单与设置变量
+	InitialMenu();
 }
 
 void SetZero(){
@@ -113,18 +109,29 @@ void SetZero(){
 void KeyEventsCallBack(){
 	switch(key1Events){
 		case SHORT_PRESS:
-			LCDPrintScreen("KEY1","SHORT_PRESS");
+			isDebug=!isDebug;								//短按改变调试
 			break;
 		case LONG_PRESS:
-			LCDPrintScreen("KEY1","LONG_PRESS");
+			isSieveOn=!isSieveOn;							//长按改变筛选模式
+			break;
+		default:
 			break;
 	}
 	switch(key2Events){
 		case SHORT_PRESS:
-			LCDPrintScreen("KEY2","SHORT_PRESS");
+			KeyInitial();									//初始化外设，进入子程序
+			SwitchTimerFun(TIMERFUN_HALT);
+			MenuImpl();										//菜单处理子程序
+			SwitchTimerFun(TIMERFUN_FREQ_MEASRURE);			//退出子程序，外设归位
+			StartTimer();
+			KeyInitial();
+			LCDCls();
+			LCDPrintStr(0,0,"Processing...");
 			break;
 		case LONG_PRESS:	
-			LCDPrintScreen("KEY2","LONG_PRESS");
+			Led3=Led2=Led1=0;								//长按关灯
+			break;
+		default:
 			break;
 	}
 	switch(key3Events){
@@ -132,11 +139,12 @@ void KeyEventsCallBack(){
 			LCDPrintScreen("KEY3","SHORT_PRESS");
 			break;
 		case LONG_PRESS:
-			LCDPrintScreen("KEY3","LONG_PRESS");
+			Led3=Led2=Led1=1;								//长按开灯
+			break;
+		default:
 			break;
 	}
 	RstKeyEvents();
-	PressAnyKey();		
 }
 
 void TimerEventsCallBack(){
