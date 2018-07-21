@@ -57,13 +57,12 @@ static void MenuOpYN();
  * @Summury
  */
 void MenuOpStartPlot();
-
-static void MenuOpSetSieve();
 /**
  * 设置筛选条件
  * @Author   Xiaobo     Yang
  * @DateTime 2018-07-21
  * @Summury
  */
-static void MenuInitial();
+static void MenuOpSetSieve();
+
 #endif

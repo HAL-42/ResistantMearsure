@@ -19,12 +19,12 @@
 #define MENU_OPTION_NUM_YN	 	2
 
 typedef struct MenuRecord *ptrToMenuRecord;			//定义指向菜单记录的指针
-typedef ptrToMenuRecord Menu;						//指向菜单记录的指针直接叫Menu
-typedef struct MenuOp *ptrToMenuOp;					//指向菜单选项的指针
+typedef ptrToMenuRecord   Menu;						//指向菜单记录的指针直接叫Menu
+typedef struct MenuOp     *ptrToMenuOp;				//指向菜单选项的指针
 
 struct MenuOp{										//菜单选项的结构
 	uchar opID;										//选项的ID
-	char *opString;								//选项显示的字符串
+	char *opString;									//选项显示的字符串
 	Menu subMenu;									//选项的子菜单
 	void (*pOpFunc) (void);  						//选择该选项执行的函数
 };
@@ -35,19 +35,19 @@ struct MenuRecord{									//菜单记录的结构
 	ptrToMenuOp OpArray;							//该菜单的条目数组
 };
 
-static code struct MenuOp debugYNOpArray[MENU_OPTION_NUM_YN]={							//Yes No 菜单的选项数组
+static code struct MenuOp debugYNOpArray[MENU_OPTION_NUM_YN]={								//Yes No 菜单的选项数组
 	{MENUID_DEBUG_YES,"Yes",NULL,MenuOpYN},
 	{MENUID_DEBUG_NO,"No",NULL,MenuOpYN}
 };
 static struct MenuRecord debugYNMenuRecord={MENU_OPTION_NUM_YN,NULL,debugYNOpArray};		//Yes No  菜单的菜单记录
-static code Menu debugYNMenu=&debugYNMenuRecord;												//用叫做ynMenu的指针指向记录
+static code Menu debugYNMenu=&debugYNMenuRecord;											//用叫做ynMenu的指针指向记录
 
-static code struct MenuOp sieveYNOpArray[MENU_OPTION_NUM_YN]={							//Yes No 菜单的选项数组
+static code struct MenuOp sieveYNOpArray[MENU_OPTION_NUM_YN]={								//Yes No 菜单的选项数组
 	{MENUID_SIEVE_YES,"Yes",NULL,MenuOpYN},
 	{MENUID_SIEVE_NO,"No",NULL,MenuOpYN}
 };
 static struct MenuRecord sieveYNMenuRecord={MENU_OPTION_NUM_YN,NULL,sieveYNOpArray};		//Yes No  菜单的菜单记录
-static code Menu sieveYNMenu=&sieveYNMenuRecord;												//用叫做ynMenu的指针指向记录
+static code Menu sieveYNMenu=&sieveYNMenuRecord;											//用叫做ynMenu的指针指向记录
 
 static code struct MenuOp MainMenuOpArray[MENU_OPTION_NUM_MAIN]={							//main菜单的选项数组				
 	{MENUID_DEBUG_MODE_ON,"Debug Mode On",&debugYNMenuRecord,NULL},
@@ -81,7 +81,7 @@ extern uchar key1Events;
 extern uchar key2Events;
 extern uchar key3Events;
 
-static uchar rNumPart;								//筛选电阻的三位数字部分
+static uint  rNumPart;								//筛选电阻的三位数字部分
 static uchar rUnit;									//筛选电阻的单位，可以是 0x20 'K' 'M'
 static uchar errTolrE2;								//误差限*100
 /**
@@ -161,7 +161,9 @@ void MenuKeyTreat(){
 				if(curOp==1) Led1=1;
 				ShowMenu();
 				break;
-			default:
+			case LONG_PRESS:
+				curOp=curMenu->opNum-1;
+				ShowMenu();
 				break;
 		}
 	}
@@ -171,7 +173,9 @@ void MenuKeyTreat(){
 				curOp=(--curOp)%(curMenu->opNum);				//向上选择
 				ShowMenu();
 				break;
-			default:
+			case LONG_PRESS:
+				curOp=0;
+				ShowMenu();
 				break;
 		}
 	}
@@ -283,7 +287,7 @@ void MenuOpStartPlot(){
  * @DateTime 2018-07-21
  * @Summury
  */
-void MenuOpSetSieve (){
+code void MenuOpSetSieve (){
 	uchar curDigit=0;
 	uchar isBreak=0;
 	LCDCls();
@@ -440,8 +444,10 @@ void MenuOpSetSieve (){
 			break;
 	}
 	errTolr=(float) errTolrE2/100.0;
-	LCDPrintFloat(0,0,sieveRVal);
-	LCDPrintFloat(0,1,errTolr);
+	//LCDPrintLine(0,0,"SieveR:");
+	LCDPrintFloat(8,0,sieveRVal);
+	//LCDPrintLine(0,1,"ErrTolr:");
+	LCDPrintFloat(8,1,errTolr);
 	delaynms(3000);
 }
 

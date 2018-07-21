@@ -19,6 +19,7 @@ static uchar tmp[10];														//公用临时数组
 static int intPart;															//公用整数部分临时储存
 static int decPart;															//公用小数部分临时储存
 
+static unsigned long pow;
 /**
  * 测试LCD1602是否正处于忙碌状态
  * @Author   Xiaobo        Yang
@@ -172,11 +173,14 @@ void LCDPrintNum(uchar x,uchar y,uint num){
  * @param    num        [description]
  */
 void LCDPrintNumFixdgt(uchar x,uchar y,uint num,uchar dgt){
+	uchar i;
+	pow=1;
+	for(i=1;i<dgt;i++) pow*=10;
 	LCDMoveCursor(x,y);
-	while(dgt){
-		dgt--;
-		LCDWriteData( num/(10^dgt) +'0');
-		num%=10^dgt;
+	while(dgt--){
+		LCDWriteData( num/pow +'0');
+		num%=pow;
+		pow/=10;
 	}
 }
 /**
