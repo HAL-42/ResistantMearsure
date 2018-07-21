@@ -2480,3 +2480,3546 @@ linking...
 Program Size: data=99.5 xdata=0 code=4059
 creating hex file from "ResistantMeasure"...
 "ResistantMeasure" - 0 Error(s), 9 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDERASE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SWITCHTIMERFUN?TIMER
+Program Size: data=99.5 xdata=0 code=4059
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 9 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDERASE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SWITCHTIMERFUN?TIMER
+Program Size: data=99.5 xdata=0 code=4059
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 9 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(45): error C202: 'TIMERFUN_FREQ_MEASRURE': undefined identifier
+..\SRC\KEY.C(46): error C202: 'debounceTime': undefined identifier
+..\SRC\KEY.C(47): error C202: 'longPressTime': undefined identifier
+..\SRC\KEY.C(50): error C202: 'debounceTime': undefined identifier
+..\SRC\KEY.C(51): error C202: 'longPressTime': undefined identifier
+..\SRC\KEY.C(64): error C202: 'debounceTime': undefined identifier
+..\SRC\KEY.C(75): error C202: 'longPressTime': undefined identifier
+..\SRC\KEY.C(97): error C202: 'debounceTime': undefined identifier
+..\SRC\KEY.C(108): error C202: 'longPressTime': undefined identifier
+..\SRC\KEY.C(130): error C202: 'debounceTime': undefined identifier
+..\SRC\KEY.C(141): error C202: 'longPressTime': undefined identifier
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+..\SRC\RESISTANTMEASURE.C(139): error C202: 'isDebug': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(100): error C202: 'LED2': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(48): warning C276: constant in condition expression
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+..\SRC\RESISTANTMEASURE.C(139): error C202: 'isDebug': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(100): error C202: 'LED2': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+..\SRC\RESISTANTMEASURE.C(139): error C202: 'isDebug': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(100): error C202: 'LED2': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+..\SRC\RESISTANTMEASURE.C(94): error C202: 'IsDebug': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(100): error C202: 'LED2': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(100): error C202: 'LED2': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(100): error C202: 'Led2': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(124): warning C206: 'KeyScan': missing function-prototype
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDERASE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SWITCHTIMERFUN?TIMER
+Program Size: data=111.5 xdata=0 code=4153
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+..\SRC\RESISTANTMEASURE.C(156): error C202: 'sieveValue': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(125): warning C206: 'KeyScan': missing function-prototype
+Target not created
+compiling Menu.c...
+..\SRC\MENU.C(27): error C141: syntax error near 'struct'
+..\SRC\MENU.C(33): error C141: syntax error near 'static'
+..\SRC\MENU.C(33): error C129: missing ';' before 'ynMenuOpArray'
+..\Src\Menu.c - 3 Error(s), 0 Warning(s).
+compiling Menu.c...
+..\SRC\MENU.C(33): error C129: missing ';' before 'ynMenuOpArray'
+..\Src\Menu.c - 1 Error(s), 0 Warning(s).
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'NULL': undefined identifier
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'NULL': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+..\Src\Menu.c - 7 Error(s), 0 Warning(s).
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'null': undefined identifier
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'NULL': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+..\Src\Menu.c - 7 Error(s), 0 Warning(s).
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'Null': undefined identifier
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'Null': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+..\Src\Menu.c - 7 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+..\SRC\RESISTANTMEASURE.C(156): error C202: 'sieveRValue': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+..\SRC\TIMER.C(125): warning C206: 'KeyScan': missing function-prototype
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'Null': undefined identifier
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'Null': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+..\SRC\RESISTANTMEASURE.C(156): error C202: 'sieveRValue': undefined identifier
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'Null': undefined identifier
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'Null': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'Null': undefined identifier
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'Null': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'Null': undefined identifier
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'NULL': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\RM.H(6): warning C318: can't open file 'stlib.h'
+compiling LCD1602.c...
+..\SRC\RM.H(6): warning C318: can't open file 'stlib.h'
+compiling ResistantMeasure.c...
+..\SRC\RM.H(6): warning C318: can't open file 'stlib.h'
+compiling RM.c...
+..\SRC\RM.H(6): warning C318: can't open file 'stlib.h'
+compiling Timer.c...
+..\SRC\RM.H(6): warning C318: can't open file 'stlib.h'
+compiling Menu.c...
+..\SRC\RM.H(6): warning C318: can't open file 'stlib.h'
+..\SRC\MENU.C(34): error C202: 'NULL': undefined identifier
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'NULL': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C129: missing ';' before 'ynMenuRecord'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C141: syntax error near 'static'
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(38): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(40): error C129: missing ';' before 'MainMenuOpArray'
+Target not created
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(37): error C129: missing ';' before 'ynMenuRecord'
+..\Src\Menu.c - 3 Error(s), 0 Warning(s).
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(37): error C202: 'mainMenu': undefined identifier
+..\SRC\MENU.C(41): error C247: non-address/-constant initializer
+..\SRC\MENU.C(42): error C247: non-address/-constant initializer
+..\SRC\MENU.C(43): error C202: 'MenuOpSetSieve': undefined identifier
+..\SRC\MENU.C(44): error C202: 'MenuOpStartPlot': undefined identifier
+..\SRC\MENU.C(45): error C202: 'MenuOpRstDev': undefined identifier
+..\SRC\MENU.C(46): error C202: 'MenuOpExit': undefined identifier
+..\Src\Menu.c - 9 Error(s), 0 Warning(s).
+compiling Menu.c...
+..\SRC\MENU.C(36): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(37): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(39): error C247: non-address/-constant initializer
+..\SRC\MENU.C(43): error C247: non-address/-constant initializer
+..\SRC\MENU.C(44): error C247: non-address/-constant initializer
+..\SRC\MENU.C(45): error C202: 'MenuOpSetSieve': undefined identifier
+..\SRC\MENU.C(46): error C202: 'MenuOpStartPlot': undefined identifier
+..\SRC\MENU.C(47): error C202: 'MenuOpRstDev': undefined identifier
+..\SRC\MENU.C(48): error C202: 'MenuOpExit': undefined identifier
+..\SRC\MENU.C(51): error C231: 'mainMenu': redefinition
+..\Src\Menu.c - 10 Error(s), 0 Warning(s).
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(41): error C247: non-address/-constant initializer
+..\SRC\MENU.C(42): error C247: non-address/-constant initializer
+..\SRC\MENU.C(43): error C202: 'MenuOpSetSieve': undefined identifier
+..\SRC\MENU.C(44): error C202: 'MenuOpStartPlot': undefined identifier
+..\SRC\MENU.C(45): error C202: 'MenuOpRstDev': undefined identifier
+..\SRC\MENU.C(46): error C202: 'MenuOpExit': undefined identifier
+..\Src\Menu.c - 8 Error(s), 0 Warning(s).
+compiling Menu.c...
+..\SRC\MENU.C(34): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(35): error C202: 'MenuOpYN': undefined identifier
+..\SRC\MENU.C(43): error C202: 'MenuOpSetSieve': undefined identifier
+..\SRC\MENU.C(44): error C202: 'MenuOpStartPlot': undefined identifier
+..\SRC\MENU.C(45): error C202: 'MenuOpRstDev': undefined identifier
+..\SRC\MENU.C(46): error C202: 'MenuOpExit': undefined identifier
+..\Src\Menu.c - 6 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+..\SRC\KEY.C(47): error C202: 'TIMERFUN_FREQ_MEASRURE': undefined identifier
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(45): error C202: 'MenuOpSetSieve': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(45): error C202: 'MenuOpSetSieve': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SWITCHTIMERFUN?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MENUIMPL?MENU
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?MENU
+    LENGTH:  006BH
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MENUOPYN
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MENUOPSETSIEVE
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MENUOPSTARTPLOT
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MENUOPRSTDEV
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MENUOPEXIT
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MENUOPYN
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0C99H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MENUOPYN
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0CA3H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MENUOPSETSIEVE
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0CD2H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MENUOPSTARTPLOT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0CDCH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MENUOPRSTDEV
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0CE6H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MENUOPEXIT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0CF0H
+Program Size: data=225.6 xdata=0 code=4543
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(41): error C202: 'debugYNOpArray': undefined identifier
+..\SRC\MENU.C(42): error C202: 'debugMenuRecord': undefined identifier
+..\SRC\MENU.C(48): error C202: 'sieveYNOpArray': undefined identifier
+..\SRC\MENU.C(49): error C202: 'sieveMenuRecord': undefined identifier
+..\SRC\MENU.C(52): error C202: 'ynMenuRecord': undefined identifier
+..\SRC\MENU.C(53): error C202: 'ynMenuRecord': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(131): warning C206: 'LCDCls': missing function-prototype
+..\SRC\MENU.C(133): warning C206: 'LCDPrintStr': missing function-prototype
+..\SRC\MENU.C(133): error C267: 'LCDPrintStr': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(151): error C202: 'key1Events': undefined identifier
+..\SRC\MENU.C(152): error C202: 'key1Events': undefined identifier
+..\SRC\MENU.C(161): error C202: 'key2Events': undefined identifier
+..\SRC\MENU.C(162): error C202: 'key2Events': undefined identifier
+..\SRC\MENU.C(172): error C202: 'key3Events': undefined identifier
+..\SRC\MENU.C(182): error C141: syntax error near '(', expected '<id>'
+..\SRC\MENU.C(182): error C202: 'pOpFunc': undefined identifier
+..\SRC\MENU.C(236): error C202: 'IAP_CONTR': undefined identifier
+..\SRC\MENU.C(289): error C202: 'key1Events': undefined identifier
+..\SRC\MENU.C(290): error C202: 'key1Events': undefined identifier
+..\SRC\MENU.C(337): error C202: 'key2Events': undefined identifier
+..\SRC\MENU.C(339): error C202: 'key2Events': undefined identifier
+..\SRC\MENU.C(355): error C202: 'key3Events': undefined identifier
+..\SRC\MENU.C(374): error C202: 'key1Events': undefined identifier
+..\SRC\MENU.C(375): error C202: 'key1Events': undefined identifier
+..\SRC\MENU.C(399): error C202: 'key2Events': undefined identifier
+..\SRC\MENU.C(401): error C202: 'key2Events': undefined identifier
+..\SRC\MENU.C(411): error C202: 'key3Events': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(186): error C141: syntax error near '(', expected '<id>'
+..\SRC\MENU.C(186): error C202: 'pOpFunc': undefined identifier
+..\SRC\MENU.C(240): error C202: 'IAP_CONTR': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(186): error C195: '*' illegal indirection
+..\SRC\MENU.C(240): error C202: 'IAP_CONTR': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(240): error C202: 'IAP_CONTR': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(21): error C231: 'ISP_CONTR': redefinition
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(443): error C249: 'DATA': SEGMENT TOO LARGE
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(282): error C136: 'MenuOpSetSieve': 'void' on variable
+..\SRC\MENU.C(282): error C129: missing ';' before 'xdata'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(443): error C249: 'DATA': SEGMENT TOO LARGE
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(38): error C141: syntax error near 'code'
+..\SRC\MENU.C(38): error C129: missing ';' before 'debugYNOpArray'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(38): error C141: syntax error near 'xdata'
+..\SRC\MENU.C(38): error C129: missing ';' before 'debugYNOpArray'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(38): error C252: misplaced primary control, line ignored
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?KEY
+    LENGTH:  000DH
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_WAITKEY?KEY
+    LENGTH:  0009H
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  ?_WAITKEY?BYTE
+    SEGMENT: ?DT?_WAITKEY?KEY
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0914H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 092CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0979H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0991H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09DDH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09F4H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 1771H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 16BEH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 15DFH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 175FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 13E1H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 15B3H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 143AH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 164BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B2EH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 156DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 156FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 125EH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1260H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1265H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1267H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 128BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 128DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 06FCH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 06FEH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0822H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0824H
+Program Size: data=143.6 xdata=0 code=6031
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: _DATA_GROUP_
+    LENGTH:  000AH
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_WAITKEY?KEY
+    LENGTH:  0009H
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  ?_WAITKEY?BYTE
+    SEGMENT: ?DT?_WAITKEY?KEY
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0914H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 092CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0979H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0991H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09DDH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09F4H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 1787H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 16D4H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 15D6H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 1775H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 13FBH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 15AAH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1454H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1642H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B2EH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 155DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 155FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 12E2H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 12E4H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 12E9H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 12EBH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 130FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1311H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 06FCH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 06FEH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0822H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0824H
+Program Size: data=133.6 xdata=0 code=6053
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: _DATA_GROUP_
+    LENGTH:  000AH
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_WAITKEY?KEY
+    LENGTH:  0009H
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  ?_WAITKEY?BYTE
+    SEGMENT: ?DT?_WAITKEY?KEY
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0914H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 092CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0979H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0991H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09DDH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09F4H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 1787H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 16D4H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 15D6H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 1775H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 13FBH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 15AAH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1454H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1642H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B2EH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 155DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 155FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 12E2H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 12E4H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 12E9H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 12EBH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 130FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1311H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 06FCH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 06FEH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0822H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0824H
+Program Size: data=133.6 xdata=0 code=6053
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  CURRVALUE
+    MODULE:  .\Timer.obj (TIMER)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 092CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0944H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0991H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09A9H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09F5H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0A0CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 17B4H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 16DBH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 15FCH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 17A2H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURRVALUE
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1419H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURRVALUE
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 141BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURRVALUE
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 141DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURRVALUE
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 141FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1421H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1423H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1425H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1427H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1429H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 142BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 142DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 142FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1431H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1433H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1435H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1437H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1439H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 143BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 143DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 143FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1441H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 15D0H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 147AH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1668H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B46H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B76H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B7AH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B7EH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B82H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B8DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B8FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B91H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B97H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B99H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B9BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B9DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B9FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BA1H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BA3H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BA5H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BA7H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BA9H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BABH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BADH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BBBH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BBDH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BC0H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BC2H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BC5H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BC7H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFLOWRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BCAH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BCCH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BE8H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BEAH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BECH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BEEH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BF3H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BF5H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BF7H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURFREQE5
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BF9H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BFBH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BFDH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0BFFH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C01H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C03H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C05H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C07H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C09H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C17H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C19H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C1CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C1EH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C21H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C23H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  REFHIGHRN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C26H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURN
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C28H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURRVALUE
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C3DH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURRVALUE
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C3FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURRVALUE
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C41H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  CURRVALUE
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0C43H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1583H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1585H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1308H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 130AH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 130FH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1311H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1335H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1337H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0714H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0716H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 083AH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 083CH
+Program Size: data=125.6 xdata=0 code=6089
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+*** ERROR L102: EXTERNAL ATTRIBUTE MISMATCH
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0952H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 096AH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09B7H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 09CFH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0A1BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 0A32H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 17E4H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 170BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 162CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Key.obj (KEY)
+    ADDRESS: 17D2H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 144CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1600H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 14AAH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 1698H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Timer.obj (TIMER)
+    ADDRESS: 0B6CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 15B3H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 15B5H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1333H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1335H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 133AH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISTIMEREVENT
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 133CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1360H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 1362H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 073AH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 073CH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0860H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  ISKEYEVENTS
+    MODULE:  .\Menu.obj (MENU)
+    ADDRESS: 0862H
+Program Size: data=125.6 xdata=0 code=6137
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=125.6 xdata=0 code=6119
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDINITIATE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=125.6 xdata=0 code=6119
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=124.6 xdata=0 code=6122
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=124.6 xdata=0 code=6143
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6122
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6120
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=5992
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=5992
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=5995
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=5998
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=5997
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=5998
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=5989
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=5983
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=5983
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=5983
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=5983
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=6012
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=6012
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  T0INTRTIMES
+    MODULE:  .\ResistantMeasure.obj (RESISTANTMEASURE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  T0INTRTIMES
+    MODULE:  .\ResistantMeasure.obj (RESISTANTMEASURE)
+    ADDRESS: 0CAEH
+Program Size: data=129.6 xdata=0 code=6072
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  T0INTRTIMES
+    MODULE:  .\ResistantMeasure.obj (RESISTANTMEASURE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  T0INTRTIMES
+    MODULE:  .\ResistantMeasure.obj (RESISTANTMEASURE)
+    ADDRESS: 0CAEH
+Program Size: data=129.6 xdata=0 code=6073
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  T0INTRTIMES
+    MODULE:  .\ResistantMeasure.obj (RESISTANTMEASURE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  T0INTRTIMES
+    MODULE:  .\ResistantMeasure.obj (RESISTANTMEASURE)
+    ADDRESS: 0CAEH
+Program Size: data=129.6 xdata=0 code=6072
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  T0INTRTIMES
+    MODULE:  .\ResistantMeasure.obj (RESISTANTMEASURE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  T0INTRTIMES
+    MODULE:  .\ResistantMeasure.obj (RESISTANTMEASURE)
+    ADDRESS: 0CAEH
+Program Size: data=129.6 xdata=0 code=6072
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=6072
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=6072
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+..\SRC\RESISTANTMEASURE.C(54): warning C206: 'delay': missing function-prototype
+..\SRC\RESISTANTMEASURE.C(54): error C267: 'delay': requires ANSI-style prototype
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYEVENTSCALLBACK?RESISTANTMEASURE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMEREVENTSCALLBACK?RESISTANTMEASURE
+Program Size: data=129.6 xdata=0 code=6090
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=124.6 xdata=0 code=6033
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=124.6 xdata=0 code=6035
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=124.6 xdata=0 code=6029
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=124.6 xdata=0 code=6029
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6026
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6056
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6070
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6068
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(119): error C141: syntax error near 'PressAnyKey'
+Target not created
+compiling Menu.c...
+..\Src\Menu.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6087
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6101
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6107
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6105
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6105
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6040
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6040
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6039
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6061
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=124.6 xdata=0 code=6061
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+..\SRC\LCD1602.C(154): warning C235: parameter 3: different types
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(290): warning C206: 'LCDPrintNumFixdgt': missing function-prototype
+..\SRC\MENU.C(290): error C267: 'LCDPrintNumFixdgt': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+..\SRC\LCD1602.C(154): warning C235: parameter 3: different types
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=126.6 xdata=0 code=6271
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+..\SRC\LCD1602.C(154): warning C235: parameter 3: different types
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=126.6 xdata=0 code=6271
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+..\SRC\LCD1602.C(155): warning C235: parameter 3: different types
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=130.6 xdata=0 code=6355
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+..\SRC\LCD1602.C(155): warning C235: parameter 3: different types
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6409
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+..\SRC\LCD1602.C(155): warning C235: parameter 3: different types
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(447): error C141: syntax error near 'LCDPrintFloat'
+..\SRC\MENU.C(449): error C141: syntax error near 'LCDPrintFloat'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+..\SRC\LCD1602.C(155): warning C235: parameter 3: different types
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPSETSIEVE?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=125.6 xdata=0 code=6480
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+..\SRC\LCD1602.C(155): warning C235: parameter 3: different types
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPSETSIEVE?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=125.6 xdata=0 code=6480
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPSETSIEVE?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=125.6 xdata=0 code=6480
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+compiling Menu.c...
+..\Src\Menu.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPSETSIEVE?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=125.6 xdata=0 code=6480
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPSETSIEVE?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=125.6 xdata=0 code=6481
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6439
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6439
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6454
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6454
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6445
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6437
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6424
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6499
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPSETSIEVE?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=125.6 xdata=0 code=6541
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPSETSIEVE?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=125.6 xdata=0 code=6572
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6531
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6539
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+..\SRC\MENU.C(7): error C231: 'WDT_CONTR': redefinition
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6667
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SETZERO?RESISTANTMEASURE
+Program Size: data=131.6 xdata=0 code=6667
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6677
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6677
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6679
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6679
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6684
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6677
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6677
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6642
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L13: RECURSIVE CALL TO SEGMENT
+    SEGMENT: ?CO?MENU
+    CALLER:  ?PR?MENUOPRSTDEV?MENU
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6642
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6603
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Key.c...
+compiling LCD1602.c...
+compiling ResistantMeasure.c...
+compiling RM.c...
+compiling Timer.c...
+compiling Menu.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WAITKEY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPRINTLINE?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_SHOW_LCD1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CURSOR_HIDE_LCD1602?LCD1602
+Program Size: data=131.6 xdata=0 code=6603
+creating hex file from "ResistantMeasure"...
+"ResistantMeasure" - 0 Error(s), 4 Warning(s).

@@ -3,6 +3,7 @@
 #include "Key.h"
 #include "Timer.h"
 #include "Menu.h"
+#include "CalcR.h"
 
 //----------------------------LED关全局变量-------------------------------//
 sbit	Led1 = P1^0;
@@ -18,19 +19,20 @@ uchar key1Events;			//保存Key1未处理的输入信号
 uchar key2Events;			//保存Key1未处理的输入信号
 uchar key3Events;			//保存Key1未处理的输入信号
 
-bit isKeyEvents;			//记录是否有按键事件发生
+bit isKeyEvents;			//记录是否有按键事件发生 
+
+//-------------------------电阻计算相关全局变量-----------------------------//
+sbit  capSel=P3^7;					//电容选择接口
+bit   isLongMeasr;
+bit   isAverg;
+float idata curRValue;				//当前测得电阻阻值
+unsigned long  idata curN;			//当前测得脉冲数
+unsigned long  idata refLowRN;		//低档位下参考脉冲数
+unsigned long  idata refHighRN;		//高档位下参考脉冲数
 
 //-------------------------计时器相关全局变量-----------------------------//
 uchar timerFun;				//选择计时器作用
-
-sbit  capSel=P3^7;			//电容选择接口
-float idata curRValue;		//当前测得电阻阻值
 bit   isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
-long  idata curN;			//当前测得脉冲数
-float idata curFreqE5;		//当前测得频率
-long  idata refLowRN;		//低档位下参考脉冲数
-long  idata refHighRN;		//高档位下参考脉冲数
-
 extern uchar t1IntrTimes;
 extern uchar t0IntrTimes;
 //-------------------------筛选器相关全局变量-----------------------------//
@@ -52,11 +54,11 @@ void TimerEventsCallBack();
 void main(){
 	InitialSys();
 	SetZero();
-	Led1=Led2=Led3=0;
+	isLongMeasr=0;
 	StartTimer();
 	while(1){
 		KeyScan();
-		if(isKeyEvents) KeyEventsCallBack();
+		if(isKeyEvents)  KeyEventsCallBack();
 		if(isTimerEvent) TimerEventsCallBack();
 	}
 }
@@ -72,17 +74,19 @@ void InitialSys(){
 	LcdInitiate();
 	InitialTimers();							//初始化计时器	
 	KeyInitial();								//初始化键盘
-	//初始化菜单与设置变量
+	//初始化菜单与电阻计算所需变量
 	InitialMenu();
+	InitialCalcR();
 }
 
 void SetZero(){
+	capSel=CAPSEL_LOWR;
+	isLongMeasr=1;
+
 	LCDPrintScreen("Cross Probes And","Press Any Button");
 	PressAnyKey();												//等待用户按照指示短接红黑表笔
 	LCDPrintScreen("Mearsuring...","Please Wait");
 	
-	capSel=CAPSEL_LOWR;											//先归零低档位
-	delaynms(3000);											    //等待某些反应迟钝的用户
 	StartTimer();												//开始采样
 	while(!isTimerEvent);
 	GetRVal();													//低档位采样结束，算出低档位下的“标准N”
@@ -99,7 +103,7 @@ void SetZero(){
 	
 	LCDPrintScreen("Set Zero","Finished");						//调0完毕
 	capSel=CAPSEL_LOWR;
-	delaynms(2000);
+	delaynms(1000);
 	if(isDebug){												//调试模式下，显示调0测量结果
 		LCDCls();
 		LCDPrintStr(0,0,"LOW");

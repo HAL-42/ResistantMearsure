@@ -11,6 +11,9 @@
 #define uchar unsigned char
 #define uint unsigned int
 
+#define CAPSEL_LOWR  1
+#define CAPSEL_HIGHR 0
+
 /**
  * 函数功能：延时nms
  * @Author   Xiaobo     Yang

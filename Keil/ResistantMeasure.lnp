@@ -4,6 +4,7 @@
 ".\ResistantMeasure.obj",
 ".\RM.obj",
 ".\Timer.obj",
-".\Menu.obj" 
+".\Menu.obj",
+".\CalcR.obj" 
 TO "ResistantMeasure" 
 RAMSIZE(256) 

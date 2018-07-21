@@ -1,9 +1,6 @@
 #ifndef _TIMER_H
 #define _TIMER_H
 
-#define CAPSEL_LOWR  1
-#define CAPSEL_HIGHR 0
-
 #define TIMERFUN_FREQ_MEASRURE  0					//计时器作用：测量频率
 #define TIMERFUN_PWM     		1					//计时器作用：输出PWM波控制舵机
 #define TIMERFUN_KEY_SCAN       2					//计时器作用：扫描键盘
@@ -45,12 +42,5 @@ void T1INT();
  * @Summury
  */
 void T0INT();
-/**
- * 计算脉冲数，频率和电阻
- * @Author   Xiaobo     Yang
- * @DateTime 2018-07-18
- * @Summury  本函数中魔鬼数字较多，为的是提高计算精度。所有数据都是在MATLAB中计算后带入，切勿随意修改
- */
-void GetRVal();
 
 #endif

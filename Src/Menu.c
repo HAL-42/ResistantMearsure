@@ -13,9 +13,12 @@
 #define MENUID_DEBUG_YES		7
 #define MENUID_DEBUG_NO    		8
 #define MENUID_SIEVE_YES    	9		
-#define MENUID_SIEVE_NO    		10		
+#define MENUID_SIEVE_NO    		10	
+#define MENUID_AVERGE_YES       11
+#define MENUID_AVERGE_NO		12
+#define MENUID_AVERG_MODE_ON	13	
 
-#define MENU_OPTION_NUM_MAIN 	6					//菜单条目数的宏定义
+#define MENU_OPTION_NUM_MAIN 	7					//菜单条目数的宏定义
 #define MENU_OPTION_NUM_YN	 	2
 
 typedef struct MenuRecord *ptrToMenuRecord;			//定义指向菜单记录的指针
@@ -49,8 +52,16 @@ static code struct MenuOp sieveYNOpArray[MENU_OPTION_NUM_YN]={								//Yes No �
 static struct MenuRecord sieveYNMenuRecord={MENU_OPTION_NUM_YN,NULL,sieveYNOpArray};		//Yes No  菜单的菜单记录
 static code Menu sieveYNMenu=&sieveYNMenuRecord;											//用叫做ynMenu的指针指向记录
 
+static code struct MenuOp avergYNOpArray[MENU_OPTION_NUM_YN]={								//Yes No 菜单的选项数组
+	{MENUID_AVERGE_YES,"Yes",NULL,MenuOpYN},
+	{MENUID_AVERGE_NO,"No",NULL,MenuOpYN}
+};
+static struct MenuRecord avergYNMenuRecord={MENU_OPTION_NUM_YN,NULL,avergYNOpArray};		//Yes No  菜单的菜单记录
+static code Menu avergYNMenu=&avergYNMenuRecord;											//用叫做ynMenu的指针指向记录
+
 static code struct MenuOp MainMenuOpArray[MENU_OPTION_NUM_MAIN]={							//main菜单的选项数组				
 	{MENUID_DEBUG_MODE_ON,"Debug Mode On",&debugYNMenuRecord,NULL},
+	{MENUID_AVERG_MODE_ON,"Averg Mode On",&avergYNMenuRecord,NULL},
 	{MENUID_SIEVE_MODE_ON,"Sieve Mode On",&sieveYNMenuRecord,NULL},
 	{MENUID_SET_SIEVE,"Set Sieve",NULL,MenuOpSetSieve},
 	{MENUID_START_PLOT,"Start Plot",NULL,MenuOpStartPlot},
@@ -69,6 +80,7 @@ extern bit   isSieveOn;								//消息变量:筛选是否打开
 extern float sieveRVal;								//筛选电阻的中心值
 extern float errTolr;								//误差限
 extern bit   isDebug;								//消息变量:调试模式打开
+extern bit   isAverg;
 
 sbit	Led1 = P1^0;								//Led变量
 sbit	Led2 = P1^1;
@@ -93,6 +105,7 @@ static uchar errTolrE2;								//误差限*100
 void InitialMenu(){
 	debugYNMenu->superMenu=mainMenu;				//菜单前后互指，因此一部分指向工作要到程序完成
 	sieveYNMenu->superMenu=mainMenu;
+	avergYNMenu->superMenu=mainMenu;
 	curMenu=mainMenu;								//初始化所有有关全局变量
 	curOp=0;
 	isExit=0;
@@ -264,6 +277,12 @@ void MenuOpYN(){
 			break;
 		case MENUID_SIEVE_NO:
 			isSieveOn=0;
+			break;
+		case MENUID_AVERGE_YES:
+			isAverg=1;
+			break;
+		case MENUID_AVERGE_NO:
+			isAverg=0;
 			break;
 	}
 }

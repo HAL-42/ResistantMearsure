@@ -1,0 +1,79 @@
+C51 COMPILER V9.01   CALCR                                                                 07/22/2018 03:23:46 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE CALCR
+OBJECT MODULE PLACED IN .\CalcR.obj
+COMPILER INVOKED BY: D:\Kell\C51\BIN\C51.EXE ..\Src\CalcR.c BROWSE DEBUG OBJECTEXTEND PRINT(.\CalcR.lst) OBJECT(.\CalcR.
+                    -obj)
+
+line level    source
+
+   1          #include "RM.h"
+   2          #include "CalcR.h"
+   3          
+   4          sbit   capSel=P3^7;                                                             //电容选择接口
+   5          extern float idata curRValue;                                   //当前测得电阻阻值
+   6          extern unsigned long idata curN;                                //当前测得脉冲数
+   7          extern unsigned long idata refLowRN;                    //低档位下参考脉冲数
+   8          extern unsigned long idata refHighRN;                   //高档位下参考脉冲数
+   9          extern bit   isAverg;
+  10          
+  11          
+  12          extern uchar t1IntrTimes;
+  13          
+  14          /**
+  15           * 计算脉冲数，频率和电阻
+  16           * @Author   Xiaobo     Yang
+  17           * @DateTime 2018-07-18
+  18           * @Summury  本函数中魔鬼数字较多，为的是提高计算精度。所有数据都是在MATLAB中
+             -计算后带入，切勿随意修改
+  19           */
+  20          void GetRVal(){
+  21   1              curN=t1IntrTimes*65536+TH1*256+TL1; // 计算脉冲次数
+  22   1              if(capSel==CAPSEL_LOWR){
+  23   2                      curRValue=1.69065825104e9F*( (refLowRN-curN)/(refLowRN*curN) );
+  24   2              }
+  25   1              else{
+  26   2                      curRValue=1.53887471028e11F*( (refHighRN-curN)/(refHighRN*curN) );
+  27   2              }
+  28   1              if( (capSel==CAPSEL_LOWR)&&
+  29   1                      (curN<0)){
+  30   2                      capSel=CAPSEL_HIGHR;
+  31   2                      delaynms(500);
+  32   2              }
+  33   1              else if( (capSel==CAPSEL_HIGHR)&&
+  34   1                      curN>0){
+  35   2                      capSel=CAPSEL_LOWR;
+  36   2                      delaynms(500);
+  37   2              }
+  38   1      }
+  39          /**
+  40           * 初始化计算R有关的全局变量
+  41           * @Author   Xiaobo     Yang
+  42           * @DateTime 2018-07-22
+  43           * @Summury
+  44           */
+  45          void InitialCalcR(){
+  46   1              capSel=CAPSEL_LOWR;                             //重置所有全局变量
+  47   1              curRValue=0;
+  48   1              curN=0;
+  49   1              refLowRN=0;
+  50   1              refHighRN=0;
+  51   1              isAverg=0;
+  52   1      }
+
+C51 COMPILER V9.01   CALCR                                                                 07/22/2018 03:23:46 PAGE 2   
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    307    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
