@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 21:48:23 PAGE 1   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 23:28:03 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE RESISTANTMEASURE
@@ -61,8 +61,8 @@ line level    source
   51          
   52          void main(){
   53   1              InitialSys();
-  54   1              //SetZero();
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 21:48:23 PAGE 2   
+  54   1              SetZero();
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 23:28:03 PAGE 2   
 
   55   1              Led1=Led2=Led3=0;
   56   1              StartTimer();
@@ -126,7 +126,7 @@ line level    source
  113          void KeyEventsCallBack(){
  114   1              switch(key1Events){
  115   2                      case SHORT_PRESS:
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 21:48:23 PAGE 3   
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 23:28:03 PAGE 3   
 
  116   2                              isDebug=!isDebug;                                                               //短按改变调试
  117   2                              break;
@@ -155,47 +155,49 @@ line level    source
  140   2              }
  141   1              switch(key3Events){
  142   2                      case SHORT_PRESS:
- 143   2                              LCDPrintScreen("KEY3","SHORT_PRESS");
- 144   2                              break;
- 145   2                      case LONG_PRESS:
- 146   2                              Led3=Led2=Led1=1;                                                               //长按开灯
- 147   2                              break;
- 148   2                      default:
+ 143   2                              KeyInitial();
+ 144   2                              SwitchTimerFun(TIMERFUN_HALT);
+ 145   2                              MenuOpRstDev();
+ 146   2                              break;
+ 147   2                      case LONG_PRESS:
+ 148   2                              Led3=Led2=Led1=1;                                                               //长按开灯
  149   2                              break;
- 150   2              }
- 151   1              RstKeyEvents();
- 152   1      }
- 153          
- 154          void TimerEventsCallBack(){
- 155   1              GetRVal();
- 156   1              StartTimer();
- 157   1              LCDCls();
- 158   1              LCDPrintStr(0,0,"R=");
- 159   1              LCDPrintFloat(2,0,curRValue);
- 160   1              if(isDebug){
- 161   2                      LCDPrintNum(8,1,curN);
- 162   2              }
- 163   1              else{
- 164   2                      LCDErase(8,1,8);
- 165   2              }
- 166   1              if(isSieveOn){
- 167   2                      LCDPrintChar(15,0,0x00);
- 168   2                      if( (curRValue-sieveRVal)/sieveRVal < errTolr &&
- 169   2                              (curRValue-sieveRVal)/sieveRVal > -errTolr ){
- 170   3                              LCDPrintStr(0,1,"In ");
- 171   3                      }
- 172   2                      else{
- 173   3                              LCDPrintStr(0,1,"Out");
- 174   3                      }
- 175   2              }
- 176   1      }
+ 150   2                      default:
+ 151   2                              break;
+ 152   2              }
+ 153   1              RstKeyEvents();
+ 154   1      }
+ 155          
+ 156          void TimerEventsCallBack(){
+ 157   1              GetRVal();
+ 158   1              StartTimer();
+ 159   1              LCDCls();
+ 160   1              LCDPrintStr(0,0,"R=");
+ 161   1              LCDPrintFloat(2,0,curRValue);
+ 162   1              if(isDebug){
+ 163   2                      LCDPrintNum(8,1,curN);
+ 164   2              }
+ 165   1              else{
+ 166   2                      LCDErase(8,1,8);
+ 167   2              }
+ 168   1              if(isSieveOn){
+ 169   2                      LCDPrintChar(15,0,0x00);
+ 170   2                      if( (curRValue-sieveRVal)/sieveRVal < errTolr &&
+ 171   2                              (curRValue-sieveRVal)/sieveRVal > -errTolr ){
+ 172   3                              LCDPrintStr(0,1,"In ");
+ 173   3                      }
+ 174   2                      else{
+ 175   3                              LCDPrintStr(0,1,"Out");
+ 176   3                      }
+ 177   2              }
+C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 23:28:03 PAGE 4   
 
-C51 COMPILER V9.01   RESISTANTMEASURE                                                      07/21/2018 21:48:23 PAGE 4   
+ 178   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    603    ----
-   CONSTANT SIZE    =    143    ----
+   CODE SIZE        =    599    ----
+   CONSTANT SIZE    =    126    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =     12    ----

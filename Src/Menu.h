@@ -42,7 +42,7 @@ static void MenuOpExit();
  * @DateTime 2018-07-21
  * @Summury
  */
-static void MenuOpRstDev();
+void MenuOpRstDev();
 /**
  * YN菜单执行，用于改变debug和sieve模式
  * @Author   Xiaobo     Yang
@@ -56,7 +56,7 @@ static void MenuOpYN();
  * @DateTime 2018-07-21
  * @Summury
  */
-void MenuOpStartPlot();
+static void MenuOpStartPlot();
 /**
  * 设置筛选条件
  * @Author   Xiaobo     Yang

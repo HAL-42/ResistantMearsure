@@ -61,7 +61,7 @@ static code struct MenuRecord mainMenuRecord={MENU_OPTION_NUM_MAIN,NULL,MainMenu
 static code Menu mainMenu=&mainMenuRecord;												    //用叫做mainMenu的指针指向记录
 
 static Menu  curMenu;								//指向当前菜单的记录
-static uchar curOp;									//当前条目
+static char curOp;									//当前条目
 
 static bit isExit;									//消息变量：是否退出菜单
 
@@ -157,8 +157,7 @@ void MenuKeyTreat(){
 	if(key1Events){											//key1优先级>key2优先级>key3优先级
 		switch(key1Events){
 			case SHORT_PRESS:
-				curOp=(++curOp)%(curMenu->opNum);				//向下选择
-				if(curOp==1) Led1=1;
+				curOp=(++curOp)%(curMenu->opNum);			//向下选择
 				ShowMenu();
 				break;
 			case LONG_PRESS:
@@ -169,8 +168,8 @@ void MenuKeyTreat(){
 	}
 	else if(key2Events){
 		switch(key2Events){
-			case SHORT_PRESS:
-				curOp=(--curOp)%(curMenu->opNum);				//向上选择
+			case SHORT_PRESS:								//向上选择
+				curOp=((--curOp)<0?curOp+(curMenu->opNum):curOp);	
 				ShowMenu();
 				break;
 			case LONG_PRESS:
@@ -222,30 +221,29 @@ void MenuOpExit(){
  * @Summury
  */
 void MenuOpRstDev(){
-	// uint i=6000;
-	// Led3=Led2=Led1=0;										//灭灯，等待激动人心的一刻
-	// LCDPrintScreen("Press Any Key To","Stop RESET!");
-	// SwitchTimerFun(TIMERFUN_KEY_SCAN);
-	// StartTimer();
-	// while(i){
-	// 	if(isTimerEvent){
-	// 		isTimerEvent=0;
-	// 		i--;											//每0.5ms让i减一，1S亮一个灯
-	// 		if(i==4000){
-	// 			Led3=1;
-	// 		}
-	// 		else if(i==2000){
-	// 			Led2=1;
-	// 		}
-	// 	}
-	// 	if(isKeyEvents){									//如有键盘事件，立即中断函数执行
-	// 		return;
-	// 	}
-	// }
-	// Led1=1;
-	// delaynms(1000);
-	// ISP_CONTR = 0x60;										//复位
-	return;
+	uint i=3000;
+	Led3=Led2=Led1=0;										//灭灯，等待激动人心的一刻
+	SwitchTimerFun(TIMERFUN_KEY_SCAN);
+	StartTimer();
+	while(i){
+		if(isTimerEvent){
+			isTimerEvent=0;
+			i--;											//每0.5ms让i减一，0.5S亮一个灯
+			if(i==2000){
+				Led3=1;
+			}
+			else if(i==1000){
+				Led2=1;
+			}
+		}
+		if(isKeyEvents){									//如有键盘事件，立即中断函数执行
+			Led3=Led2=0;
+			return;
+		}
+	}
+	Led1=1;
+	delaynms(500);
+	ISP_CONTR=0x60;											//软件复位
 }
 /**
  * YN菜单执行，用于改变debug和sieve模式
@@ -287,7 +285,7 @@ void MenuOpStartPlot(){
  * @DateTime 2018-07-21
  * @Summury
  */
-code void MenuOpSetSieve (){
+void MenuOpSetSieve (){
 	uchar curDigit=0;
 	uchar isBreak=0;
 	LCDCls();
@@ -444,9 +442,11 @@ code void MenuOpSetSieve (){
 			break;
 	}
 	errTolr=(float) errTolrE2/100.0;
-	//LCDPrintLine(0,0,"SieveR:");
+	LCDCls();
+	LCDPrintNumFixdgt(0,0,rNumPart,3);
+	LCDPrintChar(3,0,rUnit);
+	LCDPrintNumFixdgt(0,1,errTolrE2,2);
 	LCDPrintFloat(8,0,sieveRVal);
-	//LCDPrintLine(0,1,"ErrTolr:");
 	LCDPrintFloat(8,1,errTolr);
 	delaynms(3000);
 }

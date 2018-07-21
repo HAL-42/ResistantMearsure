@@ -51,7 +51,7 @@ void TimerEventsCallBack();
 
 void main(){
 	InitialSys();
-	//SetZero();
+	SetZero();
 	Led1=Led2=Led3=0;
 	StartTimer();
 	while(1){
@@ -140,7 +140,9 @@ void KeyEventsCallBack(){
 	}
 	switch(key3Events){
 		case SHORT_PRESS:
-			LCDPrintScreen("KEY3","SHORT_PRESS");
+			KeyInitial();
+			SwitchTimerFun(TIMERFUN_HALT);
+			MenuOpRstDev();
 			break;
 		case LONG_PRESS:
 			Led3=Led2=Led1=1;								//长按开灯
