@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   TIMER                                                                 07/21/2018 14:22:01 PAGE 1   
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 17:31:40 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE TIMER
@@ -25,8 +25,8 @@ line level    source
   15          extern long  idata refLowRN;            //低档位下参考脉冲数
   16          extern long  idata refHighRN;           //高档位下参考脉冲数
   17          
-  18          static uchar t0IntrTimes;                       //T0用于计时，T1用于计数，两个变量储存他们的溢出次数
-  19          static uchar t1IntrTimes;
+  18          uchar t0IntrTimes;                      //T0用于计时，T1用于计数，两个变量储存他们的溢出次数
+  19          uchar t1IntrTimes;
   20          /**
   21           * 设定初值,中断允许,计时优先，设定TMOD(51)
   22           * @Author   Xiaobo     Yang
@@ -62,7 +62,7 @@ line level    source
   52           * @param    fun        功能描述
   53           */
   54          void SwitchTimerFun(uchar fun){
-C51 COMPILER V9.01   TIMER                                                                 07/21/2018 14:22:01 PAGE 2   
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 17:31:40 PAGE 2   
 
   55   1              timerFun=fun;
   56   1              TR1=TR0=0;                                                              //切换功能前先让定时器停止工作，下次使用时强制用StartTimer初始
@@ -126,7 +126,7 @@ line level    source
  112   2                      case TIMERFUN_FREQ_MEASRURE:            //溢出计数加一，自动重装
  113   2                              t1IntrTimes++;  
  114   2                              break;                                  
-C51 COMPILER V9.01   TIMER                                                                 07/21/2018 14:22:01 PAGE 3   
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 17:31:40 PAGE 3   
 
  115   2                      case TIMERFUN_PWM:
  116   2                              /////////
@@ -190,7 +190,7 @@ line level    source
  173   2                      curFreqE5=93750*curN;
  174   2                      curRValue=1.53887471028e11F*( (refHighRN-curN)/(refHighRN*curN) );
  175   2              }
-C51 COMPILER V9.01   TIMER                                                                 07/21/2018 14:22:01 PAGE 4   
+C51 COMPILER V9.01   TIMER                                                                 07/21/2018 17:31:40 PAGE 4   
 
  176   1      }
 

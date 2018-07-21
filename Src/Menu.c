@@ -117,7 +117,7 @@ void MenuImpl(){
 	ShowMenu();
 	SwitchTimerFun(TIMERFUN_KEY_SCAN);				//开始键盘扫描
 	StartTimer();
-	while(isExit){
+	while(!isExit){
 		if(isKeyEvents){
 			SwitchTimerFun(TIMERFUN_HALT);			//TODO:或许可以优化掉
 			MenuKeyTreat();
@@ -137,12 +137,13 @@ void ShowMenu(){
 	if(curOp!=0){
 		LCDPrintStr(1,0,curMenu->OpArray[curOp-1].opString);
 		LCDPrintStr(1,1,curMenu->OpArray[curOp].opString);
-		LCDPrintChar(0,1,'>');
+		LCDPrintChar(0,1,'C');
 	}
 	else{
+		Led2=1;
 		LCDPrintStr(1,0,curMenu->OpArray[curOp].opString);
 		LCDPrintStr(1,1,curMenu->OpArray[curOp+1].opString);
-		LCDPrintStr(0,0,'>');
+		LCDPrintStr(0,0,'C');
 	}
 }
 /**
@@ -152,6 +153,7 @@ void ShowMenu(){
  * @Summury
  */
 void MenuKeyTreat(){
+	Led2=1;
 	if(key1Events){											//key1优先级>key2优先级>key3优先级
 		switch(key1Events){
 			case SHORT_PRESS:
@@ -215,29 +217,30 @@ void MenuOpExit(){
  * @Summury
  */
 void MenuOpRstDev(){
-	uint i=6000;
-	Led3=Led2=Led1=0;										//灭灯，等待激动人心的一刻
-	LCDPrintScreen("Press Any Key To","Stop RESET!");
-	SwitchTimerFun(TIMERFUN_KEY_SCAN);
-	StartTimer();
-	while(i){
-		if(isTimerEvent){
-			isTimerEvent=0;
-			i--;											//每0.5ms让i减一，1S亮一个灯
-			if(i==4000){
-				Led3=1;
-			}
-			else if(i==2000){
-				Led2=1;
-			}
-		}
-		if(isKeyEvents){									//如有键盘事件，立即中断函数执行
-			return;
-		}
-	}
-	Led1=1;
-	delaynms(1000);
-	ISP_CONTR = 0x60;										//复位
+	// uint i=6000;
+	// Led3=Led2=Led1=0;										//灭灯，等待激动人心的一刻
+	// LCDPrintScreen("Press Any Key To","Stop RESET!");
+	// SwitchTimerFun(TIMERFUN_KEY_SCAN);
+	// StartTimer();
+	// while(i){
+	// 	if(isTimerEvent){
+	// 		isTimerEvent=0;
+	// 		i--;											//每0.5ms让i减一，1S亮一个灯
+	// 		if(i==4000){
+	// 			Led3=1;
+	// 		}
+	// 		else if(i==2000){
+	// 			Led2=1;
+	// 		}
+	// 	}
+	// 	if(isKeyEvents){									//如有键盘事件，立即中断函数执行
+	// 		return;
+	// 	}
+	// }
+	// Led1=1;
+	// delaynms(1000);
+	// ISP_CONTR = 0x60;										//复位
+	return;
 }
 /**
  * YN菜单执行，用于改变debug和sieve模式

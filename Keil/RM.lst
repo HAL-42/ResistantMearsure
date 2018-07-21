@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   RM                                                                    07/21/2018 14:22:01 PAGE 1   
+C51 COMPILER V9.01   RM                                                                    07/21/2018 17:31:40 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE RM
@@ -29,7 +29,7 @@ line level    source
   20          {
   21   1              uint x,y;
   22   1              for(x=1; x>0; x--)
-  23   1                      for(y=500; y>0; y--);
+  23   1                      for(y=856; y>0; y--);
   24   1      
   25   1      }
   26          /**

@@ -1,8 +1,8 @@
 #ifndef _TIMER_H
 #define _TIMER_H
 
-#define CAPSEL_LOWR 0
-#define CAPSEL_HIGHR 1
+#define CAPSEL_LOWR  1
+#define CAPSEL_HIGHR 0
 
 #define TIMERFUN_FREQ_MEASRURE  0					//计时器作用：测量频率
 #define TIMERFUN_PWM     		1					//计时器作用：输出PWM波控制舵机

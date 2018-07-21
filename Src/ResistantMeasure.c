@@ -23,7 +23,7 @@ bit isKeyEvents;			//记录是否有按键事件发生
 //-------------------------计时器相关全局变量-----------------------------//
 uchar timerFun;				//选择计时器作用
 
-sbit  capSel=P2^4;			//电容选择接口
+sbit  capSel=P3^7;			//电容选择接口
 float idata curRValue;		//当前测得电阻阻值
 bit   isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
 long  idata curN;			//当前测得脉冲数
@@ -31,8 +31,10 @@ float idata curFreqE5;		//当前测得频率
 long  idata refLowRN;		//低档位下参考脉冲数
 long  idata refHighRN;		//高档位下参考脉冲数
 
+extern uchar t1IntrTimes;
+extern uchar t0IntrTimes;
 //-------------------------筛选器相关全局变量-----------------------------//
-bit isSieveOn;				//筛选器是否打开
+bit   isSieveOn;			//筛选器是否打开
 float errTolr;				//筛选器允许误差
 float sieveRVal;			//筛选器中心值
 
@@ -61,9 +63,9 @@ void main(){
 
 void InitialSys(){
 	//定义端口输入输出,p1^0-P1^2为推挽输出，p1^3-P1^7为输入，设置PxM0，PxM1；关闭各个LED
-	P1M1 = 0x07;								//8'b00000111
-	P1M0 = 0xf8;								//8'b11111000
-	P3M1 = 0x80;								//8'b10000000
+	P1M1 = 0x47;								//8'b01000111
+	P1M0 = 0xb8;								//8'b10111000
+	P3M1 = 0x00;								//8'b00000000
 	P3M0 = 0x20;								//8'b00100000
 	Led1=Led2=Led3=0;
 	//初始化其他外围设备
@@ -75,26 +77,28 @@ void InitialSys(){
 }
 
 void SetZero(){
-	extern uchar t1IntrTimes;
-	extern uchar t0IntrTimes;
 	LCDPrintScreen("Cross Probes And","Press Any Button");
 	PressAnyKey();												//等待用户按照指示短接红黑表笔
 	LCDPrintScreen("Mearsuring...","Please Wait");
+	
 	capSel=CAPSEL_LOWR;											//先归零低档位
-	delaynms(3000);												//等待某些反应迟钝的用户
+	delaynms(3000);											    //等待某些反应迟钝的用户
 	StartTimer();												//开始采样
 	while(!isTimerEvent);
 	GetRVal();													//低档位采样结束，算出低档位下的“标准N”
-	if(!TL1) Led1=1;
 	refLowRN=curN;
-	capSel=CAPSEL_HIGHR;										//设定到高档位，并等待0.2秒，让继电器反应过来
+	LCDCls();
+	LCDPrintScreen("Press Any Button","To Switch Cap");
+	PressAnyKey();
+	capSel=CAPSEL_HIGHR;										//设定到高档位，并等待1秒，让继电器反应过来
 	delaynms(1000);
 	StartTimer();												//高档位采样
 	while(!isTimerEvent);
 	GetRVal();
-	if(!TL1) Led3=1;
 	refHighRN=curN;
+	
 	LCDPrintScreen("Set Zero","Finished");						//调0完毕
+	capSel=CAPSEL_LOWR;
 	delaynms(2000);
 	if(isDebug){												//调试模式下，显示调0测量结果
 		LCDCls();

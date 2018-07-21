@@ -31,7 +31,7 @@ bit BusyTest(){
 	rs=0;
 	rw=1;
 	en=1;							//LCD1602读命令时en应该是高电平
-	delaynMC(4);
+	delaynMC(6);
 	result=isBusy;
 	en=0;				 			//en恢复到0
 	return result;
@@ -49,9 +49,9 @@ void LCDWriteCommand(uchar CMD){
 	rw=0;
 	en=0;
 	DataPort=CMD;
-	delaynMC(4);
+	delaynMC(6);
 	en=1;							//让en产生从0到1的跳变，写入指令
-	delaynMC(4);		
+	delaynMC(6);		
 	en=0;							//en下降沿，LCD1602执行指令
 }
 /**
@@ -86,9 +86,9 @@ void LCDWriteData(uchar x){
 	rw=0;
 	en=0;
 	DataPort=x;
-	delaynMC(4);
+	delaynMC(6);
 	en=1;								//让en产生从0到1的跳变，写入数据
-	delaynMC(4);		
+	delaynMC(6);		
 	en=0;								//en下降沿，LCD1602开始输出
 }
 /**

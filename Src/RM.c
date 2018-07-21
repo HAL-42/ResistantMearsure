@@ -20,7 +20,7 @@ void delay1ms()
 {
 	uint x,y;
 	for(x=1; x>0; x--)
-		for(y=500; y>0; y--);
+		for(y=856; y>0; y--);
 
 }
 /**

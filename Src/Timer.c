@@ -15,8 +15,8 @@ extern float idata curRValue;		//记录当前测得电阻阻值
 extern long  idata refLowRN;		//低档位下参考脉冲数
 extern long  idata refHighRN;		//高档位下参考脉冲数
 
-static uchar t0IntrTimes;			//T0用于计时，T1用于计数，两个变量储存他们的溢出次数
-static uchar t1IntrTimes;
+uchar t0IntrTimes;			//T0用于计时，T1用于计数，两个变量储存他们的溢出次数
+uchar t1IntrTimes;
 /**
  * 设定初值,中断允许,计时优先，设定TMOD(51)
  * @Author   Xiaobo     Yang
