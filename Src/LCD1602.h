@@ -28,7 +28,7 @@ static void LCDWriteCommand(uchar CMD);
  * @param    x          x坐标，在0~15之间
  * @param    y          y坐标，只有0,1两种选择
  */
-static void LCDMoveCursor(uchar x,uchar y);
+void LCDMoveCursor(uchar x,uchar y);
 /**
  * 向LCD1602写入数据，让LCD1602在光标位置打出输入的字符
  * @Author   Xiaobo     Yang
@@ -71,6 +71,16 @@ void LCDPrintChar(uchar x,uchar y,uchar c);
  * @param    num        要显示整数
  */
 void LCDPrintNum(uchar x,uchar y,int num);
+/**
+ * 在指定位置显示一个指定位数的整数
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-21
+ * @Summury
+ * @param    x          [description]
+ * @param    y          [description]
+ * @param    num        [description]
+ */
+void LCDPrintNumFixdgt(uchar x,uchar y,uint num,uchar dgt);
 /**
  * 在指定位置显示一个浮点数，三位整数，三位小数，数量级以10E3递增，大于999M定义为无穷
  * @Author   Xiaobo     Yang

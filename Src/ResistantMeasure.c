@@ -51,7 +51,7 @@ void TimerEventsCallBack();
 
 void main(){
 	InitialSys();
-	SetZero();
+	//SetZero();
 	Led1=Led2=Led3=0;
 	StartTimer();
 	while(1){

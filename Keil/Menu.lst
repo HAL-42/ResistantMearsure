@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   MENU                                                                  07/21/2018 17:31:40 PAGE 1   
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 20:48:59 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE MENU
@@ -34,7 +34,7 @@ line level    source
   24          
   25          struct MenuOp{                                                                          //菜单选项的结构
   26                  uchar opID;                                                                             //选项的ID
-  27                  uchar *opString;                                                                //选项显示的字符串
+  27                  char *opString;                                                         //选项显示的字符串
   28                  Menu subMenu;                                                                   //选项的子菜单
   29                  void (*pOpFunc) (void);                                                 //选择该选项执行的函数
   30          };
@@ -62,7 +62,7 @@ line level    source
   50          static code Menu sieveYNMenu=&sieveYNMenuRecord;                                                                                                //用叫做ynMenu的指针指向记录
   51          
   52          static code struct MenuOp MainMenuOpArray[MENU_OPTION_NUM_MAIN]={                                                       //main菜单的选项数组                             
-C51 COMPILER V9.01   MENU                                                                  07/21/2018 17:31:40 PAGE 2   
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 20:48:59 PAGE 2   
 
   53                  {MENUID_DEBUG_MODE_ON,"Debug Mode On",&debugYNMenuRecord,NULL},
   54                  {MENUID_SIEVE_MODE_ON,"Sieve Mode On",&sieveYNMenuRecord,NULL},
@@ -75,15 +75,15 @@ line level    source
              -��单记录
   61          static code Menu mainMenu=&mainMenuRecord;                                                                                                  //用叫做mainMenu的指针指向记录
   62          
-  63          static Menu curMenu;                                                            //指向当前菜单的记录
+  63          static Menu  curMenu;                                                           //指向当前菜单的记录
   64          static uchar curOp;                                                                     //当前条目
   65          
   66          static bit isExit;                                                                      //消息变量：是否退出菜单
   67          
-  68          extern bit isSieveOn;                                                           //消息变量:筛选是否打开
+  68          extern bit   isSieveOn;                                                         //消息变量:筛选是否打开
   69          extern float sieveRVal;                                                         //筛选电阻的中心值
   70          extern float errTolr;                                                           //误差限
-  71          extern bit isDebug;                                                                     //消息变量:调试模式打开
+  71          extern bit   isDebug;                                                           //消息变量:调试模式打开
   72          
   73          sbit    Led1 = P1^0;                                                            //Led变量
   74          sbit    Led2 = P1^1;
@@ -108,7 +108,7 @@ line level    source
   93          void InitialMenu(){
   94   1              debugYNMenu->superMenu=mainMenu;                                //菜单前后互指，因此一部分指向工作要到程序完成
   95   1              sieveYNMenu->superMenu=mainMenu;
-  96   1              curMenu=NULL;                                                                   //初始化所有有关全局变量
+  96   1              curMenu=mainMenu;                                                               //初始化所有有关全局变量
   97   1              curOp=0;
   98   1              isExit=0;
   99   1              isSieveOn=0;
@@ -126,7 +126,7 @@ line level    source
  111           * @Summury
  112           */
  113          void MenuImpl(){
-C51 COMPILER V9.01   MENU                                                                  07/21/2018 17:31:40 PAGE 3   
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 20:48:59 PAGE 3   
 
  114   1              curMenu=mainMenu;                                                               //从头开始显示菜单
  115   1              curOp=0;
@@ -152,329 +152,334 @@ line level    source
  135          void ShowMenu(){
  136   1              LCDCls();
  137   1              if(curOp!=0){
- 138   2                      LCDPrintStr(1,0,curMenu->OpArray[curOp-1].opString);
- 139   2                      LCDPrintStr(1,1,curMenu->OpArray[curOp].opString);
- 140   2                      LCDPrintChar(0,1,'C');
- 141   2              }
- 142   1              else{
- 143   2                      Led2=1;
- 144   2                      LCDPrintStr(1,0,curMenu->OpArray[curOp].opString);
- 145   2                      LCDPrintStr(1,1,curMenu->OpArray[curOp+1].opString);
- 146   2                      LCDPrintStr(0,0,'C');
- 147   2              }
- 148   1      }
- 149          /**
- 150           * 处理菜单模式下的按键信息
- 151           * @Author   Xiaobo     Yang
- 152           * @DateTime 2018-07-21
- 153           * @Summury
- 154           */
- 155          void MenuKeyTreat(){
- 156   1              Led2=1;
+ 138   2                      LCDMoveCursor(1,0);                                                                             //此处有莫名其妙的bug，需要专门重设光标
+ 139   2                      LCDPrintStr(1,0,curMenu->OpArray[curOp-1].opString);
+ 140   2                      LCDPrintStr(1,1,curMenu->OpArray[curOp].opString);
+ 141   2                      LCDPrintChar(0,1,'>');
+ 142   2              }
+ 143   1              else{
+ 144   2                      LCDMoveCursor(1,0);
+ 145   2                      LCDPrintStr(1,0,curMenu->OpArray[curOp].opString);
+ 146   2                      LCDPrintStr(1,1,curMenu->OpArray[curOp+1].opString);
+ 147   2                      LCDPrintChar(0,0,'>');
+ 148   2              }
+ 149   1      }
+ 150          /**
+ 151           * 处理菜单模式下的按键信息
+ 152           * @Author   Xiaobo     Yang
+ 153           * @DateTime 2018-07-21
+ 154           * @Summury
+ 155           */
+ 156          void MenuKeyTreat(){
  157   1              if(key1Events){                                                                                 //key1优先级>key2优先级>key3优先级
  158   2                      switch(key1Events){
  159   3                              case SHORT_PRESS:
- 160   3                                      curOp=(curOp++)%curMenu->opNum;                         //向下选择
- 161   3                                      ShowMenu();
- 162   3                                      break;
- 163   3                              default:
- 164   3                                      break;
- 165   3                      }
- 166   2              }
- 167   1              else if(key2Events){
- 168   2                      switch(key2Events){
- 169   3                              case SHORT_PRESS:
- 170   3                                      curOp=(curOp--)%curMenu->opNum;                         //向上选择
- 171   3                                      ShowMenu();
- 172   3                                      break;
- 173   3                              default:
- 174   3                                      break;
- 175   3                      }
-C51 COMPILER V9.01   MENU                                                                  07/21/2018 17:31:40 PAGE 4   
+ 160   3                                      curOp=(++curOp)%(curMenu->opNum);                               //向下选择
+ 161   3                                      if(curOp==1) Led1=1;
+ 162   3                                      ShowMenu();
+ 163   3                                      break;
+ 164   3                              default:
+ 165   3                                      break;
+ 166   3                      }
+ 167   2              }
+ 168   1              else if(key2Events){
+ 169   2                      switch(key2Events){
+ 170   3                              case SHORT_PRESS:
+ 171   3                                      curOp=(--curOp)%(curMenu->opNum);                               //向上选择
+ 172   3                                      ShowMenu();
+ 173   3                                      break;
+ 174   3                              default:
+ 175   3                                      break;
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 20:48:59 PAGE 4   
 
- 176   2              }
- 177   1              else{
- 178   2                      switch(key3Events){
- 179   3                              case SHORT_PRESS:
- 180   3                              if(curMenu->OpArray[curOp].subMenu!=NULL){
- 181   4                                      curMenu=curMenu->OpArray[curOp].subMenu;        //进入子菜单
- 182   4                                      curOp=0;
- 183   4                                      ShowMenu();
- 184   4                              }
- 185   3                              else{
- 186   4                                      KeyInitial();                                                           //初始化外设，时钟已经在MenuImpl中停止
- 187   4                                      isExit=1;                                                                       //设定退出模式
- 188   4                                      (*(curMenu->OpArray[curOp].pOpFunc)) ();                //执行选项的函数
- 189   4                              }       
- 190   3                                      break;
- 191   3                              case LONG_PRESS:                                                                //长按可以回到上级菜单
- 192   3                                      if(curMenu->superMenu!=NULL){
- 193   4                                              curMenu=curMenu->superMenu;
- 194   4                                              curOp=0;
- 195   4                                              ShowMenu();
- 196   4                                      }
- 197   3                                      break;
- 198   3                              default:
- 199   3                                      break;
- 200   3                      }
- 201   2              }
- 202   1              RstKeyEvents();
- 203   1      }
- 204          /**
- 205           * 什么都不做
- 206           * @Author   Xiaobo     Yang
- 207           * @DateTime 2018-07-21
- 208           * @Summury
- 209           */
- 210          void MenuOpExit(){
- 211   1              return;
- 212   1      }
- 213          /**
- 214           * 利用IAP_CONTR进行软件复位
- 215           * @Author   Xiaobo     Yang
- 216           * @DateTime 2018-07-21
- 217           * @Summury
- 218           */
- 219          void MenuOpRstDev(){
- 220   1              // uint i=6000;
- 221   1              // Led3=Led2=Led1=0;                                                                            //灭灯，等待激动人心的一刻
- 222   1              // LCDPrintScreen("Press Any Key To","Stop RESET!");
- 223   1              // SwitchTimerFun(TIMERFUN_KEY_SCAN);
- 224   1              // StartTimer();
- 225   1              // while(i){
- 226   1              //      if(isTimerEvent){
- 227   1              //              isTimerEvent=0;
- 228   1              //              i--;                                                                                    //每0.5ms让i减一，1S亮一个灯
- 229   1              //              if(i==4000){
- 230   1              //                      Led3=1;
- 231   1              //              }
- 232   1              //              else if(i==2000){
- 233   1              //                      Led2=1;
- 234   1              //              }
- 235   1              //      }
- 236   1              //      if(isKeyEvents){                                                                        //如有键盘事件，立即中断函数执行
- 237   1              //              return;
-C51 COMPILER V9.01   MENU                                                                  07/21/2018 17:31:40 PAGE 5   
+ 176   3                      }
+ 177   2              }
+ 178   1              else{
+ 179   2                      switch(key3Events){
+ 180   3                              case SHORT_PRESS:
+ 181   3                              if(curMenu->OpArray[curOp].subMenu!=NULL){
+ 182   4                                      curMenu=curMenu->OpArray[curOp].subMenu;        //进入子菜单
+ 183   4                                      curOp=0;
+ 184   4                                      ShowMenu();
+ 185   4                              }
+ 186   3                              else{
+ 187   4                                      KeyInitial();                                                           //初始化外设，时钟已经在MenuImpl中停止
+ 188   4                                      isExit=1;                                                                       //设定退出模式
+ 189   4                                      (*(curMenu->OpArray[curOp].pOpFunc)) ();        //执行选项的函数
+ 190   4                              }       
+ 191   3                                      break;
+ 192   3                              case LONG_PRESS:                                                                //长按可以回到上级菜单
+ 193   3                                      if(curMenu->superMenu!=NULL){
+ 194   4                                              curMenu=curMenu->superMenu;
+ 195   4                                              curOp=0;
+ 196   4                                              ShowMenu();
+ 197   4                                      }
+ 198   3                                      break;
+ 199   3                              default:
+ 200   3                                      break;
+ 201   3                      }
+ 202   2              }
+ 203   1              RstKeyEvents();
+ 204   1      }
+ 205          /**
+ 206           * 什么都不做
+ 207           * @Author   Xiaobo     Yang
+ 208           * @DateTime 2018-07-21
+ 209           * @Summury
+ 210           */
+ 211          void MenuOpExit(){
+ 212   1              return;
+ 213   1      }
+ 214          /**
+ 215           * 利用IAP_CONTR进行软件复位
+ 216           * @Author   Xiaobo     Yang
+ 217           * @DateTime 2018-07-21
+ 218           * @Summury
+ 219           */
+ 220          void MenuOpRstDev(){
+ 221   1              // uint i=6000;
+ 222   1              // Led3=Led2=Led1=0;                                                                            //灭灯，等待激动人心的一刻
+ 223   1              // LCDPrintScreen("Press Any Key To","Stop RESET!");
+ 224   1              // SwitchTimerFun(TIMERFUN_KEY_SCAN);
+ 225   1              // StartTimer();
+ 226   1              // while(i){
+ 227   1              //      if(isTimerEvent){
+ 228   1              //              isTimerEvent=0;
+ 229   1              //              i--;                                                                                    //每0.5ms让i减一，1S亮一个灯
+ 230   1              //              if(i==4000){
+ 231   1              //                      Led3=1;
+ 232   1              //              }
+ 233   1              //              else if(i==2000){
+ 234   1              //                      Led2=1;
+ 235   1              //              }
+ 236   1              //      }
+ 237   1              //      if(isKeyEvents){                                                                        //如有键盘事件，立即中断函数执行
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 20:48:59 PAGE 5   
 
- 238   1              //      }
- 239   1              // }
- 240   1              // Led1=1;
- 241   1              // delaynms(1000);
- 242   1              // ISP_CONTR = 0x60;                                                                            //复位
- 243   1              return;
- 244   1      }
- 245          /**
- 246           * YN菜单执行，用于改变debug和sieve模式
- 247           * @Author   Xiaobo     Yang
- 248           * @DateTime 2018-07-21
- 249           * @Summury
- 250           */
- 251          void MenuOpYN(){
- 252   1              switch(curMenu->OpArray[curOp].opID){
- 253   2                      case MENUID_DEBUG_YES:
- 254   2                              isDebug=1;
- 255   2                              break;
- 256   2                      case MENUID_DEBUG_NO:
- 257   2                              isDebug=0;
- 258   2                              break;
- 259   2                      case MENUID_SIEVE_YES:
- 260   2                              isSieveOn=1;
- 261   2                              break;
- 262   2                      case MENUID_SIEVE_NO:
- 263   2                              isSieveOn=0;
- 264   2                              break;
- 265   2              }
- 266   1      }
- 267          /**
- 268           * 转动舵机画曲线
- 269           * @Author   Xiaobo     Yang
- 270           * @DateTime 2018-07-21
- 271           * @Summury
- 272           */
- 273          void MenuOpStartPlot(){
- 274   1              //////////////////////
- 275   1              //TODO:NOT FINISHED //
- 276   1              //////////////////////
- 277   1              return;
- 278   1      }
- 279          /**
- 280           * 设置筛选条件
- 281           * @Author   Xiaobo     Yang
- 282           * @DateTime 2018-07-21
- 283           * @Summury
- 284           */
- 285          void MenuOpSetSieve (){
- 286   1              uchar curDigit=0;
- 287   1              uchar breakFlag=1;
- 288   1              LCDCls();
- 289   1              LCDPrintNum(0,0,rNumPart);
- 290   1              LCDPrintChar(3,0,rUnit);
- 291   1              LCDPrintChar(curDigit,1,'^');
- 292   1              SwitchTimerFun(TIMERFUN_KEY_SCAN);
- 293   1              StartTimer();
- 294   1              while(breakFlag){
- 295   2                      if(isKeyEvents){
- 296   3                              if(key1Events){
- 297   4                                      switch(key1Events){
- 298   5                                              case SHORT_PRESS:
- 299   5                                                      switch(curDigit){
-C51 COMPILER V9.01   MENU                                                                  07/21/2018 17:31:40 PAGE 6   
+ 238   1              //              return;
+ 239   1              //      }
+ 240   1              // }
+ 241   1              // Led1=1;
+ 242   1              // delaynms(1000);
+ 243   1              // ISP_CONTR = 0x60;                                                                            //复位
+ 244   1              return;
+ 245   1      }
+ 246          /**
+ 247           * YN菜单执行，用于改变debug和sieve模式
+ 248           * @Author   Xiaobo     Yang
+ 249           * @DateTime 2018-07-21
+ 250           * @Summury
+ 251           */
+ 252          void MenuOpYN(){
+ 253   1              switch(curMenu->OpArray[curOp].opID){
+ 254   2                      case MENUID_DEBUG_YES:
+ 255   2                              isDebug=1;
+ 256   2                              break;
+ 257   2                      case MENUID_DEBUG_NO:
+ 258   2                              isDebug=0;
+ 259   2                              break;
+ 260   2                      case MENUID_SIEVE_YES:
+ 261   2                              isSieveOn=1;
+ 262   2                              break;
+ 263   2                      case MENUID_SIEVE_NO:
+ 264   2                              isSieveOn=0;
+ 265   2                              break;
+ 266   2              }
+ 267   1      }
+ 268          /**
+ 269           * 转动舵机画曲线
+ 270           * @Author   Xiaobo     Yang
+ 271           * @DateTime 2018-07-21
+ 272           * @Summury
+ 273           */
+ 274          void MenuOpStartPlot(){
+ 275   1              //////////////////////
+ 276   1              //TODO:NOT FINISHED //
+ 277   1              //////////////////////
+ 278   1              return;
+ 279   1      }
+ 280          /**
+ 281           * 设置筛选条件
+ 282           * @Author   Xiaobo     Yang
+ 283           * @DateTime 2018-07-21
+ 284           * @Summury
+ 285           */
+ 286          void MenuOpSetSieve (){
+ 287   1              uchar curDigit=0;
+ 288   1              uchar isBreak=0;
+ 289   1              LCDCls();
+ 290   1              LCDPrintNumFixdgt(0,0,rNumPart,3);
+ 291   1              LCDPrintChar(3,0,rUnit);
+ 292   1              LCDPrintChar(curDigit,1,'^');
+ 293   1              SwitchTimerFun(TIMERFUN_KEY_SCAN);
+ 294   1              StartTimer();
+ 295   1              while(!isBreak){
+ 296   2                      if(isKeyEvents){
+ 297   3                              if(key1Events){
+ 298   4                                      switch(key1Events){
+ 299   5                                              case SHORT_PRESS:
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 20:48:59 PAGE 6   
 
- 300   6                                                              case 0:
- 301   6                                                                      rNumPart=(rNumPart+100)%1000;
- 302   6                                                                      break;
- 303   6                                                              case 1:
- 304   6                                                                      rNumPart=(rNumPart+10)%1000;
- 305   6                                                                      break;
- 306   6                                                              case 2:
- 307   6                                                                      rNumPart=(rNumPart+1)%1000;
- 308   6                                                                      break;
- 309   6                                                              case 3:
- 310   6                                                                      switch(rUnit){
- 311   7                                                                              case 0x20:
- 312   7                                                                                      rUnit='K';
- 313   7                                                                                      break;
- 314   7                                                                              case 'k':
- 315   7                                                                                      rUnit='M';
- 316   7                                                                                      break;
- 317   7                                                                              case 'M':
- 318   7                                                                                      rUnit=0x20;
- 319   7                                                                                      break;
- 320   7                                                                      }
- 321   6                                                              break;
- 322   6                                                      }
- 323   5                                                      break;
- 324   5                                              case LONG_PRESS:
- 325   5                                                      switch(curDigit){
- 326   6                                                              case 0:
- 327   6                                                                      rNumPart%=100;
- 328   6                                                                      break;
- 329   6                                                              case 1:
- 330   6                                                                      rNumPart-=((rNumPart%100)/10)*10;
- 331   6                                                                      break;
- 332   6                                                              case 2:
- 333   6                                                                      rNumPart-=rNumPart%10;
- 334   6                                                                      break;
- 335   6                                                              case 3:
- 336   6                                                                      rUnit=0x20;
- 337   6                                                                      break;
- 338   6                                                      }
- 339   5                                                      break;
- 340   5                                      }
- 341   4                                      LCDPrintNum(0,0,rNumPart);
- 342   4                                      LCDPrintChar(3,0,rUnit);
- 343   4                              }
- 344   3                              else if(key2Events){
- 345   4                                      LCDPrintChar(curDigit,1,0x20);
- 346   4                                      switch(key2Events){
- 347   5                                              case SHORT_PRESS:
- 348   5                                                      curDigit=++curDigit%4;
- 349   5                                                      break;
- 350   5                                              case LONG_PRESS:
- 351   5                                                      if(curDigit==3){
- 352   6                                                              curDigit=0;
- 353   6                                                      }
- 354   5                                                      else{
- 355   6                                                              curDigit=3;
- 356   6                                                      }
- 357   5                                                      break;
- 358   5                                      }
- 359   4                                      LCDPrintChar(curDigit,1,'^');
- 360   4                              }
- 361   3                              else{
-C51 COMPILER V9.01   MENU                                                                  07/21/2018 17:31:40 PAGE 7   
+ 300   5                                                      switch(curDigit){
+ 301   6                                                              case 0:
+ 302   6                                                                      rNumPart=(rNumPart+100)%1000;
+ 303   6                                                                      break;
+ 304   6                                                              case 1:
+ 305   6                                                                      rNumPart=(rNumPart+10)%1000;
+ 306   6                                                                      break;
+ 307   6                                                              case 2:
+ 308   6                                                                      rNumPart=(rNumPart+1)%1000;
+ 309   6                                                                      break;
+ 310   6                                                              case 3:
+ 311   6                                                                      switch(rUnit){
+ 312   7                                                                              case 0x20:
+ 313   7                                                                                      rUnit='K';
+ 314   7                                                                                      break;
+ 315   7                                                                              case 'K':
+ 316   7                                                                                      rUnit='M';
+ 317   7                                                                                      break;
+ 318   7                                                                              case 'M':
+ 319   7                                                                                      rUnit=0x20;
+ 320   7                                                                                      break;
+ 321   7                                                                      }
+ 322   6                                                              break;
+ 323   6                                                      }
+ 324   5                                                      break;
+ 325   5                                              case LONG_PRESS:
+ 326   5                                                      switch(curDigit){
+ 327   6                                                              case 0:
+ 328   6                                                                      rNumPart%=100;
+ 329   6                                                                      break;
+ 330   6                                                              case 1:
+ 331   6                                                                      rNumPart-=((rNumPart%100)/10)*10;
+ 332   6                                                                      break;
+ 333   6                                                              case 2:
+ 334   6                                                                      rNumPart-=rNumPart%10;
+ 335   6                                                                      break;
+ 336   6                                                              case 3:
+ 337   6                                                                      rUnit=0x20;
+ 338   6                                                                      break;
+ 339   6                                                      }
+ 340   5                                                      break;
+ 341   5                                      }
+ 342   4                                      LCDPrintNumFixdgt(0,0,rNumPart,3);
+ 343   4                                      LCDPrintChar(3,0,rUnit);
+ 344   4                              }
+ 345   3                              else if(key2Events){
+ 346   4                                      LCDPrintChar(curDigit,1,0x20);
+ 347   4                                      switch(key2Events){
+ 348   5                                              case SHORT_PRESS:
+ 349   5                                                      curDigit=++curDigit%4;
+ 350   5                                                      break;
+ 351   5                                              case LONG_PRESS:
+ 352   5                                                      if(curDigit==3){
+ 353   6                                                              curDigit=0;
+ 354   6                                                      }
+ 355   5                                                      else{
+ 356   6                                                              curDigit=3;
+ 357   6                                                      }
+ 358   5                                                      break;
+ 359   5                                      }
+ 360   4                                      LCDPrintChar(curDigit,1,'^');
+ 361   4                              }
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 20:48:59 PAGE 7   
 
- 362   4                                      switch(key3Events){
- 363   5                                              case SHORT_PRESS:
- 364   5                                                      breakFlag=0;
- 365   5                                                      break;
- 366   5                                              default:
- 367   5                                                      break;
- 368   5                                      }
- 369   4                              }
- 370   3                              RstKeyEvents(); 
- 371   3                      }
- 372   2              }
- 373   1              curDigit=0;
- 374   1              breakFlag=1;
- 375   1              LCDCls();
- 376   1              LCDPrintNum(0,0,errTolrE2);
- 377   1              LCDPrintChar(2,0,'%');
- 378   1              LCDPrintChar(curDigit,1,'^');
- 379   1              while(1){
- 380   2                      if(isKeyEvents){
- 381   3                              if(key1Events){
- 382   4                                      switch(key1Events){
- 383   5                                              case SHORT_PRESS:
- 384   5                                                      switch(curDigit){
- 385   6                                                              case 0:
- 386   6                                                                      errTolrE2=(errTolrE2+10)%100;
- 387   6                                                                      break;
- 388   6                                                              case 1:
- 389   6                                                                      errTolrE2=(++errTolrE2)%100;
- 390   6                                                                      break;
- 391   6                                                      }
- 392   5                                                      break;
- 393   5                                              case LONG_PRESS:
- 394   5                                                      switch(curDigit){
- 395   6                                                              case 0:
- 396   6                                                                      errTolrE2%=10;
- 397   6                                                                      break;
- 398   6                                                              case 1:
- 399   6                                                                      errTolrE2-=errTolrE2%10;
- 400   6                                                                      break;
- 401   6                                                      }
- 402   5                                                      break;
- 403   5                                      }
- 404   4                                      LCDPrintNum(0,0,errTolrE2);
- 405   4                              }
- 406   3                              else if(key2Events){
- 407   4                                      LCDPrintChar(curDigit,1,0x20);
- 408   4                                      switch(key2Events){
- 409   5                                              case SHORT_PRESS:
- 410   5                                                      curDigit=(++curDigit)%2;
- 411   5                                                      break;
- 412   5                                              case LONG_PRESS:
- 413   5                                                      break;
- 414   5                                      }
- 415   4                                      LCDPrintChar(curDigit,1,'^');
- 416   4                              }
- 417   3                              else{
- 418   4                                      switch(key3Events){
- 419   5                                              case SHORT_PRESS:
- 420   5                                                      breakFlag=0;
- 421   5                                                      break;
- 422   5                                              default:
+ 362   3                              else{
+ 363   4                                      switch(key3Events){
+ 364   5                                              case SHORT_PRESS:
+ 365   5                                                      isBreak=1;
+ 366   5                                                      break;
+ 367   5                                              default:
+ 368   5                                                      break;
+ 369   5                                      }
+ 370   4                              }
+ 371   3                              RstKeyEvents(); 
+ 372   3                      }
+ 373   2              }
+ 374   1              curDigit=0;
+ 375   1              isBreak=0;
+ 376   1              LCDCls();
+ 377   1              LCDPrintNumFixdgt(0,0,errTolrE2,2);
+ 378   1              LCDPrintChar(2,0,'%');
+ 379   1              LCDPrintChar(curDigit,1,'^');
+ 380   1              while(!isBreak){
+ 381   2                      if(isKeyEvents){
+ 382   3                              if(key1Events){
+ 383   4                                      switch(key1Events){
+ 384   5                                              case SHORT_PRESS:
+ 385   5                                                      switch(curDigit){
+ 386   6                                                              case 0:
+ 387   6                                                                      errTolrE2=(errTolrE2+10)%100;
+ 388   6                                                                      break;
+ 389   6                                                              case 1:
+ 390   6                                                                      errTolrE2=(++errTolrE2)%100;
+ 391   6                                                                      break;
+ 392   6                                                      }
+ 393   5                                                      break;
+ 394   5                                              case LONG_PRESS:
+ 395   5                                                      switch(curDigit){
+ 396   6                                                              case 0:
+ 397   6                                                                      errTolrE2%=10;
+ 398   6                                                                      break;
+ 399   6                                                              case 1:
+ 400   6                                                                      errTolrE2-=errTolrE2%10;
+ 401   6                                                                      break;
+ 402   6                                                      }
+ 403   5                                                      break;
+ 404   5                                      }
+ 405   4                                      LCDPrintNumFixdgt(0,0,errTolrE2,2);
+ 406   4                              }
+ 407   3                              else if(key2Events){
+ 408   4                                      LCDPrintChar(curDigit,1,0x20);
+ 409   4                                      switch(key2Events){
+ 410   5                                              case SHORT_PRESS:
+ 411   5                                                      curDigit=(++curDigit)%2;
+ 412   5                                                      break;
+ 413   5                                              case LONG_PRESS:
+ 414   5                                                      curDigit=0;
+ 415   5                                                      break;
+ 416   5                                      }
+ 417   4                                      LCDPrintChar(curDigit,1,'^');
+ 418   4                              }
+ 419   3                              else{
+ 420   4                                      switch(key3Events){
+ 421   5                                              case SHORT_PRESS:
+ 422   5                                                      isBreak=1;
  423   5                                                      break;
-C51 COMPILER V9.01   MENU                                                                  07/21/2018 17:31:40 PAGE 8   
+C51 COMPILER V9.01   MENU                                                                  07/21/2018 20:48:59 PAGE 8   
 
- 424   5                                      }
- 425   4                              }
- 426   3                              RstKeyEvents();
- 427   3                      }
- 428   2              }
- 429   1              switch(rUnit){
- 430   2                      case 0x20:
- 431   2                              sieveRVal=rNumPart;
- 432   2                              break;
- 433   2                      case 'K':
- 434   2                              sieveRVal=rNumPart*1e3;
- 435   2                              break;
- 436   2                      case 'M':
- 437   2                              sieveRVal=rNumPart*1e6;
- 438   2                              break;
- 439   2              }
- 440   1              errTolr=(float) errTolrE2/100.0;
- 441   1      }
- 442          
- 443          
- 444          
- 445          
- 446          
+ 424   5                                              default:
+ 425   5                                                      break;
+ 426   5                                      }
+ 427   4                              }
+ 428   3                              RstKeyEvents();
+ 429   3                      }
+ 430   2              }
+ 431   1              switch(rUnit){
+ 432   2                      case 0x20:
+ 433   2                              sieveRVal=rNumPart;
+ 434   2                              break;
+ 435   2                      case 'K':
+ 436   2                              sieveRVal=rNumPart*1e3;
+ 437   2                              break;
+ 438   2                      case 'M':
+ 439   2                              sieveRVal=rNumPart*1e6;
+ 440   2                              break;
+ 441   2              }
+ 442   1              errTolr=(float) errTolrE2/100.0;
+ 443   1              LCDPrintFloat(0,0,sieveRVal);
+ 444   1              LCDPrintFloat(0,1,errTolr);
+ 445   1              delaynms(3000);
+ 446   1      }
+ 447          
+ 448          
+ 449          
+ 450          
+ 451          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   1130    ----
+   CODE SIZE        =   1316    ----
    CONSTANT SIZE    =    190    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

@@ -151,7 +151,7 @@ void LCDPrintChar(uchar x,uchar y,uchar c){
  * @param    y          字符的y坐标，在0~1之间
  * @param    num        要显示整数
  */
-void LCDPrintNum(uchar x,uchar y,int num){
+void LCDPrintNum(uchar x,uchar y,uint num){
 	uchar i=0;
 	LCDMoveCursor(x,y);	
 	do{
@@ -160,6 +160,23 @@ void LCDPrintNum(uchar x,uchar y,int num){
 	}while(num);
 	while(i){
 		LCDWriteData(tmp[--i]+'0');				//从栈中把数字顺序pop出来
+	}
+}
+/**
+ * 在指定位置显示一个指定位数的整数
+ * @Author   Xiaobo     Yang
+ * @DateTime 2018-07-21
+ * @Summury
+ * @param    x          [description]
+ * @param    y          [description]
+ * @param    num        [description]
+ */
+void LCDPrintNumFixdgt(uchar x,uchar y,uint num,uchar dgt){
+	LCDMoveCursor(x,y);
+	while(dgt){
+		dgt--;
+		LCDWriteData( num/(10^dgt) +'0');
+		num%=10^dgt;
 	}
 }
 /**

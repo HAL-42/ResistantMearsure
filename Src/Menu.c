@@ -24,7 +24,7 @@ typedef struct MenuOp *ptrToMenuOp;					//指向菜单选项的指针
 
 struct MenuOp{										//菜单选项的结构
 	uchar opID;										//选项的ID
-	uchar *opString;								//选项显示的字符串
+	char *opString;								//选项显示的字符串
 	Menu subMenu;									//选项的子菜单
 	void (*pOpFunc) (void);  						//选择该选项执行的函数
 };
@@ -60,15 +60,15 @@ static code struct MenuOp MainMenuOpArray[MENU_OPTION_NUM_MAIN]={							//main�
 static code struct MenuRecord mainMenuRecord={MENU_OPTION_NUM_MAIN,NULL,MainMenuOpArray};	//main菜单的菜单记录
 static code Menu mainMenu=&mainMenuRecord;												    //用叫做mainMenu的指针指向记录
 
-static Menu curMenu;								//指向当前菜单的记录
+static Menu  curMenu;								//指向当前菜单的记录
 static uchar curOp;									//当前条目
 
 static bit isExit;									//消息变量：是否退出菜单
 
-extern bit isSieveOn;								//消息变量:筛选是否打开
+extern bit   isSieveOn;								//消息变量:筛选是否打开
 extern float sieveRVal;								//筛选电阻的中心值
 extern float errTolr;								//误差限
-extern bit isDebug;									//消息变量:调试模式打开
+extern bit   isDebug;								//消息变量:调试模式打开
 
 sbit	Led1 = P1^0;								//Led变量
 sbit	Led2 = P1^1;
@@ -93,7 +93,7 @@ static uchar errTolrE2;								//误差限*100
 void InitialMenu(){
 	debugYNMenu->superMenu=mainMenu;				//菜单前后互指，因此一部分指向工作要到程序完成
 	sieveYNMenu->superMenu=mainMenu;
-	curMenu=NULL;									//初始化所有有关全局变量
+	curMenu=mainMenu;								//初始化所有有关全局变量
 	curOp=0;
 	isExit=0;
 	isSieveOn=0;
@@ -135,15 +135,16 @@ void MenuImpl(){
 void ShowMenu(){
 	LCDCls();
 	if(curOp!=0){
+		LCDMoveCursor(1,0);										//此处有莫名其妙的bug，需要专门重设光标
 		LCDPrintStr(1,0,curMenu->OpArray[curOp-1].opString);
 		LCDPrintStr(1,1,curMenu->OpArray[curOp].opString);
-		LCDPrintChar(0,1,'C');
+		LCDPrintChar(0,1,'>');
 	}
 	else{
-		Led2=1;
+		LCDMoveCursor(1,0);
 		LCDPrintStr(1,0,curMenu->OpArray[curOp].opString);
 		LCDPrintStr(1,1,curMenu->OpArray[curOp+1].opString);
-		LCDPrintStr(0,0,'C');
+		LCDPrintChar(0,0,'>');
 	}
 }
 /**
@@ -153,11 +154,11 @@ void ShowMenu(){
  * @Summury
  */
 void MenuKeyTreat(){
-	Led2=1;
 	if(key1Events){											//key1优先级>key2优先级>key3优先级
 		switch(key1Events){
 			case SHORT_PRESS:
-				curOp=(curOp++)%curMenu->opNum;				//向下选择
+				curOp=(++curOp)%(curMenu->opNum);				//向下选择
+				if(curOp==1) Led1=1;
 				ShowMenu();
 				break;
 			default:
@@ -167,7 +168,7 @@ void MenuKeyTreat(){
 	else if(key2Events){
 		switch(key2Events){
 			case SHORT_PRESS:
-				curOp=(curOp--)%curMenu->opNum;				//向上选择
+				curOp=(--curOp)%(curMenu->opNum);				//向上选择
 				ShowMenu();
 				break;
 			default:
@@ -185,7 +186,7 @@ void MenuKeyTreat(){
 			else{
 				KeyInitial();								//初始化外设，时钟已经在MenuImpl中停止
 				isExit=1;									//设定退出模式
-				(*(curMenu->OpArray[curOp].pOpFunc)) ();		//执行选项的函数
+				(*(curMenu->OpArray[curOp].pOpFunc)) ();	//执行选项的函数
 			}	
 				break;
 			case LONG_PRESS:								//长按可以回到上级菜单
@@ -284,14 +285,14 @@ void MenuOpStartPlot(){
  */
 void MenuOpSetSieve (){
 	uchar curDigit=0;
-	uchar breakFlag=1;
+	uchar isBreak=0;
 	LCDCls();
-	LCDPrintNum(0,0,rNumPart);
+	LCDPrintNumFixdgt(0,0,rNumPart,3);
 	LCDPrintChar(3,0,rUnit);
 	LCDPrintChar(curDigit,1,'^');
 	SwitchTimerFun(TIMERFUN_KEY_SCAN);
 	StartTimer();
-	while(breakFlag){
+	while(!isBreak){
 		if(isKeyEvents){
 			if(key1Events){
 				switch(key1Events){
@@ -311,7 +312,7 @@ void MenuOpSetSieve (){
 									case 0x20:
 										rUnit='K';
 										break;
-									case 'k':
+									case 'K':
 										rUnit='M';
 										break;
 									case 'M':
@@ -338,7 +339,7 @@ void MenuOpSetSieve (){
 						}
 						break;
 				}
-				LCDPrintNum(0,0,rNumPart);
+				LCDPrintNumFixdgt(0,0,rNumPart,3);
 				LCDPrintChar(3,0,rUnit);
 			}
 			else if(key2Events){
@@ -361,7 +362,7 @@ void MenuOpSetSieve (){
 			else{
 				switch(key3Events){
 					case SHORT_PRESS:
-						breakFlag=0;
+						isBreak=1;
 						break;
 					default:
 						break;
@@ -371,12 +372,12 @@ void MenuOpSetSieve (){
 		}
 	}
 	curDigit=0;
-	breakFlag=1;
+	isBreak=0;
 	LCDCls();
-	LCDPrintNum(0,0,errTolrE2);
+	LCDPrintNumFixdgt(0,0,errTolrE2,2);
 	LCDPrintChar(2,0,'%');
 	LCDPrintChar(curDigit,1,'^');
-	while(1){
+	while(!isBreak){
 		if(isKeyEvents){
 			if(key1Events){
 				switch(key1Events){
@@ -401,7 +402,7 @@ void MenuOpSetSieve (){
 						}
 						break;
 				}
-				LCDPrintNum(0,0,errTolrE2);
+				LCDPrintNumFixdgt(0,0,errTolrE2,2);
 			}
 			else if(key2Events){
 				LCDPrintChar(curDigit,1,0x20);
@@ -410,6 +411,7 @@ void MenuOpSetSieve (){
 						curDigit=(++curDigit)%2;
 						break;
 					case LONG_PRESS:
+						curDigit=0;
 						break;
 				}
 				LCDPrintChar(curDigit,1,'^');
@@ -417,7 +419,7 @@ void MenuOpSetSieve (){
 			else{
 				switch(key3Events){
 					case SHORT_PRESS:
-						breakFlag=0;
+						isBreak=1;
 						break;
 					default:
 						break;
@@ -438,6 +440,9 @@ void MenuOpSetSieve (){
 			break;
 	}
 	errTolr=(float) errTolrE2/100.0;
+	LCDPrintFloat(0,0,sieveRVal);
+	LCDPrintFloat(0,1,errTolr);
+	delaynms(3000);
 }
 
 

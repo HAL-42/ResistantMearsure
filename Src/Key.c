@@ -45,13 +45,13 @@ static uint longPressTime;
  * @Summury
  */
 void KeyScan(){
-	if(timerFun==TIMERFUN_FREQ_MEASRURE){
-		debounceTime=DEBOUNCE_TIME_FREQ;
-		longPressTime=LONG_PRESS_TIME_FREQ;
-	}
-	else{
+	if(timerFun==TIMERFUN_KEY_SCAN){
 		debounceTime=DEBOUNCE_TIME_KEYSCAN;
 		longPressTime=LONG_PRESS_TIME_KEYSCAN;
+	}
+	else{
+		debounceTime=DEBOUNCE_TIME_FREQ;
+		longPressTime=LONG_PRESS_TIME_FREQ;
 	}
 	switch(key1State){										//选择状态					
 		case KEY_STATE_UNPRESSED:							//没有按下状态	
@@ -175,7 +175,7 @@ void KeyInitial(){
 	key1Events=NONE_PRESS;
 	key2Events=NONE_PRESS;
 	key3Events=NONE_PRESS;
-	isKeyEvents=NONE_PRESS;
+	isKeyEvents=0;
 	key1State=KEY_STATE_UNPRESSED;
 	key2State=KEY_STATE_UNPRESSED;
 	key3State=KEY_STATE_UNPRESSED;
@@ -201,5 +201,5 @@ void WaitKey(void (*key1Fun) (void),void (*key2Fun) (void),void (*key3Fun) (void
  */
 void PressAnyKey(){
 	while(!isKeyEvents) KeyScan();
-	RstKeyEvents();
+	KeyInitial();
 }
