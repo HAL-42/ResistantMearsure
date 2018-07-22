@@ -86,6 +86,12 @@ sbit	Led1 = P1^0;								//Led变量
 sbit	Led2 = P1^1;
 sbit	Led3 = P1^2;
 
+sbit servoConOut = P3^7;
+
+static uchar pwmTCount;				
+static uchar pwmNCount;				
+static xdata float pwmRVal[20];				
+
 extern bit isKeyEvents;
 extern bit isTimerEvent;
 
@@ -116,6 +122,8 @@ void InitialMenu(){
 	rUnit=0x20;
 	errTolrE2=0;
 	isDebug=1;
+	pwmTCount=0;
+	pwmNCount=0;
 }
 /**
  * 打开菜单
@@ -293,10 +301,37 @@ void MenuOpYN(){
  * @Summury
  */
 void MenuOpStartPlot(){
-	//////////////////////
-	//TODO:NOT FINISHED //
-	//////////////////////
-	return;
+	pwmTCount=0;
+	pwmNCount=0;
+	SwitchTimerFun(TIMERFUN_PWM);
+	StartTimer();
+	while(1){
+		if(isTimerEvent){
+			if(pwmTCount==17){					
+				break;
+			}
+
+			if(t1IntrTImes==201){				
+				++pwmNCount;					
+				t1IntrTImes=1;
+			}
+			if(t1IntrTImes<=7+pwmTCount)
+				servoConOut=1;					
+			else
+				servoConOut=0;
+
+			if(pwmNCount==20){					
+				pwmNCount=0;
+				SwitchTimerFun(TIMERFUN_FREQ_MEASRURE);	
+				StartTimer();
+				while(!isTimerEvent);
+				GetRVal();						
+				pwmRVal[pwmTCount++]=curRValue;	
+				SwitchTimerFun(TIMERFUN_PWM)	
+				StartTimer();					
+			}
+		}
+	}
 }
 /**
  * 设置筛选条件

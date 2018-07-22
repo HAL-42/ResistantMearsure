@@ -106,9 +106,10 @@ void T1INT() interrupt 3 using 2{
 			t1IntrTimes++;	
 			break;					
 		case TIMERFUN_PWM:
-			/////////
-			//TODO:NOT FINISHED//
-			/////////
+			TH1=LOADCOEF_TH_100us;			//0.1ms中断的计时器
+			TL1=LOADCOEF_TL_100us;
+			t1IntrTimes++;	
+			isTimerEvent=1;
 			break;
 		case TIMERFUN_KEY_SCAN:
 			TL1=LOADCOEF_TL_500us;			//0.5ms重装
