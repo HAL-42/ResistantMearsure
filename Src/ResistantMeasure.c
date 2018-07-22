@@ -30,6 +30,7 @@ unsigned long  idata curN;			//当前测得脉冲数
 unsigned long  idata refLowRN;		//低档位下参考脉冲数
 unsigned long  idata refHighRN;		//高档位下参考脉冲数
 
+code char *mearsStr="Mearsuring...";
 //-------------------------计时器相关全局变量-----------------------------//
 uchar timerFun;				//选择计时器作用
 bit   isTimerEvent;			//记录是否有定时器事件发生（完成一次频率测量）
@@ -85,7 +86,7 @@ void SetZero(){
 
 	LCDPrintScreen("Cross Probes And","Press Any Button");
 	PressAnyKey();												//等待用户按照指示短接红黑表笔
-	LCDPrintScreen("Mearsuring...","Please Wait");
+	LCDPrintScreen(mearsStr,"Please Wait");
 	
 	StartTimer();												//开始采样
 	while(!isTimerEvent);

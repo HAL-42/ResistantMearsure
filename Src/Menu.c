@@ -3,6 +3,7 @@
 #include "Timer.h"
 #include "Key.h"
 #include "LCD1602.h"
+#include "CalcR.h"
 
 #define MENUID_DEBUG_MODE_ON 	0					//菜单选项ID的宏定义
 #define MENUID_SIEVE_MODE_ON 	1
@@ -90,8 +91,12 @@ sbit servoConOut = P3^7;
 
 static uchar pwmTCount;				
 static uchar pwmNCount;				
-static xdata float pwmRVal[20];				
+static xdata float pwmRVal[17];		
 
+extern float idata curRValue;
+extern code char *mearsStr;
+
+extern uchar t1IntrTimes;		
 extern bit isKeyEvents;
 extern bit isTimerEvent;
 
@@ -301,6 +306,10 @@ void MenuOpYN(){
  * @Summury
  */
 void MenuOpStartPlot(){
+	uchar curShow;
+	uchar isBreak;
+	LCDCls();
+	LCDPrintLine(0,0,mearsStr);
 	pwmTCount=0;
 	pwmNCount=0;
 	SwitchTimerFun(TIMERFUN_PWM);
@@ -311,11 +320,11 @@ void MenuOpStartPlot(){
 				break;
 			}
 
-			if(t1IntrTImes==201){				
+			if(t1IntrTimes==201){				
 				++pwmNCount;					
-				t1IntrTImes=1;
+				t1IntrTimes=1;
 			}
-			if(t1IntrTImes<=7+pwmTCount)
+			if(t1IntrTimes<=7+pwmTCount)
 				servoConOut=1;					
 			else
 				servoConOut=0;
@@ -327,9 +336,50 @@ void MenuOpStartPlot(){
 				while(!isTimerEvent);
 				GetRVal();						
 				pwmRVal[pwmTCount++]=curRValue;	
-				SwitchTimerFun(TIMERFUN_PWM)	
+				SwitchTimerFun(TIMERFUN_PWM);	
 				StartTimer();					
 			}
+		}
+	}
+	curShow=0;
+	isBreak=0;
+	LCDCls();
+	LCDPrintFloat(0,0,pwmRVal[curShow]);
+	SwitchTimerFun(TIMERFUN_KEY_SCAN);
+	StartTimer();
+	while(!isBreak){
+		if(isKeyEvents){
+			if(key1Events){
+				switch(key1Events){
+					case SHORT_PRESS:
+						curShow=(++curShow)%17;
+						break;
+					case LONG_PRESS:
+						curShow=16;
+						break;
+				}
+			}
+			else if(key2Events){
+				switch(key2Events){
+					case SHORT_PRESS:
+						curShow= (--curShow)<0?16:curShow;
+						break;
+					case LONG_PRESS:
+						curShow=0;
+						break;
+				}
+			}
+			else{
+				switch(key3Events){
+					case SHORT_PRESS:
+						isBreak=1;
+						break;
+					default:
+						break;
+				}
+			}
+			LCDPrintFloat(0,0,pwmRVal[curShow]);
+			RstKeyEvents();
 		}
 	}
 }

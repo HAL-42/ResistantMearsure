@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   TIMER                                                                 07/22/2018 03:23:45 PAGE 1   
+C51 COMPILER V9.01   TIMER                                                                 07/22/2018 10:21:51 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE TIMER
@@ -62,7 +62,7 @@ line level    source
   51   2                      case TIMERFUN_FREQ_MEASRURE:            //频率测量，T1计数，T2计时
   52   2                              TMOD=0x51;
   53   2                              break;
-C51 COMPILER V9.01   TIMER                                                                 07/22/2018 03:23:45 PAGE 2   
+C51 COMPILER V9.01   TIMER                                                                 07/22/2018 10:21:51 PAGE 2   
 
   54   2                      case TIMERFUN_PWM:                                      //PWM波输出控制舵机，两个都计时
   55   2                              TMOD=0x11;
@@ -120,51 +120,52 @@ line level    source
  106   2                              t1IntrTimes++;  
  107   2                              break;                                  
  108   2                      case TIMERFUN_PWM:
- 109   2                              /////////
- 110   2                              //TODO:NOT FINISHED//
- 111   2                              /////////
- 112   2                              break;
- 113   2                      case TIMERFUN_KEY_SCAN:
- 114   2                              TL1=LOADCOEF_TL_500us;                  //0.5ms重装
-C51 COMPILER V9.01   TIMER                                                                 07/22/2018 03:23:45 PAGE 3   
+ 109   2                              TH1=LOADCOEF_TH_100us;                  //0.1ms中断的计时器
+ 110   2                              TL1=LOADCOEF_TL_100us;
+ 111   2                              t1IntrTimes++;  
+ 112   2                              isTimerEvent=1;
+ 113   2                              break;
+ 114   2                      case TIMERFUN_KEY_SCAN:
+C51 COMPILER V9.01   TIMER                                                                 07/22/2018 10:21:51 PAGE 3   
 
- 115   2                              TH1=LOADCOEF_TH_500us;
- 116   2                              isTimerEvent=1;                                 //溢出信号
- 117   2                              if(++t1IntrTimes>=2){                   //1ms扫描键盘一次
- 118   3                                      t1IntrTimes=0;
- 119   3                                      KeyScan();                                      
- 120   3                              } 
- 121   2                              break;
- 122   2                      case TIMERFUN_HALT:
- 123   2                              TR1=TR0=0;
- 124   2                              break;
- 125   2              }
- 126   1      }
- 127          /**
- 128           * T0中断
- 129           * @Author   Xiaobo     Yang
- 130           * @DateTime 2018-07-18
- 131           * @Summury
- 132           */
- 133          void T0INT() interrupt 1 using 1{
- 134   1              if((!isLongMeasr)                               //若不是尝试长时间且两次溢出
- 135   1                      &&(++t0IntrTimes==3)){
- 136   2                      TR1=0;                                          //关停计数器，计时器
- 137   2                      TR0=0;
- 138   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
- 139   2              }
- 140   1              else if((isLongMeasr)                   //若为长时间测量且30次溢出
- 141   1                      &&(++t0IntrTimes==30)){
- 142   2                      TR1=0;                                          //关停计数器，计时器
- 143   2                      TR0=0;
- 144   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
- 145   2              }
- 146   1      }
- 147          
+ 115   2                              TL1=LOADCOEF_TL_500us;                  //0.5ms重装
+ 116   2                              TH1=LOADCOEF_TH_500us;
+ 117   2                              isTimerEvent=1;                                 //溢出信号
+ 118   2                              if(++t1IntrTimes>=2){                   //1ms扫描键盘一次
+ 119   3                                      t1IntrTimes=0;
+ 120   3                                      KeyScan();                                      
+ 121   3                              } 
+ 122   2                              break;
+ 123   2                      case TIMERFUN_HALT:
+ 124   2                              TR1=TR0=0;
+ 125   2                              break;
+ 126   2              }
+ 127   1      }
+ 128          /**
+ 129           * T0中断
+ 130           * @Author   Xiaobo     Yang
+ 131           * @DateTime 2018-07-18
+ 132           * @Summury
+ 133           */
+ 134          void T0INT() interrupt 1 using 1{
+ 135   1              if((!isLongMeasr)                               //若不是尝试长时间且两次溢出
+ 136   1                      &&(++t0IntrTimes==3)){
+ 137   2                      TR1=0;                                          //关停计数器，计时器
+ 138   2                      TR0=0;
+ 139   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
+ 140   2              }
+ 141   1              else if((isLongMeasr)                   //若为长时间测量且30次溢出
+ 142   1                      &&(++t0IntrTimes==30)){
+ 143   2                      TR1=0;                                          //关停计数器，计时器
+ 144   2                      TR0=0;
+ 145   2                      isTimerEvent=1;                         //告知主程序发生计时器事件
+ 146   2              }
+ 147   1      }
+ 148          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    221    ----
+   CODE SIZE        =    235    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
