@@ -152,7 +152,7 @@ void LCDPrintChar(uchar x,uchar y,uchar c){
  * @param    y          字符的y坐标，在0~1之间
  * @param    num        要显示整数
  */
-void LCDPrintNum(uchar x,uchar y,uint num){
+void LCDPrintNum(uchar x,uchar y,unsigned long num){
 	uchar i=0;
 	LCDMoveCursor(x,y);	
 	do{

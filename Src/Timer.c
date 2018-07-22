@@ -139,7 +139,7 @@ void T0INT() interrupt 1 using 1{
 		isTimerEvent=1;				//告知主程序发生计时器事件
 	}
 	else if((isLongMeasr)			//若为长时间测量且30次溢出
-		&&(++t0IntrTimes==30)){
+		&&(++t0IntrTimes==3)){
 		TR1=0;						//关停计数器，计时器
 		TR0=0;
 		isTimerEvent=1;				//告知主程序发生计时器事件

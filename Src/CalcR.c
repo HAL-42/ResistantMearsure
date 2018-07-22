@@ -18,23 +18,27 @@ extern uchar t1IntrTimes;
  * @Summury  本函数中魔鬼数字较多，为的是提高计算精度。所有数据都是在MATLAB中计算后带入，切勿随意修改
  */
 void GetRVal(){
-	curN=t1IntrTimes*65536+TH1*256+TL1; // 计算脉冲次数
+	curN=((long) t1IntrTimes)*(65536L)+(long) TH1*(256L)+TL1; // 计算脉冲次数
+	if(curN==0){
+		curRValue=1e10;
+		return;
+	}
 	if(capSel==CAPSEL_LOWR){
-		curRValue=1.69065825104e9F*( (refLowRN-curN)/(refLowRN*curN) );
+		curRValue=4.375e7F*(1.0F/curN)-1942.0F;
 	}
 	else{
 		curRValue=1.53887471028e11F*( (refHighRN-curN)/(refHighRN*curN) );
 	}
-	if( (capSel==CAPSEL_LOWR)&&
-		(curN<0)){
-		capSel=CAPSEL_HIGHR;
-		delaynms(500);
-	}
-	else if( (capSel==CAPSEL_HIGHR)&&
-		curN>0){
-		capSel=CAPSEL_LOWR;
-		delaynms(500);
-	}
+	// if( (capSel==CAPSEL_LOWR)&&
+	// 	(curN<0)){
+	// 	capSel=CAPSEL_HIGHR;
+	// 	delaynms(500);
+	// }
+	// else if( (capSel==CAPSEL_HIGHR)&&
+	// 	curN>0){
+	// 	capSel=CAPSEL_LOWR;
+	// 	delaynms(500);
+	// }
 }
 /**
  * 初始化计算R有关的全局变量

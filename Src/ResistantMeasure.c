@@ -57,6 +57,8 @@ void main(){
 	SetZero();
 	isLongMeasr=0;
 	StartTimer();
+	capSel=CAPSEL_HIGHR;
+	delaynms(1000);
 	while(1){
 		KeyScan();
 		if(isKeyEvents)  KeyEventsCallBack();
@@ -92,7 +94,7 @@ void SetZero(){
 	while(!isTimerEvent);
 	GetRVal();													//低档位采样结束，算出低档位下的“标准N”
 	refLowRN=curN;
-	LCDCls();
+
 	LCDPrintScreen("Press Any Button","To Switch Cap");
 	PressAnyKey();
 	capSel=CAPSEL_HIGHR;										//设定到高档位，并等待1秒，让继电器反应过来
