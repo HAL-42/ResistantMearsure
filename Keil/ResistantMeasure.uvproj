@@ -411,6 +411,16 @@
               <FileType>1</FileType>
               <FilePath>..\Src\Menu.c</FilePath>
             </File>
+            <File>
+              <FileName>CalcR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Src\CalcR.h</FilePath>
+            </File>
+            <File>
+              <FileName>CalcR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\CalcR.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

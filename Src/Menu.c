@@ -102,6 +102,7 @@ code char *connectStr="Connect P37";
 extern uchar t1IntrTimes;		
 extern bit isKeyEvents;
 extern bit isTimerEvent;
+extern unsigned long idata curN;
 
 extern uchar key1Events;
 extern uchar key2Events;
@@ -323,7 +324,7 @@ void MenuOpStartPlot(){
 	SwitchTimerFun(TIMERFUN_PWM);
 	StartTimer();
 
-	if(capSel=CAPSEL_LOWR) Led1=1;
+	if(capSel==CAPSEL_LOWR) Led1=1;
 
 	while(1){
 		if(isTimerEvent){
@@ -340,15 +341,14 @@ void MenuOpStartPlot(){
 			else
 				servoConOut=0;
 
-			if(pwmNCount==100){
+			if(pwmNCount==50){
 				servoConOut=0;
 				pwmNCount=0;
 				SwitchTimerFun(TIMERFUN_FREQ_MEASRURE);
-				delaynms(500);
 				StartTimer();
 				while(!isTimerEvent);
 				GetRVal();						
-				pwmRVal[pwmTCount++]=curRValue;	
+				pwmRVal[pwmTCount++]=4.031e7F*(1.0F/curN)-1764.0F;	
 				SwitchTimerFun(TIMERFUN_PWM);	
 				StartTimer();					
 			}
