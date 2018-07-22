@@ -329,7 +329,8 @@ void MenuOpStartPlot(){
 			else
 				servoConOut=0;
 
-			if(pwmNCount==20){					
+			if(pwmNCount==20){
+				servoConOut=0;
 				pwmNCount=0;
 				SwitchTimerFun(TIMERFUN_FREQ_MEASRURE);	
 				StartTimer();

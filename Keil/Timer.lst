@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   TIMER                                                                 07/22/2018 12:06:15 PAGE 1   
+C51 COMPILER V9.01   TIMER                                                                 07/22/2018 13:31:07 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE TIMER
@@ -62,7 +62,7 @@ line level    source
   51   2                      case TIMERFUN_FREQ_MEASRURE:            //频率测量，T1计数，T2计时
   52   2                              TMOD=0x51;
   53   2                              break;
-C51 COMPILER V9.01   TIMER                                                                 07/22/2018 12:06:15 PAGE 2   
+C51 COMPILER V9.01   TIMER                                                                 07/22/2018 13:31:07 PAGE 2   
 
   54   2                      case TIMERFUN_PWM:                                      //PWM波输出控制舵机，两个都计时
   55   2                              TMOD=0x11;
@@ -126,7 +126,7 @@ line level    source
  112   2                              isTimerEvent=1;
  113   2                              break;
  114   2                      case TIMERFUN_KEY_SCAN:
-C51 COMPILER V9.01   TIMER                                                                 07/22/2018 12:06:15 PAGE 3   
+C51 COMPILER V9.01   TIMER                                                                 07/22/2018 13:31:07 PAGE 3   
 
  115   2                              TL1=LOADCOEF_TL_500us;                  //0.5ms重装
  116   2                              TH1=LOADCOEF_TH_500us;

@@ -70,7 +70,7 @@ void LCDPrintChar(uchar x,uchar y,uchar c);
  * @param    y          字符的y坐标，在0~1之间
  * @param    num        要显示整数
  */
-void LCDPrintNum(uchar x,uchar y,uint num);
+void LCDPrintNum(uchar x,uchar y,unsigned long num);
 /**
  * 在指定位置显示一个指定位数的整数
  * @Author   Xiaobo     Yang

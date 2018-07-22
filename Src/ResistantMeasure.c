@@ -57,8 +57,6 @@ void main(){
 	SetZero();
 	isLongMeasr=0;
 	StartTimer();
-	capSel=CAPSEL_HIGHR;
-	delaynms(1000);
 	while(1){
 		KeyScan();
 		if(isKeyEvents)  KeyEventsCallBack();
