@@ -35,7 +35,7 @@ void GetRVal(){
 		delaynms(500);
 	}
 	else if( (capSel==CAPSEL_HIGHR)&&
-		(curN>65529L)){
+		(curN>70000L)){
 		capSel=CAPSEL_LOWR;
 		delaynms(500);
 	}

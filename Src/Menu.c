@@ -322,6 +322,9 @@ void MenuOpStartPlot(){
 	pwmNCount=0;
 	SwitchTimerFun(TIMERFUN_PWM);
 	StartTimer();
+
+	if(capSel=CAPSEL_LOWR) Led1=1;
+
 	while(1){
 		if(isTimerEvent){
 			if(pwmTCount==17){					
@@ -340,7 +343,8 @@ void MenuOpStartPlot(){
 			if(pwmNCount==100){
 				servoConOut=0;
 				pwmNCount=0;
-				SwitchTimerFun(TIMERFUN_FREQ_MEASRURE);	
+				SwitchTimerFun(TIMERFUN_FREQ_MEASRURE);
+				delaynms(500);
 				StartTimer();
 				while(!isTimerEvent);
 				GetRVal();						
@@ -387,6 +391,7 @@ void MenuOpStartPlot(){
 						break;
 				}
 			}
+			LCDCls();
 			LCDPrintFloat(0,0,pwmRVal[curShow]);
 			RstKeyEvents();
 		}
@@ -394,6 +399,8 @@ void MenuOpStartPlot(){
 	LCDPrintLine(0,0,connectStr);
 	PressAnyKey();
 	capSel=CAPSEL_LOWR;
+	Led1=0;
+	delaynms(500);
 }
 /**
  * 设置筛选条件
