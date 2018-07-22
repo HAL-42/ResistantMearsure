@@ -91,10 +91,13 @@ sbit servoConOut = P3^7;
 
 static uchar pwmTCount;				
 static uchar pwmNCount;				
-static xdata float pwmRVal[17];		
+static xdata float pwmRVal[17];	
 
+sbit  capSel=P3^7;
 extern float idata curRValue;
 extern code char *mearsStr;
+code char *disconnectStr="Disconnect P37";
+code char *connectStr="Connect P37";
 
 extern uchar t1IntrTimes;		
 extern bit isKeyEvents;
@@ -309,6 +312,11 @@ void MenuOpStartPlot(){
 	uchar curShow;
 	uchar isBreak;
 	LCDCls();
+	capSel=CAPSEL_LOWR;
+	delaynms(500);
+	LCDPrintLine(0,0,disconnectStr);
+	PressAnyKey();
+
 	LCDPrintLine(0,0,mearsStr);
 	pwmTCount=0;
 	pwmNCount=0;
@@ -329,7 +337,7 @@ void MenuOpStartPlot(){
 			else
 				servoConOut=0;
 
-			if(pwmNCount==20){
+			if(pwmNCount==100){
 				servoConOut=0;
 				pwmNCount=0;
 				SwitchTimerFun(TIMERFUN_FREQ_MEASRURE);	
@@ -383,6 +391,9 @@ void MenuOpStartPlot(){
 			RstKeyEvents();
 		}
 	}
+	LCDPrintLine(0,0,connectStr);
+	PressAnyKey();
+	capSel=CAPSEL_LOWR;
 }
 /**
  * 设置筛选条件

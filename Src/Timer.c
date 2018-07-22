@@ -5,8 +5,8 @@
 #define LOADCOEF_TH_500us 254
 #define LOADCOEF_TL_500us 51
 
-#define LOADCOEF_TH_100us  252
-#define LOADCOEF_TL_100us  106
+#define LOADCOEF_TH_100us  255
+#define LOADCOEF_TL_100us  164
 
 extern uchar timerFun;
 
@@ -79,14 +79,14 @@ void StartTimer(){
 			TR1=1;							//开启计数器
 			break;
 		case TIMERFUN_PWM:
-			TH1=LOADCOEF_TH_500us;			//0.5ms中断的计时器
-			TL1=LOADCOEF_TL_500us;
+			TH1=LOADCOEF_TH_100us;			//0.1ms中断的计时器
+			TL1=LOADCOEF_TL_100us;
 			TR0=0;
 			TR1=1;							//打开计时器1
 			break;
 		case TIMERFUN_KEY_SCAN:
-			TH1=LOADCOEF_TH_100us;			//0.1ms中断的计时器
-			TL1=LOADCOEF_TL_100us;
+			TH1=LOADCOEF_TH_500us;			//0.1ms中断的计时器
+			TL1=LOADCOEF_TL_500us;
 			TR0=0;
 			TR1=1;							//打开计时器1
 			break;

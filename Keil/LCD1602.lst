@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   LCD1602                                                               07/22/2018 13:31:06 PAGE 1   
+C51 COMPILER V9.01   LCD1602                                                               07/22/2018 14:13:38 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE LCD1602
@@ -62,7 +62,7 @@ line level    source
   52   1              DataPort=CMD;
   53   1              delaynMC(6);
   54   1              en=1;                                                   //让en产生从0到1的跳变，写入指令
-C51 COMPILER V9.01   LCD1602                                                               07/22/2018 13:31:06 PAGE 2   
+C51 COMPILER V9.01   LCD1602                                                               07/22/2018 14:13:38 PAGE 2   
 
   55   1              delaynMC(6);            
   56   1              en=0;                                                   //en下降沿，LCD1602执行指令
@@ -126,7 +126,7 @@ line level    source
  114   1              delaynms(5);                                            //延时5ms ，给硬件一点反应时间
  115   1              LCDWriteCommand(0x40);                          //写入自定义字符
  116   1                                              
-C51 COMPILER V9.01   LCD1602                                                               07/22/2018 13:31:06 PAGE 3   
+C51 COMPILER V9.01   LCD1602                                                               07/22/2018 14:13:38 PAGE 3   
 
  117   1              for(i=0;i<8;i++){
  118   2                      LCDWriteData(funnelIcon[i]);
@@ -190,7 +190,7 @@ line level    source
  176   1              uchar i;
  177   1              pow=1;
  178   1              for(i=1;i<dgt;i++) pow*=10;
-C51 COMPILER V9.01   LCD1602                                                               07/22/2018 13:31:06 PAGE 4   
+C51 COMPILER V9.01   LCD1602                                                               07/22/2018 14:13:38 PAGE 4   
 
  179   1              LCDMoveCursor(x,y);
  180   1              while(dgt--){
@@ -254,7 +254,7 @@ line level    source
  236           * @Summury
  237           * @param    x          字符串起始x坐标，在0~15之间
  238           * @param    y          字符串起始y坐标，在0~1之间
-C51 COMPILER V9.01   LCD1602                                                               07/22/2018 13:31:06 PAGE 5   
+C51 COMPILER V9.01   LCD1602                                                               07/22/2018 14:13:38 PAGE 5   
 
  239           * @param    str        要显示字符串
  240           */
@@ -318,7 +318,7 @@ line level    source
  296   1              uchar i;
  297   1              LCDMoveCursor(x,y);
  298   1              for(i=0;i<len;i++) LCDWriteData(0x20);                  //从开始坐标开始用空格擦除掉制定长度的字符
-C51 COMPILER V9.01   LCD1602                                                               07/22/2018 13:31:06 PAGE 6   
+C51 COMPILER V9.01   LCD1602                                                               07/22/2018 14:13:38 PAGE 6   
 
  299   1      }
  300          /**
