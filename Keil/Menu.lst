@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 1   
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE MENU
@@ -62,7 +62,7 @@ line level    source
   51                  {MENUID_SIEVE_NO,"No",NULL,MenuOpYN}
   52          };
   53          static struct MenuRecord sieveYNMenuRecord={MENU_OPTION_NUM_YN,NULL,sieveYNOpArray};            //Yes No  菜单的�
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 2   
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 2   
 
              -��单记录
   54          static code Menu sieveYNMenu=&sieveYNMenuRecord;                                                                                        //用叫做ynMenu的指针指向记录
@@ -126,7 +126,7 @@ line level    source
  110          static uint  rNumPart;                                                          //筛选电阻的三位数字部分
  111          static uchar rUnit;                                                                     //筛选电阻的单位，可以是 0x20 'K' 'M'
  112          static uchar errTolrE2;                                                         //误差限*100
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 3   
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 3   
 
  113          /**
  114           * 初始化菜单
@@ -190,7 +190,7 @@ line level    source
  172   1              else{
  173   2                      LCDMoveCursor(1,0);
  174   2                      LCDPrintStr(1,0,curMenu->OpArray[curOp].opString);
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 4   
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 4   
 
  175   2                      LCDPrintStr(1,1,curMenu->OpArray[curOp+1].opString);
  176   2                      LCDPrintChar(0,0,'>');
@@ -254,7 +254,7 @@ line level    source
  234   2              }
  235   1              RstKeyEvents();
  236   1      }
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 5   
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 5   
 
  237          /**
  238           * 什么都不做
@@ -318,7 +318,7 @@ line level    source
  296   2                              break;
  297   2                      case MENUID_AVERGE_YES:
  298   2                              isAverg=1;
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 6   
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 6   
 
  299   2                              break;
  300   2                      case MENUID_AVERGE_NO:
@@ -382,7 +382,7 @@ line level    source
  358   1              StartTimer();
  359   1              while(!isBreak){
  360   2                      if(isKeyEvents){
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 7   
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 7   
 
  361   3                              if(key1Events){
  362   4                                      switch(key1Events){
@@ -446,7 +446,7 @@ line level    source
  420   6                                                                      rNumPart=(rNumPart+100)%1000;
  421   6                                                                      break;
  422   6                                                              case 1:
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 8   
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 8   
 
  423   6                                                                      rNumPart=(rNumPart+10)%1000;
  424   6                                                                      break;
@@ -510,7 +510,7 @@ line level    source
  482   5                                              case SHORT_PRESS:
  483   5                                                      isBreak=1;
  484   5                                                      break;
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 9   
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 9   
 
  485   5                                              default:
  486   5                                                      break;
@@ -574,7 +574,7 @@ line level    source
  544   5                                      }
  545   4                              }
  546   3                              RstKeyEvents();
-C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:13:39 PAGE 10  
+C51 COMPILER V9.01   MENU                                                                  07/22/2018 14:28:58 PAGE 10  
 
  547   3                      }
  548   2              }

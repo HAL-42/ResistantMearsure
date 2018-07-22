@@ -193,7 +193,10 @@ void LCDPrintNumFixdgt(uchar x,uchar y,uint num,uchar dgt){
  * @param    num        要显示整数
  */
 void LCDPrintFloat(uchar x,uchar y,float num){
-	if(num>=1e9){								//大于1G，显示无穷
+	if(num<=0){
+		LCDPrintNum(x,y,0);
+	}
+	else if(num>=1e9){								//大于1G，显示无穷
 		LCDPrintStr(x,y,"Infinite");
 	}
 	else if(num>=1e6){							//1M到1G之间，以M为单位显示三位整数，三位小数

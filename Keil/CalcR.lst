@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   CALCR                                                                 07/22/2018 14:13:39 PAGE 1   
+C51 COMPILER V9.01   CALCR                                                                 07/22/2018 14:28:59 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE CALCR
@@ -30,7 +30,7 @@ line level    source
   19           */
   20          void GetRVal(){
   21   1              curN=((long) t1IntrTimes)*(65536L)+(long) TH1*(256L)+TL1; // 计算脉冲次数
-  22   1              if(curN==0){
+  22   1              if(curN<=15){
   23   2                      curRValue=1e10;
   24   2                      return;
   25   2              }
@@ -62,7 +62,7 @@ line level    source
   51   1              curRValue=0;
   52   1              curN=0;
   53   1              refLowRN=0;
-C51 COMPILER V9.01   CALCR                                                                 07/22/2018 14:13:39 PAGE 2   
+C51 COMPILER V9.01   CALCR                                                                 07/22/2018 14:28:59 PAGE 2   
 
   54   1              refHighRN=0;
   55   1              isAverg=0;
@@ -70,7 +70,7 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    305    ----
+   CODE SIZE        =    306    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

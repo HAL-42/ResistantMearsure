@@ -24,18 +24,18 @@ void GetRVal(){
 		return;
 	}
 	if(capSel==CAPSEL_LOWR){
-		curRValue=4.375e7F*(1.0F/curN)-1942.0F;
+		curRValue=4.031e7F*(1.0F/curN)-1764.0F;
 	}
 	else{
 		curRValue=1.004e10*(1.0F/curN)-9.392e4F;
 	}
 	if( (capSel==CAPSEL_LOWR)&&
-		(curN<350)){
+		curN<350){
 		capSel=CAPSEL_HIGHR;
 		delaynms(500);
 	}
 	else if( (capSel==CAPSEL_HIGHR)&&
-		curN>65529L){
+		(curN>65529L)){
 		capSel=CAPSEL_LOWR;
 		delaynms(500);
 	}
